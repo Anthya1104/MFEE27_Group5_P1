@@ -1,0 +1,53 @@
+/* log in page  */
+:root{
+    --btn-info-color:#18d3e0!important;
+}
+
+h1{
+    color:#fff;
+}
+body{
+    background: rgb(103,122,207);
+    background: linear-gradient(145deg, rgba(103,122,207,1) 50%, rgba(0,212,255,1) 100%);
+    background-size: cover;
+}
+.sign-up-panel {
+    width: 280px;
+}
+
+.logo {
+    width: 64px;
+}
+
+.btn-info{
+    --bs-btn-color: #fff;
+    --bs-btn-bg: hsla(0, 0%, 0%, 0);
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--btn-info-color);
+    --bs-btn-hover-border-color: var(--btn-info-color);
+    --bs-btn-active-color: #fff;
+}
+
+.input-top {
+    border-radius: 0.375rem 0.375rem 0 0;
+    border-bottom: none;
+    
+}
+
+.input-bottom {
+    border-radius: 0 0 0.375rem 0.375rem;
+}
+
+.form-floating>label{
+    z-index:2;
+}
+
+.form-control{            
+    /* 指定元素本身的position不能是static才能使用z-index */
+    position:relative;
+}
+/* 調整focus產生後 */
+.form-control:focus{
+    z-index: 1;
+}
