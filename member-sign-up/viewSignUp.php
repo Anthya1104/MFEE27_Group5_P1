@@ -33,7 +33,7 @@ $password=md5($password);//密碼加密 很容易被破解 所以現在不太使
 //再檢查需要資料庫的資料操作
 //分段檢查 -> 為了減少資料的浪費
 
-$sql="SELECT account FROM users WHERE account='$account'";//檢查帳號是否已存在在資料庫內
+$sql="SELECT account FROM member WHERE account='$account'";//檢查帳號是否已存在在資料庫內
 $result =$conn ->query($sql); //不是單純判別true/false 所以要另外宣告一個物件儲存query($sql)撈出的資料
 $userCount=$result ->num_rows; //取得rows的數量(資料筆數)
 
@@ -43,7 +43,7 @@ if($userCount>0){
 }
 
 //把密碼直接輸入資料庫非常危險 資料可以直接被第三方抓出來 所以通常會先透過加密方式處理過再回傳 e.g.md5($password); sha()
-$sqlCreate="INSERT INTO users (account, password, create_time, valid) VALUES ('$account','$password', '$now', 1)";//valid要預設設定好 -> 判斷註冊後可以使用 也可以用在使用者等級認證上
+$sqlCreate="INSERT INTO member (account, password, register_time, valid) VALUES ('$account','$password', '$now', 1)";//valid要預設設定好 -> 判斷註冊後可以使用 也可以用在使用者等級認證上
 
 
 if ($conn->query($sqlCreate) === TRUE) { //query(只query一次$sql語法) 單純判斷型別有沒有存在在資料庫裡

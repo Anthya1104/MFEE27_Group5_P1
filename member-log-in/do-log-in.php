@@ -9,7 +9,7 @@ if(!isset($_POST["account"])){
 
 $account=$_POST["account"];
 $password=$_POST["password"];
-// $password=md5($password);//輸入密碼後過md5 轉成加密後的密碼(資料庫中存的內容)
+$password=md5($password);//輸入密碼後過md5 轉成加密後的密碼(資料庫中存的內容)
 // echo "$account, $password";
 
 $sql="SELECT * FROM member WHERE account='$account' AND password = '$password'";
