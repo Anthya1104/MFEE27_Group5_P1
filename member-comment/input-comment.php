@@ -22,6 +22,7 @@ require("../db-connect.php");
             </figure>
 
         </div>
+
         <form action=""></form>
     </div>
   </body>

@@ -21,7 +21,7 @@ if(isset($_SESSION["member"])){
 
 </head>
 
-<body>
+<body class="login-bg">
     <!-- 寫bootstrap記得可以直接用class把版位排出來 -->
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="sign-up-panel">
