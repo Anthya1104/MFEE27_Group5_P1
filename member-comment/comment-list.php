@@ -5,15 +5,10 @@ $sql="SELECT comment.*, product.book_img, product.book_name, member.user_name
 FROM comment
 JOIN product ON comment.product_id =product.id
 JOIN member ON comment.user_id =member.id
+AND comment.comment_valid=1;
 ";
 $result=$conn->query($sql);
 $rows=$result->fetch_all(MYSQLI_ASSOC);
-// foreach($rows as $row){
-//     print_r($row);
-//     echo "<br>";
-//     echo "<br>";
-//     echo "<br>";
-// }
 
 
 
@@ -42,7 +37,6 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
                 <div class="comment row mt-4 text-justify">
                     
                     <?php foreach($rows as $row):?>
-                        <?php if($row["comment_valid"]==1):?>
                     
                     <div class="col-md-3">
                         <figure class="pt-2">
@@ -57,12 +51,11 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
                         <br>
                         <p><?=$row["content"]?></p>
                         <div class="text-end">                        
-                            <a href="do_delete.php?id=<?=$row["id"]?>" class="btn btn-info">刪除</a>
-                            <a href="" class="btn btn-info">編輯內容</a>
+                            <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info">刪除</a>
+                            <a href="comment-edit.php?id=<?=$row["id"]?>" class="btn btn-info">編輯內容</a>
                         </div>
 
                     </div>
-                    <?php endif;?>
                     <?php endforeach;?>
 
 

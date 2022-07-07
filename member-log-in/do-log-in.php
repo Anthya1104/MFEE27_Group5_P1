@@ -25,7 +25,7 @@ if($userExist>0){//登入成功
     ];
     unset($_SESSION["error"]);//登入成功後清除錯誤訊息
     $_SESSION["user"]=$user;
-    header("location:dashboard.php");
+    header("location:/MFEE27_Group5_P1/member-comment/input-comment.php");
 }else{
     // echo"帳號密碼錯誤:";
     $_SESSION["error"]["message"]="帳號或密碼錯誤";
