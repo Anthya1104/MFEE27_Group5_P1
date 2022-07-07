@@ -27,8 +27,21 @@ $member_id=$_SESSION["user"]["id"];
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
 
+    <!-- 各種衝突 待解 -->
+        <!-- Favicon icon -->
+        <!-- <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon"> -->
+    <!-- fontawesome icon -->
+    <!-- <link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css"> -->
+    <!-- animation css -->
+    <!-- <link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css"> -->
+    <!-- vendor css -->
+    <!-- <link rel="stylesheet" href="../assets/css/nav-style.css"> -->
+
   </head>
   <body>
+    <!-- 各種衝突 待解 -->
+    <?php //require("../nav-bar-temp/dashboard_nav.php");?>
+    <section>
     <div class="container">
       <div class="text-center py-2">      
         <h1 class="comment-h1">Welcome, <?=$_SESSION["user"]["account"]?></h1>
@@ -66,5 +79,6 @@ $member_id=$_SESSION["user"]["id"];
         </div>
 
     </div>
+    </section>
   </body>
 </html>
