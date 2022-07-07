@@ -3,13 +3,22 @@ session_start();
 if(!isset($_SESSION["user"])){
   header("location: log-in.php");
 }
+require("../db-connect.php");
+//抓出book的資訊
+$id=2;
+$sql="SELECT * FROM product WHERE id=$id";
+$result=$conn->query($sql);
+$rows=$result->fetch_assoc();
+// var_dump($rows);
+
+$member_id=$_SESSION["user"]["id"];
 
 
 ?>
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Input Comment</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,10 +28,10 @@ if(!isset($_SESSION["user"])){
     <link rel="stylesheet" href="../css/style.css">
 
   </head>
-  <body class="login-bg">
+  <body>
     <div class="container">
       <div class="text-center py-2">      
-        <h1 >Welcome, <?=$_SESSION["user"]["account"]?></h1>
+        <h1 class="comment-h1">Welcome, <?=$_SESSION["user"]["account"]?></h1>
       </div>
         <div class="d-flex justify-content-center my-2">
           <div class="row">
@@ -32,20 +41,20 @@ if(!isset($_SESSION["user"])){
               </figure>
 
             </div>
-            <div class="col-12">
-              <div class="row mt-4">
-                <form id="algin-form">
+            <div class="col-12 comment">
+              <div class="row mt-3">
+                <form action="comment-do-create.php" method="post">
+                <input name="member_id" type="hidden" value="<?=$member_id?>">
+                <input name="book_id" type="hidden" value="<?=$id?>">
+
+                <!-- $_SESSION["user"]["id"]->member->id   $id-> product->id -->
+                <?php //var_dump($_SESSION["user"]["id"].$id);?>
                     <div class="form-group">
-                        <h4>Leave a comment</h4>
-                        <label for="message">Comment</label>
-                        <textarea name="comments" id="comments" cols="30" rows="5" class="form-control" ></textarea>
+                        <h4>留下評論</h4>
+                        <textarea name="comments" id="comments" cols="30" rows="5" class="form-control mt-3" ></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="userName">User Name</label>
-                        <input type="text" name="userName" id="userName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <button type="button" id="post" class="btn btn-info">Post Comment</button>
+                    <div class="form-group my-3">
+                        <button type="submit" class="btn btn-info">送出評論</button>
                     </div>
                 </form>
             </div>
@@ -56,7 +65,6 @@ if(!isset($_SESSION["user"])){
 
         </div>
 
-        <form action=""></form>
     </div>
   </body>
 </html>
