@@ -43,7 +43,7 @@ $memberName = array_column($rowsMember, 'user_name', 'id');
  
 <!-- Main Body -->
 <section>
-    <div class="container">
+    <div class="container fluid">
             <div class="col-md p-4">
                 <h1 class="comment-h1">Comments</h1>
                 <div class="comment row mt-4 text-justify">

@@ -35,12 +35,12 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
 
 <!-- Main Body -->
 <section>
-    <div class="container set-container ">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3 row">
                 <?php require("../side-nav.php");?>
             </div>
-            <div class="col-8">
+            <div class="row col-9">
             <div class="col-md p-4">
                 <h1 class="comment-h1">Comments</h1>
                 <div class="comment row mt-4 text-justify">

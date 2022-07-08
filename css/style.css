@@ -5,10 +5,10 @@
     --comment-main-color-border:#102e2e;
 }
 
-.set-container{
+/* .set-container{
     position:absolute;
     left:100px;
-}
+} */
 
 .object-cover{
     width: 100%;
@@ -79,13 +79,7 @@ h1, h3, h4{
 .comment-h1{
     color:var(--comment-main-color);
 }
-.comment-h3{
-    font-size:25px!important;
-}
-.comment-h4{
-    font-size:1.7rem;
 
-}
 
 .comment{
     border: 1px solid var(--comment-main-color-border);
@@ -105,4 +99,21 @@ h1, h3, h4{
 .comment p,.comment span,.darker p,.darker span{
     color: rgb(184, 183, 183);
 }
+
+/* comment edit */
+.edit-area{
+    padding:15px;
+    border: 1px solid var(--comment-main-color-border);
+    background-color: var(--comment-main-color);
+    border-radius: 5px;
+    margin-top:50px;
+    margin-left: 10%;
+    max-width: 868px;
+    
+}
+.edit-area .table{
+    color:#fff!important;
+
+}
+
 
