@@ -16,7 +16,7 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Comment</title>
+    <title>Comments</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,12 +26,21 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
 
     <link rel="stylesheet" href="../css/style.css">
 
+
   </head>
   <body>
- 
+<!-- side nave  -->
+
+
+
 <!-- Main Body -->
 <section>
-    <div class="container">
+    <div class="container set-container ">
+        <div class="row">
+            <div class="col-4">
+                <?php require("../side-nav.php");?>
+            </div>
+            <div class="col-8">
             <div class="col-md p-4">
                 <h1 class="comment-h1">Comments</h1>
                 <div class="comment row mt-4 text-justify">
@@ -63,7 +72,11 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
             </div>
 
         </div>
+        </div>
+        </div>
     </div>
 </section>
+
+
   </body>
 </html>
