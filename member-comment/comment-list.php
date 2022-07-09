@@ -1,14 +1,41 @@
 <?php
+if(isset($_GET["page"])){
+    $page = $_GET["page"];
+}else{
+    $page = 1;
+}
+
 require("../db-connect.php");
+
+$sqlAll="SELECT * FROM comment WHERE comment_valid=1";
+$resultAll=$conn->query($sqlAll);
+$countAll=$resultAll->num_rows;
+
+// 頁數計算
+$perPage = 4;
+$start = ($page - 1) * $perPage;
 
 $sql="SELECT comment.*, product.book_img, product.book_name, member.user_name 
 FROM comment
 JOIN product ON comment.product_id =product.id
 JOIN member ON comment.user_id =member.id
-AND comment.comment_valid=1;
+WHERE comment.comment_valid=1
+ORDER BY comment.id DESC
+LIMIT $start, 4
 ";
 $result=$conn->query($sql);
 $rows=$result->fetch_all(MYSQLI_ASSOC);
+$pageCount = $result->num_rows;
+
+
+
+
+//開始筆數
+$startItem = ($page - 1) * $perPage +1;
+$endItem = $page * $perPage;
+if($endItem > $pageCount) $endItem = $pageCount;
+
+$totalPage = ceil($pageCount/$perPage);
 
 
 
@@ -31,51 +58,72 @@ $rows=$result->fetch_all(MYSQLI_ASSOC);
   <body>
 <!-- side nave  -->
 
-
-
-<!-- Main Body -->
-<section>
     <div class="container-fluid ">
         <div class="row">
             <div class="col-3 row">
                 <?php require("../side-nav.php");?>
             </div>
+
+<!-- Main Body -->
+
+
             <div class="row col-9">
-            <div class="col-md p-4">
-                <h1 class="comment-h1">Comments</h1>
-                <div class="comment row mt-4 text-justify">
-                    
-                    <?php foreach($rows as $row):?>
-                    
-                    <div class="col-md-3">
-                        <figure class="pt-2">
-                            <img src="../images/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
-                        </figure>
+               <section> 
+                    <div class="col-md p-4">
+                        <h1 class="comment-h1">Comments</h1>
+                        <div class="comment row mt-4 text-justify">
+                            
+                            <?php foreach($rows as $row):?>
+                            
+                            <div class="col-md-3">
+                                <figure class="pt-2">
+                                    <img src="../images/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
+                                </figure>
 
-                    </div>
-                    <div class="col-md-9 py-3">                        
-                        <h3><?=$row["book_name"]?></h3><br>
-                        <h4><?=$row["user_name"]?></h4>
-                        <span>- <?=$row["create_time"]?></span>
-                        <br>
-                        <p><?=$row["content"]?></p>
-                        <div class="text-end">                        
-                            <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info">刪除</a>
-                            <a href="comment-edit.php?id=<?=$row["id"]?>" class="btn btn-info">編輯內容</a>
+                            </div>
+                            <div class="col-md-9 py-3">                        
+                                <h3><?=$row["book_name"]?></h3><br>
+                                <h4><?=$row["user_name"]?></h4>
+                                <span>- <?=$row["create_time"]?></span>
+                                <br>
+                                <p><?=$row["content"]?></p>
+                                <div class="text-end">                        
+                                    <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info">刪除</a>
+                                    <a href="comment-edit.php?id=<?=$row["id"]?>" class="btn btn-info">編輯</a>
+                                </div>
+
+                            </div>
+                            <?php endforeach;?>
+
+
                         </div>
-
                     </div>
-                    <?php endforeach;?>
 
-
-                </div>
-            </div>
-
-        </div>
+                </section>
+                <!-- pagination  -->
+                <section class="d-flex justify-content-center mt-2">
+                <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+          <?php for ($i = 1; $i <= $totalPage; $i++) : ?>
+            <li class="page-item
+          <?php
+            if ($page == $i) echo "active";
+          ?>
+          "><a class="page-link" href="users.php?page=<?= $i ?>"><?= $i ?></a></li>
+          <?php endfor; ?>
+          <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+        </ul>
+      </nav>
+                </section>
+                
+            </div>      
         </div>
         </div>
     </div>
-</section>
+
+
+
 
 
   </body>
