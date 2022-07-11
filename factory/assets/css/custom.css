@@ -13,7 +13,7 @@ html,body {
   -ms-touch-action: manipulation !important;
 } */
 body{
-  -webkit-overflow-scrolling: touch;  
+  -webkit-overflow-scrolling: touch;
 }
 .pos_r,.contract,.tabs-simple .nav{position: relative;}
 .body,body{background:var(--maindlight);min-height: 100vh;}
@@ -50,7 +50,7 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
     left: 5px;
 }
 .ul_cjk li{
-    list-style-type:cjk-ideographic; 
+    list-style-type:cjk-ideographic;
 }
 #signature{background-color:#eee;-webkit-overflow-scrolling:touch}
 .contract{border-radius: 20px;margin-bottom: 25px;}
@@ -125,7 +125,7 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
 .login-logo img{width: 130px}
 .main-box{
     box-shadow: 0 .5rem 1.5rem rgb(137 86 0 / 25%) !important;
-    border-radius: 50px 0 0 0;
+    border-radius: 30px 30px 30px 30px;
     background-color:#fff ;
     padding-top: 1.5rem!important;
     /* transform: translate(0px, -30px); */
@@ -147,6 +147,12 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
     width: 100vw;
     height: 200px;
     position: fixed;
+}
+.main-factory{
+    background-image: url('../img/factory.jpg');
+}
+.main-member{
+    background-image: url('../img/member.jpg');
 }
 .modal-content .close{
     position: absolute;
@@ -203,7 +209,7 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 /*
@@ -223,7 +229,7 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
  /*iphone plus*/
 @media (max-width: 430px) {
     .card-body{padding: 1.5rem}
-     
+
 }
 
 
@@ -237,28 +243,28 @@ label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
 
 
 /*iPhone XR*/
-@media only screen 
-    and (device-width : 414px) 
-    and (device-height : 896px) 
-    and (-webkit-device-pixel-ratio : 2) { 
+@media only screen
+    and (device-width : 414px)
+    and (device-height : 896px)
+    and (-webkit-device-pixel-ratio : 2) {
 
 
 
 }
 
 /*iPhone XS*/
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) { 
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
 
 }
 
 /*iPhone XS Max*/
-@media only screen 
-    and (device-width : 414px) 
-    and (device-height : 896px) 
-    and (-webkit-device-pixel-ratio : 3) { 
+@media only screen
+    and (device-width : 414px)
+    and (device-height : 896px)
+    and (-webkit-device-pixel-ratio : 3) {
 
 
 }

@@ -20,12 +20,12 @@ FROM comment
 JOIN product ON comment.product_id =product.id
 JOIN member ON comment.user_id =member.id
 WHERE comment.comment_valid=1
-ORDER BY comment.id DESC
+ORDER BY comment.id ASC
 LIMIT $start, 4
 ";
 $result=$conn->query($sql);
 $rows=$result->fetch_all(MYSQLI_ASSOC);
-$pageCount = $result->num_rows;
+$pageCount = $resultAll->num_rows;
 
 
 
@@ -35,7 +35,8 @@ $startItem = ($page - 1) * $perPage +1;
 $endItem = $page * $perPage;
 if($endItem > $pageCount) $endItem = $pageCount;
 
-$totalPage = ceil($pageCount/$perPage);
+$totalPage = ceil($countAll/$perPage);
+// print_r($totalPage);
 
 
 
@@ -61,7 +62,7 @@ $totalPage = ceil($pageCount/$perPage);
     <div class="container-fluid ">
         <div class="row">
             <div class="col-3 row">
-                <?php require("../side-nav.php");?>
+                <?php require("../side-nav-admin.php");?>
             </div>
 
 <!-- Main Body -->
@@ -75,15 +76,15 @@ $totalPage = ceil($pageCount/$perPage);
                             
                             <?php foreach($rows as $row):?>
                             
-                            <div class="col-md-3">
-                                <figure class="pt-2">
+                            <div class="col-md-3 d-flex align-items-center">
+                                <figure class="img-radius">
                                     <img src="../images/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
                                 </figure>
 
                             </div>
                             <div class="col-md-9 py-3">                        
-                                <h3><?=$row["book_name"]?></h3><br>
-                                <h4><?=$row["user_name"]?></h4>
+                                <h4><?=$row["book_name"]?></h4><br>
+                                <span style="color:#fff; font-size:18px;"><?=$row["user_name"]?></span>
                                 <span>- <?=$row["create_time"]?></span>
                                 <br>
                                 <p><?=$row["content"]?></p>
@@ -110,13 +111,15 @@ $totalPage = ceil($pageCount/$perPage);
           <?php
             if ($page == $i) echo "active";
           ?>
-          "><a class="page-link" href="users.php?page=<?= $i ?>"><?= $i ?></a></li>
+          "><a class="page-link" href="comment-list.php?page=<?= $i ?>"><?= $i ?></a></li>
           <?php endfor; ?>
           <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
         </ul>
+
+
       </nav>
                 </section>
-                
+
             </div>      
         </div>
         </div>

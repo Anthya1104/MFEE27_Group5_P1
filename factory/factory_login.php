@@ -1,6 +1,8 @@
 <?php
+include("db/mysqli_config.php");
 
-//if(empty($_SESSION["park"])) $page_mess["text"] = "查無資訊";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -9,10 +11,10 @@
   <!-- Basic -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Paid</title>
-  <meta name="keywords" content="繳費" />
-  <meta name="description" content="繳費">
-  <meta name="author" content="繳費">
+  <title>Login</title>
+  <meta name="keywords" content="Login" />
+  <meta name="description" content="Login">
+  <meta name="author" content="Login">
   <!-- Favicon -->
    <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -59,68 +61,43 @@
     right: 55px;
     background-size: cover;
   }
+  h3{
+    text-align: center;
+  }
   </style>
 </head>
 
 <body>
-  <div class="body">
+  <div class="body d-flex justify-content-center align-items-center">
     <div role="main" class="main">
-      <section class="main-bg-box">
-        <div class="gap-40 main-bg"></div>
-      </section>
-      <div class="container-fluid">
-        <div class="row">
+      <!-- <section class="main-bg-box">
+        <div class="gap-40 main-bg main-factory" ></div>
+      </section> -->
+      <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="row col-7">
           <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
           <div class="col-12 main-box">
-            <!-- form送出、action目標頁、index_end.php目標頁面，對其下指令送出之後要跳轉到什麼頁面 -->
+            <form action="factory_login_end.php" method="post" enctype="multipart/form-data" id="form0">
 
-            <!-- post送表單 -->
-
-            <!-- enctype=multipart 多元組成的form表單(form-data)，如果有想上傳圖片一定要打這個模式才能上傳-->
-            <form action="index2_end.php" method="post" enctype="multipart/form-data" id="form0">
-              
               <div class="form-row pl-2">
-				
-               <h3 class="col-12">廠商修改資料</h3>
-               <!-- 左 1 廠商名稱 -->
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">廠商名稱</label>
-                  <input type="text"  class="form-control form-control-lg" req="Y" title="Name" placeholder="輸入更改名稱" name="factory_title" value="">
+
+               <h3 class="col-12">廠商登入</h3>
+                <div class="form-group col-12">
+                  <label class="font-weight-bold required">帳號</label>
+                  <input type="text"  class="form-control form-control-lg" req="Y" title="帳號" placeholder="請輸入帳號" maxlength="20"  name="account"   value="">
                 </div>
-                <!-- 右 1 密碼-->
-                <div class="form-group col-6">
-                <label class="font-weight-bold required">密碼</label>
-                <input type="password1"  class="form-control form-control-lg" req="Y" title="text" placeholder="輸入更改密碼" name="text"  value="" >
+				        <div class="form-group col-12">
+                  <label class="font-weight-bold required">密碼</label>
+                  <input type="password"  class="form-control form-control-lg" req="Y" title="text" placeholder="請輸入密碼" name="password"  value="" >
                 </div>
-                <!-- 左 2 電話-->
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">電話</label>
-                  <input type="tel"  class="form-control form-control-lg" req="Y" title="Tel" name="Tel"  placeholder="0123456789"
-                  value="" >
-                </div>
-                <!-- 右 2 Email -->
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">Email</label>
-                  <input type="text"  class="form-control form-control-lg" req="Y" title="Email" placeholder="test123456@gmail.com" name="email" value=""  >
-                </div>
-                <!-- 左 3 地址 -->
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">地址</label>
-                  <input type="text"  class="form-control form-control-lg" req="Y" title="text" placeholder="320桃園市中壢區新生路二段421號" name="address"  value="" >
-                </div>
-                <!-- 右 3 備註 -->
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">Note</label>
-                  <textarea class="form-control form-control-lg"  title="cknote" placeholder="備註" name="note"   ></textarea>
-                </div>
-                
+
                 <div class="form-group col-12">
                   <p class="mb-2">Date：<span class="today"><?php echo date("Y-m-d H:i:s")?></span></p>
 
-                  <button class="btn btn-block f14 btn-primary btn-modern round" type="submit" set_id="submit2">送出</button>
-
+                  <button class="btn btn-block f14 btn-info btn-modern round" type="submit" set_id="submit2">登入</button>
+                  <a class="btn btn-block f14 btn-danger btn-modern round" href="factory_signup.php" >註冊</a>
                   <div class="gap-20"></div>
                 </div>
               </div>

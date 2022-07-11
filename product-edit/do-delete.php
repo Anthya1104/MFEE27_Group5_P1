@@ -1,7 +1,30 @@
+<?php
+    require("../db-connect.php");
+
+    $id=$_GET["id"];
+
+    // 硬delete
+    $sql="DELETE FROM product WHERE id='$id'";
+    // echo $id;
+
+    // 軟delete
+    $sql="UPDATE product SET valid=0 WHERE id='$id'";
+
+
+    if ($conn->query($sql) === TRUE){
+        echo "刪除成功";
+    }else {
+        echo "刪除失敗" . $conn->error;
+    }
+
+    header("location: ../product-create/product-list.php");
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Sign Up Success</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,10 +34,8 @@
 
   </head>
   <body>
-    <div class="container">
-        <h1 class="display-1 text-center">
-            註冊成功
-        </h1>
-    </div>
+      
+  
+
   </body>
 </html>
