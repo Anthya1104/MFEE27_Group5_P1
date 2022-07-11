@@ -1,0 +1,311 @@
+﻿/* 分頁 */
+
+
+
+
+/* Hide file input */
+
+.file {
+    display: none !important;
+}
+
+
+/* Custom upload button appearance*/
+.imgcover{
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 67%;
+    margin-bottom: 15px;
+}
+.choose-file {
+    cursor: pointer;
+    z-index: 1;
+    display: block;
+    width: 200px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #e2e2e2;
+    border-style: dashed;
+    position: relative;
+}
+
+.cancel-file {
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+   text-align: center;
+    color: #000;
+    top:0px;
+    right: 0px;
+    z-index:1;
+    background-color: yellowgreen;
+}
+.cancel-file >a{
+    color: #000;
+}
+.f12,[f12]{
+    font-size: 12px;
+}
+.f14,[f14] {
+    font-size: 14px;
+}
+.f12,[f12]{
+    font-size: 12px;
+}
+.f16,[f16]{
+    font-size: 16px;
+}
+.f18,[f18] {
+    font-size: 18px;
+}
+.f20,[f20] {
+    font-size: 20px;
+}
+/*提示字*/
+.tips {
+    color: red;
+    font-size: 10px;
+}
+.tips-red {
+    color: red;
+}
+.tips-blue {
+    color: blue;
+}
+.tips-green {
+    color: green;
+}
+.tips-black {
+    color: black;
+}
+.fw-bolder {
+    font-weight: bolder;
+}
+.table_file_position {
+    margin-left: 180px
+}
+
+div.btn-group button a {
+    color: #333;
+}
+/*文字*/
+green,[green] {
+    color: green;
+}
+blue,[blue] {
+    color: blue;
+}
+
+brown,[brown] {
+    color: brown;
+}
+
+red,[red] {
+    color: red;
+}
+
+
+[b],[bolder] {
+    font-weight:bolder;
+}
+[font-family]{
+    font-family:Microsoft JhengHei;
+}
+.alert_color,[darkred],darkred {
+    color:#bf1515
+}
+
+/*按鈕*/
+blue_green,[blue_green] {
+    color: #08b87d;
+}
+.btn-blue_green{
+    background-color:#08b87d;
+    border-color:#08b87d;
+    color: white;
+}
+.btn-blue_green:hover,.btn-blue_green:active,.btn-blue_green:focus {
+    border-color: #08b87dd6 !important;
+    background-color: #08b87dd6;
+    color: white !important;
+}
+purple,[purple] {
+    color: #6d25c3d6;
+}
+.btn-purple{
+    background-color:#6d25c3d6;
+    border-color:#6d25c3d6;
+    color: white;
+    text-shadow: 0 -1px 3px rgba(0, 0, 0, 0.25);
+}
+.btn-purple:hover,.btn-purple:active,.btn-purple:focus {
+    border-color: #6d25c3d6 !important;
+    background-color: #6d25c3d6;
+    color: white !important;
+    text-shadow: 0 -1px 3px rgba(0, 0, 0, 0.25);
+}
+orange,[orange] {
+    color: #ffaa84d6;
+}
+.btn-orange{
+    background-color:#ffaa84d6;
+    border-color:#ffaa84d6;
+    color: white;
+    text-shadow: 0 -1px 3px rgba(0, 0, 0, 0.25);
+}
+.btn-orange:hover,.btn-orange:active,.btn-orange:focus {
+    border-color: #ffaa84d6 !important;
+    background-color: #ffaa84d6;
+    color: white !important;
+    text-shadow: 0 -1px 3px rgba(0, 0, 0, 0.25);
+}
+pink,[pink] {
+    color: lightcoral;
+}
+.btn-pink{
+    background-color:lightcoral;
+    border-color:lightcoral;
+    color: white;
+}
+.btn-pink:hover,.btn-pink:active,.btn-pink:focus {
+    border-color: lightcoral !important;
+    background-color: lightcoral;
+    color: white !important;
+}
+light_blue,[light_blue] {
+    color: #55ACEE;
+}
+.btn-light_blue{
+    background-color:#55ACEE;
+    border-color:#47A5ED;
+    color: white;
+}
+.btn-light_blue:hover,.btn-light_blue:active,.btn-light_blue:focus {
+    border-color: #47A5ED !important;
+    background-color: #55ACEE;
+    color: white !important;
+}
+.btn-green{
+    background-color:#79b335;
+    border-color:#679b2c;
+    color: white;
+}
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+    border-color: #79b335 !important;
+    background-color: #679b2c;
+    color: white !important;
+}
+/*密碼顯示*/
+#show_hide_password:hover ,eye{
+    cursor:pointer;
+    color: #222d32;
+}
+/*搜尋按鈕*/
+[name=search_button]{
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #222d32;
+  border-color: #222d32;
+}
+
+margin10,.margin10{
+	margin:10px;
+}
+
+.required,need {
+    display: inline-block;
+    color: #d2322d;
+    font-size: 1em;
+    font-weight: bold;
+    position: relative;
+    top: -0.2em;
+    margin-left: 3px;
+}
+.fixth {
+    max-height: 600px;
+    overflow: auto;
+}
+.fixth table th {
+position: sticky;
+background-color: #fff;
+top: -1px;
+}
+
+
+/* table */
+.div_table {
+
+display: table;
+border-collapse: collapse;
+}
+
+/* tr */
+.div_tr {
+display: table-row;
+
+}
+
+/* td , th */
+.div_td {
+text-align: center;
+display: table-cell;
+width: 180px;
+border: solid 1px #CCC;
+
+}
+/*刪除按鈕的樣式*/
+.del_img{
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 35px;
+    right: 0px;
+    top: 0px;
+    z-index:99;
+}
+/* table th color*/
+.table .thead-dark th {
+    color: #fff;
+    background-color:#343a40;
+
+}
+.table .thead-light th {
+    color:#495057;
+    background-color:#e9ecef;
+    border-color:#454d55;
+}
+/*li多選*/
+ul.ks-cboxtags {
+    margin: 0;
+    padding: 0;
+  }
+ul.ks-cboxtags li {
+    display: inline-block;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+ul.ks-cboxtags li >label{
+  margin: 2px;
+}
+.Hidden{
+    display:none
+}
+.Show{
+    display:block !important;
+}
+.z99,
+[z99] {
+    z-index: 99 !important;
+}
