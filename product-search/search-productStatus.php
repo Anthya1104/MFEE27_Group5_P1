@@ -55,7 +55,7 @@ JOIN category ON product.book_category = category.category_id WHERE `status` = $
         <!-- 包sidebar -->
         <!-- <?=$status?> -->
         <div class="py-2">
-          <h2> 搜尋結果 </h2>
+          <h2 class="mt-4"> 搜尋結果 </h2>
           <div class="py-2">共 <?=$productCount?> 筆資料</div>
         <a class="btn btn-info" type="submit" href="../product-create/product-list.php">返回</a>
         </div>

@@ -24,7 +24,7 @@
             </div>
             <div class="col-9">
         <!-- 包sidebar -->
-        <h1>新增商品</h1>
+        <h1 class="mt-4">新增商品</h1>
         <form action="do-create.php" method="post" enctype="multipart/form-data">
             <div class="mb-2">
                 <label for="">產品編號</label>
@@ -104,9 +104,11 @@
             <!-- 上傳圖片原本的 -->
             <!-- <input type="hidden" id="book_img" name="book_img" value="book13.jpg"> -->
             <input type="hidden" id="book_img" name="book_img" value="book13.jpg">
-            <input type="file" id="book_img" name="book_img" value="book13.jpg">
-            <button class="btn btn-info" type="submit">送出</button>
-            <a class="btn btn-info" type="submit" href="product-list.php">取消</a>
+            <input class="my-2" type="file" id="book_img" name="book_img" value="book13.jpg">
+            <div class="my-4"></div>
+            <button class="btn btn-info me-3 " type="submit">送出</button>
+            <a class="btn btn-info " type="submit" href="product-list.php">取消</a>
+            <div class="mt-4"></div>
             <!-- 上傳圖片原本的 -->
 
         

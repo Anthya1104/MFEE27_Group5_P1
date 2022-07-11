@@ -119,7 +119,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
     <!-- 包sidebar -->
         <div class="mt-4 ">
         <!-- <h1 class="text-center">商品管理</h1> -->
-        <h1>商品管理</h1>
+        <h1>閱閱出版社 商品管理</h1>
         <table class="table table-bordered">
         <div class="d-flex justify-content-start">
         <div class="py-2 me-4">

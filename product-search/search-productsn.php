@@ -52,7 +52,7 @@ if(!isset($_GET["search"])){
         <!-- 包sidebar -->
         <!-- <?=$search?> -->
         <div class="py-2">
-          <h2> <?=$search?> 的搜尋結果 </h2>
+          <h2 class="mt-4"> <?=$search?> 的搜尋結果 </h2>
           <div class="py-2">共 <?=$productCount?> 筆資料</div>
         <a class="btn btn-info" type="submit" href="../product-create/product-list.php">返回</a>
         </div>
