@@ -6,7 +6,7 @@ include("db/mysqli_config.php");
 // $q="select * from member ";//簡單做
 // $r=my_assoc($q);
 // if($r["size"]){
-  // $row=$r["array"][0];
+// $row=$r["array"][0];
 // }
 
 ?>
@@ -22,7 +22,7 @@ include("db/mysqli_config.php");
   <meta name="description" content="導入頁">
   <meta name="author" content="導入頁">
   <!-- Favicon -->
-   <!--
+  <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   -->
@@ -58,69 +58,72 @@ include("db/mysqli_config.php");
   <script src="assets/vendor/modernizr/modernizr.min.js"></script>
   <style>
     .avatar-sq {
-    margin: 0 auto 20px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    /* clip: rect(0px,76px,76px,0px); */
-    right: 55px;
-    background-size: cover;
-  }
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      /* clip: rect(0px,76px,76px,0px); */
+      right: 55px;
+      background-size: cover;
+    }
   </style>
 </head>
+
+
 
 <body>
   <div class="body">
     <div role="main" class="main">
-      <section class="gap-40">
-       
-      </section>
+      <!-- <section class="gap-40">
+      </section> -->
       <div class="container-fluid">
         <div class="row">
-          <!-- <div class="col-12">
+          <div class="col-3">
+            <?php require("../side-nav-admin.php") ?>
+          </div>
+          <div class="col-9">
+            <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
-            <div class="col-3">
-              <?php require("../side-nav-admin.php") ?>
+            <div class="col-12 main-box">
+              <form action="member_index_end.php" method="post" enctype="multipart/form-data" id="form0">
+                <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
+
+                <div class="form-row pl-2 text-center">
+
+                  <h3 class="col-12">網站地圖</h3>
+                  <a class="btn btn-info btn-sm mb-sm" href="admin_login.php">登出</a>
+                  <div class="row text-center" style=" display: contents;">
+
+                    <table class="table">
+                      <thead>
+                        <th>選單名稱</th>
+
+                      </thead>
+                      <tbody>
+                        <?php
+                        $array = ["管理員管理" => "admin_list.php", "會員管理" => "member_list.php", "廠商管理" => "factory_list.php"];
+                        foreach ($array as $name => $link) {
+                          echo '<tr>
+						                    <td><a class="btn btn-info btn-sm mb-sm" href="' . $link . '" >' . $name . '</a></td>
+						                    </tr>';
+                        }
+
+                        ?>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="form-group col-12">
+
+                    <div class="gap-20"></div>
+                  </div>
+                </div>
+
+              </form>
             </div>
-          <div class="col-9 main-box">
-            <form action="member_index_end.php" method="post" enctype="multipart/form-data" id="form0">
-            <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-
-              <div class="form-row pl-2 text-center">
-
-               <h3 class="col-12">網站地圖</h3>
-				<a class="btn btn-info btn-sm mb-sm" href="admin_login.php" >登出</a>
-			   <div class="row text-center" style=" display: contents;">
-				
-                 <table class="table">
-					<thead>
-					<th>選單名稱</th>
-			
-					</thead>
-					<tbody>
-					<?php
-					$array=["管理員管理"=>"admin_list.php","會員管理"=>"member_list.php","廠商管理"=>"factory_list.php"];
-						foreach($array as $name=>$link){
-							echo '<tr>
-						<td><a class="btn btn-info btn-sm mb-sm" href="'.$link.'" >'.$name.'</a></td>
-						</tr>';
-						}
-					
-					?>
-						
-					</tbody>
-				 </table>
-                </div>
-                
-                <div class="form-group col-12">
-                  
-                  <div class="gap-20"></div>
-                </div>
-              </div>
-
-            </form>
           </div>
         </div>
       </div>
@@ -136,7 +139,7 @@ include("db/mysqli_config.php");
         </div>
         <div class="modal-body text-center">
           <h5 class="text-red">Please Check:</h5>
-          <h6 class="text-4 font-weight-normal" ></h6>
+          <h6 class="text-4 font-weight-normal"></h6>
         </div>
       </div>
     </div>
@@ -181,9 +184,9 @@ include("db/mysqli_config.php");
 
 
   ?>
-<script>
+  <script>
 
-</script>
+  </script>
 </body>
 
 </html>

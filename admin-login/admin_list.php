@@ -6,7 +6,7 @@ include("db/mysqli_config.php");
 // $q="select * from member ";//簡單做
 // $r=my_assoc($q);
 // if($r["size"]){
-  // $row=$r["array"][0];
+// $row=$r["array"][0];
 // }
 
 ?>
@@ -22,7 +22,7 @@ include("db/mysqli_config.php");
   <meta name="description" content="管理員資料">
   <meta name="author" content="管理員資料">
   <!-- Favicon -->
-   <!--
+  <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   -->
@@ -58,15 +58,15 @@ include("db/mysqli_config.php");
   <script src="assets/vendor/modernizr/modernizr.min.js"></script>
   <style>
     .avatar-sq {
-    margin: 0 auto 20px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    /* clip: rect(0px,76px,76px,0px); */
-    right: 55px;
-    background-size: cover;
-  }
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      /* clip: rect(0px,76px,76px,0px); */
+      right: 55px;
+      background-size: cover;
+    }
   </style>
 </head>
 
@@ -74,7 +74,7 @@ include("db/mysqli_config.php");
   <div class="body d-flex justify-content-center align-items-center">
     <div role="main" class="main">
       <section class="gap-40">
-       
+
       </section>
       <div class="container-fluid">
         <div class="row">
@@ -83,50 +83,49 @@ include("db/mysqli_config.php");
             </div> -->
           <div class="col-12 main-box">
             <form action="member_index_end.php" method="post" enctype="multipart/form-data" id="form0">
-            <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+              <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
 
               <div class="form-row pl-2 text-center">
 
-               <h3 class="col-12">管理員全部資料</h3>
-				<a class="btn btn-info btn-sm mb-sm" href="admin_login.php" >登出</a>
-				<a class="btn btn-primary btn-sm mb-sm ml-sm" href="init.php" >回列表頁</a>
-			   <div class="row text-center" style=" display: contents;">
-				
-                 <table class="table">
-					<thead>
-					<th>未停權/已停權</th>
-					<th>名稱</th>
-					<th>帳號</th>
-					<th>Email</th>
-					<th>登入時間</th>
-					<th>功能</th>
-					</thead>
-					<tbody>
-					<?php
-				$q="select * from admin order by sign_time desc";
-				$r=my_assoc($q);
-				if($r["size"]){
-					
-					foreach($r["array"] as $rst){
-						echo '<tr>';
-						echo '<td>'.["未停權","已停權"][$rst["status"]].'</td>';
-						echo '<td>'.$rst["title"].'</td>';
-						echo '<td>'.$rst["account"].'</td>';
-						echo '<td>'.$rst["email"].'</td>';
-						echo '<td>'.$rst["sign_time"].'</td>';
-						echo '<td><a class="btn btn-primary btn-sm" href="admin_index.php?id='.$rst["id"].'" >修改資料</a></td>';
-						echo '</tr>';
-					}
-					
-				}
-				?>
-						
-					</tbody>
-				 </table>
+                <h3 class="col-12">管理員全部資料</h3>
+                <a class="btn btn-info btn-sm mb-sm" href="admin_login.php">登出</a>
+                <a class="btn btn-primary btn-sm mb-sm ml-sm" href="init.php">回列表頁</a>
+                <div class="row text-center" style=" display: contents;">
+
+                  <table class="table">
+                    <thead>
+                      <th>未停權/已停權</th>
+                      <th>名稱</th>
+                      <th>帳號</th>
+                      <th>Email</th>
+                      <th>登入時間</th>
+                      <th>功能</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      $q = "select * from admin order by sign_time desc";
+                      $r = my_assoc($q);
+                      if ($r["size"]) {
+
+                        foreach ($r["array"] as $rst) {
+                          echo '<tr>';
+                          echo '<td>' . ["未停權", "已停權"][$rst["status"]] . '</td>';
+                          echo '<td>' . $rst["title"] . '</td>';
+                          echo '<td>' . $rst["account"] . '</td>';
+                          echo '<td>' . $rst["email"] . '</td>';
+                          echo '<td>' . $rst["sign_time"] . '</td>';
+                          echo '<td><a class="btn btn-primary btn-sm" href="admin_index.php?id=' . $rst["id"] . '" >修改資料</a></td>';
+                          echo '</tr>';
+                        }
+                      }
+                      ?>
+
+                    </tbody>
+                  </table>
                 </div>
-                
+
                 <div class="form-group col-12">
-                  
+
                   <div class="gap-20"></div>
                 </div>
               </div>
@@ -147,7 +146,7 @@ include("db/mysqli_config.php");
         </div>
         <div class="modal-body text-center">
           <h5 class="text-red">Please Check:</h5>
-          <h6 class="text-4 font-weight-normal" ></h6>
+          <h6 class="text-4 font-weight-normal"></h6>
         </div>
       </div>
     </div>
@@ -192,9 +191,9 @@ include("db/mysqli_config.php");
 
 
   ?>
-<script>
+  <script>
 
-</script>
+  </script>
 </body>
 
 </html>
