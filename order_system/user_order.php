@@ -28,7 +28,7 @@ if (isset($_GET["product_id"])) {
 if (isset($_GET["user_id"])) {
   $user_id = $_GET["user_id"];
   $sqlWhere = "WHERE user_order.user_id = $user_id";
-  $sqlUser = "SELECT name FROM users WHERE id=$user_id";
+  $sqlUser = "SELECT name FROM member WHERE id=$user_id";
   $resultUser = $conn->query($sqlUser);
   $rowUser = $resultUser->fetch_assoc();
 }
@@ -50,10 +50,10 @@ switch ($order) {
     $orderType = "id DESC";
     break;
   case 3:
-    $orderType = "date DESC";
+    $orderType = "date ASC";
     break;
   case 4:
-    $orderType = "date ASC";
+    $orderType = "date DESC";
     break;
   default:
     $orderType = "id ASC";
@@ -62,10 +62,10 @@ switch ($order) {
 $perPage = 4;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, users.name, marketing.code FROM user_order
-JOIN users ON user_order.user_id = users.id
+$sql = "SELECT user_order.*, member.name, marketing.code FROM user_order
+JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
-WHERE valid=1
+WHERE user_order.valid=1
 ORDER BY $orderType
 LIMIT $start, 4
 $sqlWhere
@@ -91,6 +91,16 @@ $totalPage = ceil($userCount / $perPage);
 
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <style>
+    .title {
+      color: #102e2ef8;
+    }
+
+    .thead-col {
+      background-color: #102e2ef8;
+
+    }
+  </style>
 </head>
 
 <body>
@@ -101,13 +111,13 @@ $totalPage = ceil($userCount / $perPage);
         require("../side-nav.php") ?>
       </div>
       <div class="col-9">
-        <p class="fs-2 fw-bold">書商:遠流</p>
+        <p class="fs-2 fw-bold title">書商:閱閱出版社</p>
         <h3>訂單列表</h3>
         <div class="py-2">
           <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
             <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="搜尋訂購人">
               <div class="input-group-append">
-                <button class="input-group-text" type="submit">搜尋</button>
+                <button class="input-group-text btn-dark" type="submit">搜尋</button>
               </div>
             </div>
           </form>
@@ -116,10 +126,10 @@ $totalPage = ceil($userCount / $perPage);
           <div class="me-2">排序依</div>
           <form>
             <select name="selectURL" onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
-              <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(大->小)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(小->大)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(新->舊)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=4">訂單日期(舊->新)</option>
+              <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
+              <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
+              <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
+              <option value="user_order.php?page=<?= $page ?>&order=4">訂單日期(新->舊)</option>
             </select>
           </form>
         </div>
@@ -144,7 +154,7 @@ $totalPage = ceil($userCount / $perPage);
                                                                                     ?>">
               </div>
               <div class="col-auto">
-                <button class="btn btn-info" type="submit">查詢</button>
+                <button class="btn btn-dark" type="submit">查詢</button>
               </div>
             </div>
           </form>
@@ -163,7 +173,7 @@ $totalPage = ceil($userCount / $perPage);
         <?php endif; ?>
         <table class="table table-bordered">
           <thead>
-            <tr>
+            <tr class="thead-col text-white">
               <th class="text-center">訂單編號</th>
               <th class="text-center">總金額</th>
               <th class="text-center">優惠券</th>

@@ -7,11 +7,11 @@ if (!isset($_GET["search"])) {
 } else {
   $search = $_GET["search"];
 
-  $sql = "SELECT user_order.*, users.name, marketing.code 
+  $sql = "SELECT user_order.*, member.name, marketing.code 
     FROM user_order
-    JOIN users ON user_order.user_id = users.id
+    JOIN member ON user_order.user_id = member.id
     JOIN marketing ON user_order.coupon_id = marketing.id
-    WHERE users.name
+    WHERE member.name
     LIKE '%$search%'
     ";
   $result = $conn->query($sql);

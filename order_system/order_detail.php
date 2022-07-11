@@ -23,9 +23,9 @@ if (isset($_GET["product_id"])) {
   $rowProduct = $resultProduct->fetch_assoc();
 }
 
-$sql = "SELECT user_order_detail.*, product.name AS p_name, product.price, product.img, user_order.user_id, user_order.date, users.name AS u_name
+$sql = "SELECT user_order_detail.*, product.name AS p_name, product.price, product.img, user_order.user_id, user_order.date, member.name AS u_name
 FROM user_order_detail
-JOIN users ON user_order_detail.user_id = users.id
+JOIN member ON user_order_detail.user_id = member.id
 JOIN product ON user_order_detail.product_id = product.id
 JOIN user_order ON user_order_detail.order_id = user_order.id
 WHERE order_id=$id
@@ -35,9 +35,9 @@ AND user_order_detail.valid=1
 $result = $conn->query($sql);
 $userCount = $result->num_rows;
 
-$sqlUser = "SELECT user_order_detail.*, users.name AS u_name
+$sqlUser = "SELECT user_order_detail.*, member.name AS u_name
 FROM user_order_detail
-JOIN users on user_order_detail.user_id=users.id
+JOIN member on user_order_detail.user_id=member.id
 WHERE order_id=$id
 ";
 $resultUser = $conn->query($sqlUser);
@@ -74,59 +74,63 @@ $rowsStatus = $resultStatus->fetch_assoc();
 </head>
 
 <body>
-  <div class="container">
-    <div class="py-2">
-      <a class="btn btn-info" href="user_order.php">返回訂單列表</a>
-    </div>
-    <?php if ($userCount > 0) :
-      $rows = $result->fetch_all(MYSQLI_ASSOC);
-
-    ?>
-      <div>
-        <p>訂購人:<?= $rowsUser['u_name']; ?></p>
-        <p>訂單日期:<?= $rowsDate['date']; ?></p>
-        <p>狀態:<?= $rowsStatus['status']; ?></p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 row">
+        <?php
+        require("../side-nav.php") ?>
       </div>
-      <div class="py-2">共<?= $userCount ?>筆資料</div>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th class="text-center">書名</th>
-            <th class="text-center">封面</th>
-            <th class="text-center">價格</th>
-            <th class="text-center">數量</th>
-            <th class="text-center">小計</th>
-            <th class="text-center">刪除訂單</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($rows as $row) : ?>
-            <tr>
+      <div class="col-9">
+        <div class="py-2">
+          <a class="btn btn-dark" href="user_order.php">返回訂單列表</a>
+        </div>
+        <?php if ($userCount > 0) :
+          $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-              <td class="text-center"><?= $row["p_name"] ?></td>
-              <td class="text-center"><?= $row["img"] ?></td>
-              <td class="text-center"><?= $row["price"] ?></td>
-              <td class="text-center"><?= $row["amount"] ?></td>
-              <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>
-              <td><a class="btn btn-danger" href="doDeleteDetail.php?id=<?= $row["id"] ?>">刪除</a></td>
-            </tr>
-          <?php endforeach; ?>
-          <?php
-          $sum = 0;
-          for ($i = 0; $i < count($rows); $i++) {
-            $sum += $rows[$i]["price"];
-          }
-          ?>
+        ?>
+          <div class="col-3">
+            <p>訂購人:<?= $rowsUser['u_name']; ?></p>
+            <p>訂單日期:<?= $rowsDate['date']; ?></p>
+            <p>狀態:<?= $rowsStatus['status']; ?></p>
+          </div>
+          <div class="py-2">共<?= $userCount ?>筆資料</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">書名</th>
+                <th class="text-center">封面</th>
+                <th class="text-center">價格</th>
+                <th class="text-center">數量</th>
+                <th class="text-center">小計</th>
+                <th class="text-center">刪除訂單</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($rows as $row) : ?>
+                <tr>
 
-
-          <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
-        </tbody>
-      </table>
-      
-    <?php else : ?>
-      沒有該筆訂單
-    <?php endif; ?>
-  </div>
+                  <td class="text-center"><?= $row["p_name"] ?></td>
+                  <td class="text-center"><?= $row["img"] ?></td>
+                  <td class="text-center"><?= $row["price"] ?></td>
+                  <td class="text-center"><?= $row["amount"] ?></td>
+                  <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>
+                  <td><a class="btn btn-danger" href="doDeleteDetail.php?id=<?= $row["id"] ?>">刪除</a></td>
+                </tr>
+              <?php endforeach; ?>
+              <?php
+              $sum = 0;
+              for ($i = 0; $i < count($rows); $i++) {
+                $sum += $rows[$i]["price"];
+              }
+              ?>
+              <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
+            </tbody>
+          </table>
+        <?php else : ?>
+          沒有該筆訂單
+        <?php endif; ?>
+      </div>
+    </div>
 </body>
 
 </html>

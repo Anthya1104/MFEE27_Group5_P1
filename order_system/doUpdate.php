@@ -8,8 +8,22 @@ require("db-connect.php");
 $id = $_POST["id"];
 $status = $_POST["status"];
 
+switch ($status) {
+    case 1:
+      $statusType = "尚未付款";
+      break;
+    case 2:
+      $statusType = "已付款";
+      break;
+    case 3:
+      $statusType = "訂單完成";
+      break;
+    default:
+      $statusType = "尚未付款";
+    }
 
-$sql="UPDATE user_order SET status = '$status' where id = '$id' ";
+$sql="UPDATE user_order SET status = '$statusType' where id = '$id' ";
+
 
 if ($conn->query($sql) === TRUE) {
     echo "訂單修改完成";
