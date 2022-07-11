@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["user"])){
-  header("location: log-in.php");
+  header("location: ../member-log-in/log-in.php");
 }
 require("../db-connect.php");
 //抓出book的資訊
@@ -27,20 +27,11 @@ $member_id=$_SESSION["user"]["id"];
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
 
-    <!-- 各種衝突 待解 -->
-        <!-- Favicon icon -->
-        <!-- <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon"> -->
-    <!-- fontawesome icon -->
-    <!-- <link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css"> -->
-    <!-- animation css -->
-    <!-- <link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css"> -->
-    <!-- vendor css -->
-    <!-- <link rel="stylesheet" href="../assets/css/nav-style.css"> -->
+   
 
   </head>
   <body>
-    <!-- 各種衝突 待解 -->
-    <?php //require("../nav-bar-temp/dashboard_nav.php");?>
+
     <section>
     <div class="container">
       <div class="text-center py-2">      
@@ -67,11 +58,13 @@ $member_id=$_SESSION["user"]["id"];
                         <textarea name="comments" id="comments" cols="30" rows="5" class="form-control mt-3" ></textarea>
                     </div>
                     <div class="form-group my-3">
-                        <button type="submit" class="btn btn-info">送出評論</button>
-                    </div>
-                </form>
-            </div>
+                        <button type="submit" class="btn btn-info">送出評論</button>    
 
+                    </div>
+                </form>                        
+
+            </div>
+                <a class="btn btn-primary" href="../session-destroy.php" >登出</a>
             </div>
           </div>
 
@@ -79,6 +72,7 @@ $member_id=$_SESSION["user"]["id"];
         </div>
 
     </div>
+
     </section>
   </body>
 </html>

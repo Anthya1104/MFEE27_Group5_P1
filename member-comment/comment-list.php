@@ -20,7 +20,7 @@ FROM comment
 JOIN product ON comment.product_id =product.id
 JOIN member ON comment.user_id =member.id
 WHERE comment.comment_valid=1
-ORDER BY comment.id DESC
+ORDER BY comment.id ASC
 LIMIT $start, 4
 ";
 $result=$conn->query($sql);
@@ -76,15 +76,15 @@ $totalPage = ceil($countAll/$perPage);
                             
                             <?php foreach($rows as $row):?>
                             
-                            <div class="col-md-3">
-                                <figure class="pt-2">
+                            <div class="col-md-3 d-flex align-items-center">
+                                <figure class="img-radius">
                                     <img src="../images/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
                                 </figure>
 
                             </div>
                             <div class="col-md-9 py-3">                        
-                                <h3><?=$row["book_name"]?></h3><br>
-                                <h4><?=$row["user_name"]?></h4>
+                                <h4><?=$row["book_name"]?></h4><br>
+                                <span style="color:#fff; font-size:18px;"><?=$row["user_name"]?></span>
                                 <span>- <?=$row["create_time"]?></span>
                                 <br>
                                 <p><?=$row["content"]?></p>
