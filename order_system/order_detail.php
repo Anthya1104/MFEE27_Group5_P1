@@ -40,24 +40,24 @@ FROM user_order_detail
 JOIN users on user_order_detail.user_id=users.id
 WHERE order_id=$id
 ";
-$resultUser=$conn->query($sqlUser);
-$rowsUser=$resultUser->fetch_assoc();
+$resultUser = $conn->query($sqlUser);
+$rowsUser = $resultUser->fetch_assoc();
 
 $sqlDate = "SELECT user_order_detail.*, user_order.date
 FROM user_order_detail
 JOIN user_order ON user_order_detail.order_id = user_order.id
 WHERE order_id=$id
 ";
-$resultDate=$conn->query($sqlDate);
-$rowsDate=$resultDate->fetch_assoc();
+$resultDate = $conn->query($sqlDate);
+$rowsDate = $resultDate->fetch_assoc();
 
 $sqlStatus = "SELECT user_order_detail.*, user_order.status
 FROM user_order_detail
 JOIN user_order ON user_order_detail.order_id = user_order.id
 WHERE order_id=$id
 ";
-$resultStatus=$conn->query($sqlStatus);
-$rowsStatus=$resultStatus->fetch_assoc();
+$resultStatus = $conn->query($sqlStatus);
+$rowsStatus = $resultStatus->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -80,12 +80,12 @@ $rowsStatus=$resultStatus->fetch_assoc();
     </div>
     <?php if ($userCount > 0) :
       $rows = $result->fetch_all(MYSQLI_ASSOC);
-     
+
     ?>
       <div>
-        <p>訂購人:<?=$rowsUser['u_name'];?></p>
-        <p>訂單日期:<?=$rowsDate['date'];?></p>
-        <p>狀態:<?=$rowsStatus['status'];?></p>
+        <p>訂購人:<?= $rowsUser['u_name']; ?></p>
+        <p>訂單日期:<?= $rowsDate['date']; ?></p>
+        <p>狀態:<?= $rowsStatus['status']; ?></p>
       </div>
       <div class="py-2">共<?= $userCount ?>筆資料</div>
       <table class="table table-bordered">
@@ -102,7 +102,7 @@ $rowsStatus=$resultStatus->fetch_assoc();
         <tbody>
           <?php foreach ($rows as $row) : ?>
             <tr>
-              
+
               <td class="text-center"><?= $row["p_name"] ?></td>
               <td class="text-center"><?= $row["img"] ?></td>
               <td class="text-center"><?= $row["price"] ?></td>
@@ -111,23 +111,18 @@ $rowsStatus=$resultStatus->fetch_assoc();
               <td><a class="btn btn-danger" href="doDeleteDetail.php?id=<?= $row["id"] ?>">刪除</a></td>
             </tr>
           <?php endforeach; ?>
-          <?php 
-          $sum=0;
-          for($i=0; $i<count($rows); $i++){
+          <?php
+          $sum = 0;
+          for ($i = 0; $i < count($rows); $i++) {
             $sum += $rows[$i]["price"];
-          }   
-  ?>
-            
-        
-          <td class="text-end fs-2" colspan="5">總金額:<?=$sum;?></td>
+          }
+          ?>
+
+
+          <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
         </tbody>
       </table>
-
-      <!-- <div class="py-2">
-            <div class="d-flex justify-content-between">
-                <a class="btn btn-info" href="order-edit.php?id=<?= $row["id"] ?>">修改</a>
-            </div>
-        </div> -->
+      
     <?php else : ?>
       沒有該筆訂單
     <?php endif; ?>
