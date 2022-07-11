@@ -25,7 +25,7 @@ LIMIT $start, 4
 ";
 $result=$conn->query($sql);
 $rows=$result->fetch_all(MYSQLI_ASSOC);
-$pageCount = $result->num_rows;
+$pageCount = $resultAll->num_rows;
 
 
 
@@ -35,7 +35,8 @@ $startItem = ($page - 1) * $perPage +1;
 $endItem = $page * $perPage;
 if($endItem > $pageCount) $endItem = $pageCount;
 
-$totalPage = ceil($pageCount/$perPage);
+$totalPage = ceil($countAll/$perPage);
+// print_r($totalPage);
 
 
 
@@ -61,7 +62,7 @@ $totalPage = ceil($pageCount/$perPage);
     <div class="container-fluid ">
         <div class="row">
             <div class="col-3 row">
-                <?php require("../side-nav.php");?>
+                <?php require("../side-nav-admin.php");?>
             </div>
 
 <!-- Main Body -->
@@ -110,13 +111,15 @@ $totalPage = ceil($pageCount/$perPage);
           <?php
             if ($page == $i) echo "active";
           ?>
-          "><a class="page-link" href="users.php?page=<?= $i ?>"><?= $i ?></a></li>
+          "><a class="page-link" href="comment-list.php?page=<?= $i ?>"><?= $i ?></a></li>
           <?php endfor; ?>
           <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
         </ul>
+
+
       </nav>
                 </section>
-                
+
             </div>      
         </div>
         </div>
