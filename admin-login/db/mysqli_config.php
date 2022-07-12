@@ -7,7 +7,7 @@ date_default_timezone_set('Asia/Taipei'); //設定時區-台北
 if(isset($_SESSION)==false){ session_start(); } //啟動session機制
 
 
-$mysqli = new mysqli('localhost','root','','ebook');//IP位置,帳號,密碼,資料庫名稱
+$mysqli = new mysqli('localhost','admin','12345','ebook_db');//IP位置,帳號,密碼,資料庫名稱
 $mysqli->set_charset("utf8");
 $mysqli->query("SET time_zone='".set_mysql_timezone()."';");
 
