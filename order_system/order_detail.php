@@ -71,6 +71,16 @@ $rowsStatus = $resultStatus->fetch_assoc();
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+  <style>
+    .book_img{
+      width: 95px;
+      display: block;
+      margin: auto;
+    }
+    .thead-col {
+      background-color: #102e2ef8;
+    }
+  </style>
 </head>
 
 <body>
@@ -96,7 +106,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
           </div>
           <div class="py-2">共<?= $userCount ?>筆資料</div>
           <table class="table table-bordered">
-            <thead>
+            <thead class="text-white thead-col`` ">
               <tr>
                 <th class="text-center">書名</th>
                 <th class="text-center">封面</th>
@@ -109,9 +119,10 @@ $rowsStatus = $resultStatus->fetch_assoc();
             <tbody>
               <?php foreach ($rows as $row) : ?>
                 <tr>
-
                   <td class="text-center"><?= $row["p_name"] ?></td>
-                  <td class="text-center"><?= $row["book_img"] ?></td>
+                  <td>
+                    <img class="object-cover book_img" src="../product-create/image/<?= $row["book_img"] ?>" alt="">
+                  </td>
                   <td class="text-center"><?= $row["price"] ?></td>
                   <td class="text-center"><?= $row["amount"] ?></td>
                   <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>

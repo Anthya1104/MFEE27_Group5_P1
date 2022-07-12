@@ -98,7 +98,6 @@ $totalPage = ceil($userCount / $perPage);
 
     .thead-col {
       background-color: #102e2ef8;
-
     }
 
     .pagination>li>a {
