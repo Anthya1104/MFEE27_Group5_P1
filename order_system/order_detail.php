@@ -5,7 +5,7 @@ if (!isset($_GET["id"])) {
 }
 $id = $_GET["id"];
 
-require("db-connect.php");
+require("../db-connect.php");
 
 $sqlAll = "SELECT * FROM user_order WHERE valid=1";
 $resultAll = $conn->query($sqlAll);

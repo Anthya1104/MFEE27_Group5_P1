@@ -3,7 +3,7 @@ if(!isset($_POST["id"])){
     echo "沒有帶資料";
     exit;
 }
-require("db-connect.php");
+require("../db-connect.php");
 
 $id = $_POST["id"];
 $status = $_POST["status"];

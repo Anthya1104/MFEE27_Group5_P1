@@ -6,7 +6,7 @@ if (isset($_GET["page"])) {
   $page = 1;
 }
 
-require("db-connect.php");
+require("../db-connect.php");
 
 // 先sql總共有多少筆資料
 $sqlAll = "SELECT * FROM user_order WHERE valid=1";
