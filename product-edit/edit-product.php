@@ -44,7 +44,7 @@ $productCount = $result->num_rows;
           // echo "test";
           // var_dump($row["book_category"]);
           ?>
-        <h1>編輯商品</h1>
+        <h1 class="mt-4" >編輯商品</h1>
         <form action="do-edit.php" method="post">
         <input name="id" type="hidden" value="<?=$row["id"]?>">
         <table class="table" >
@@ -135,9 +135,9 @@ $productCount = $result->num_rows;
         </table>
        
         <div class="py-4">
-        <button class="btn btn-info" type="submit">儲存</button>
+        <button class="btn btn-warning me-3" type="submit">儲存</button>
             <!-- <a class="btn btn-info" type="submit" href=""></a> -->
-            <a class="btn btn-info" type="submit" href="../product-create/product-list.php">取消</a>
+            <a class="btn btn-dark" type="submit" href="../product-create/product-list.php">取消</a>
             
         </div>
         </form>

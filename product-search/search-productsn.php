@@ -52,25 +52,25 @@ if(!isset($_GET["search"])){
         <!-- 包sidebar -->
         <!-- <?=$search?> -->
         <div class="py-2">
-          <h2> <?=$search?> 的搜尋結果 </h2>
+          <h2 class="mt-4"> <?=$search?> 的搜尋結果 </h2>
           <div class="py-2">共 <?=$productCount?> 筆資料</div>
-        <a class="btn btn-info" type="submit" href="../product-create/product-list.php">返回</a>
+        <a class="btn btn-dark" type="submit" href="../product-create/product-list.php">返回</a>
         </div>
         <div class="py-2">
             <form action="search-productsn.php" method="get">
             <div class="input-group">
                 <span class=" d-flex align-items-center"></span>
                 <input type="text" class="form-control rounded-start" name="search" placeholder="依產品編號搜尋">
-                <button class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
             </form>
             </div>
         </div>
         <?php if($productCount>0): ?>
-          <table class="table table-bordered">
+          <table class="table table-bordered border-dark">
           <thead>
-                <tr>
+                <tr class="table-dark text-center">
                     <th>產品編號</th>
                     <th>產品名稱</th>
                     <!-- <th>封面圖</th> -->
@@ -82,17 +82,17 @@ if(!isset($_GET["search"])){
             <tbody>
                 <?php foreach ($rows as $row) : ?>
                     <tr>
-                        <td><?=$row["book_sn"]?></td>
+                        <td class="text-center"><?=$row["book_sn"]?></td>
                         <td><?=$row["book_name"]?></td>
                         <!-- <td> -->
                         <!-- <?=$row["book_img"]?> -->
                         <!-- <img class="img-size" src="image/<?=$row["book_img"]?>" alt=""> -->
                         <!-- </td> -->
           
-                        <td>  <?=$row["book_category"]?>  <?=$row["category__name"]?></td>
-                        <td><?=$row["price"]?></td>
-                        <td><?=$row["status"]?></td>
-                        <td><?=$row["upload_time"]?></td>
+                        <td class="text-center">  <?=$row["book_category"]?>  <?=$row["category__name"]?></td>
+                        <td class="text-center"><?=$row["price"]?></td>
+                        <td class="text-center"><?=$row["status"]?></td>
+                        <td class="text-center"><?=$row["upload_time"]?></td>
                         
                     </tr>
                 <?php endforeach; ?>

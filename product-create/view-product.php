@@ -71,7 +71,7 @@ $productCount=$result->num_rows;
         $row=$result->fetch_assoc();
         }
         ?>
-        <h1>商品詳細資訊</h1>
+        <h1 class="mt-4">商品詳細資訊</h1>
 
 <!-- ---------------------- -->
 <table class="table table-bordered border-dark">
@@ -81,7 +81,7 @@ $productCount=$result->num_rows;
 <th scope="col"></th>
 </tr>
 </thead> -->
-<tbody>
+<tbody >
 <tr>
 <th class="col-2">產品編號</th>
 <td> <?=$row["book_sn"]?> </td>
@@ -131,8 +131,8 @@ $productCount=$result->num_rows;
 </tr>
 </tbody>
 </table>
-        <div>
-            <a class="btn btn-info" type="submit" href="product-list.php">返回</a>
+        <div class="mb-3">
+            <a class="btn btn-dark" type="submit" href="product-list.php">返回</a>
         </div>
     </div>
     </div>

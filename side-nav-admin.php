@@ -24,6 +24,13 @@
           評論管理
         </a>
       </li>
+      <hr>
+      <li>
+        <a href="/MFEE27_Group5_P1/member-comment/comment-list.php" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          登出
+        </a>
+      </li>
 
     </ul>
 
