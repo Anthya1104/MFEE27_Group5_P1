@@ -68,10 +68,9 @@ switch ($order) {
 $perPage = 5;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.Coupon_code,status_category.status FROM user_order
+$sql = "SELECT user_order.*, member.name, marketing.Coupon_code FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
-JOIN status_category ON user_order.status_id=status_category.id
 WHERE user_order.valid=1
 ORDER BY $orderType
 LIMIT $start, 5
@@ -136,6 +135,9 @@ $totalPage = ceil($userCount / $perPage);
 </head>
 
 <body>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
   <div class="container-fluid">
     <div class="row">
       <div class="col-3 row">
@@ -144,11 +146,11 @@ $totalPage = ceil($userCount / $perPage);
       </div>
       <div class="col-9">
         <p class="fs-2 fw-bold title">書商:閱閱出版社</p>
-        <h3>訂單列表</h3>
+        <h3>所有訂單列表</h3>
         <div class="py-2 mt-4">
           <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
             <div class="input-group">
-              <input type="text" class="form-control" name="search" placeholder="輸入訂購人或訂單流水號搜尋">
+              <input type="text" class="form-control" name="search" placeholder="輸入訂購人或訂單編號搜尋">
               <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
@@ -156,9 +158,10 @@ $totalPage = ceil($userCount / $perPage);
       </div>
       <div class="py-2 d-flex justify-content-end align-items-center">
         <div class="me-2"><i class="fa-solid fa-filter"></i>排序依</div>
-        <form>
-          <select name="selectURL" onchange="location=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
-            <option>請選擇排序</option>
+        <form action="">
+          <select class="form-select form-select mb-3" aria-label=".form-select example" name="selectURL" id="dropdown" onchange="select()">
+            <!-- onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value" -->
+            <option style="display:none">請選擇排序方式</option>
             <option value="user_order.php?page=<?= $page ?>&order=1">訂單流水號(小->大)</option>
             <option value="user_order.php?page=<?= $page ?>&order=2">訂單流水號(大->小)</option>
             <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
@@ -166,6 +169,11 @@ $totalPage = ceil($userCount / $perPage);
             <option value="user_order.php?page=<?= $page ?>&order=5">訂單金額(小->大)</option>
             <option value="user_order.php?page=<?= $page ?>&order=6">訂單金額(大->小)</option>
           </select>
+          <script>
+            function select() {
+              var x = document.getElementById("dropdown").value;
+            }
+          </script>
         </form>
       </div>
       <div class="py-2">
@@ -206,12 +214,28 @@ $totalPage = ceil($userCount / $perPage);
       <div class="py-2">目前顯示第<?= $startItem ?>-<?= $endItem ?>筆, 共<?= $userCount ?>筆訂單</div>
       <?php if ($pageUserCount > 0) : ?>
       <?php endif; ?>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="location.href='user_order.php'">
+        <label class="form-check-label" for="inlineRadio1">所有訂單</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="location.href='unpay-order.php'">
+        <label class="form-check-label" for="inlineRadio2">尚未付款</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick="location.href='payed-order.php'">
+        <label class="form-check-label" for="inlineRadio3">已付款</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" onclick="location.href='finish_order.php'">
+        <label class="form-check-label" for="inlineRadio3">訂單完成</label>
+      </div>
       <table class="table table-bordered">
         <thead>
           <tr class="thead-col text-white">
             <th class="text-center">訂單流水號</th>
             <th class="text-center">總金額</th>
-            <th class="text-center">優惠券</th>
+            <th class="text-center">優惠券序號</th>
             <th class="text-center">訂購人</th>
             <th class="text-center">訂單編號</th>
             <th class="text-center">訂單日期</th>
