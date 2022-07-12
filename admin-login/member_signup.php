@@ -16,7 +16,7 @@ include("db/mysqli_config.php");
   <meta name="description" content="會員資料">
   <meta name="author" content="會員資料">
   <!-- Favicon -->
-  <!--
+   <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   -->
@@ -52,26 +52,26 @@ include("db/mysqli_config.php");
   <script src="assets/vendor/modernizr/modernizr.min.js"></script>
   <style>
     .avatar-sq {
-      margin: 0 auto 20px auto;
-      border-radius: 50%;
-      overflow: hidden;
-      width: 100px;
-      height: 100px;
-      /* clip: rect(0px,76px,76px,0px); */
-      right: 55px;
-      background-size: cover;
-    }
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    /* clip: rect(0px,76px,76px,0px); */
+    right: 55px;
+    background-size: cover;
+  }
   </style>
 </head>
 
 <body>
-  <div class="body d-flex justify-content-center align-items-center">
+  <div class="body">
     <div role="main" class="main">
-      <!-- <section class="main-bg-box">
+      <section class="main-bg-box">
         <div class="gap-40 main-bg main-member"></div>
-      </section> -->
-      <div class="container-fluid d-flex justify-content-center align-items-center">
-        <div class="row col-8">
+      </section>
+      <div class="container-fluid">
+        <div class="row">
           <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
@@ -80,40 +80,37 @@ include("db/mysqli_config.php");
 
               <div class="form-row pl-2">
 
-                <h3 class="col-12">會員註冊資料</h3>
+               <h3 class="col-12">會員註冊資料</h3>
 
                 <div class="form-group col-6">
                   <label class="font-weight-bold required">會員名稱</label>
-                  <input type="text" class="form-control form-control-lg" req="Y" title="Name" placeholder="會員名稱" name="title" value="">
+                  <input type="text"  class="form-control form-control-md" req="Y" title="Name" placeholder="會員名稱" name="name" value="">
                 </div>
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">會員暱稱</label>
-                  <input type="text" class="form-control form-control-lg" req="Y" title="username" placeholder="會員暱稱" name="username" value="">
+				<div class="form-group col-6">
+					<label class="font-weight-bold required">會員暱稱</label>
+                  <input type="text"  class="form-control form-control-md" req="Y" title="user_name" placeholder="會員暱稱" name="user_name" value="">
                 </div>
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">Email</label>
-                  <input type="text" class="form-control form-control-lg" req="Y" title="Email" placeholder="請輸入信箱" name="email" value="">
+				 <div class="form-group col-6">
+                <label class="font-weight-bold required">Email</label>
+                  <input type="text"  class="form-control form-control-lg" req="Y" title="Email" placeholder="test123456@gmail.com" name="email"  value="">
                 </div>
-                <div class="form-group col-6">
+               <div class="form-group col-6">
                   <label class="font-weight-bold required">生日</label>
-                  <input type="date" class="form-control form-control-lg" req="Y" title="birth" name="birth" value="">
+                  <input type="date"  class="form-control form-control-lg" req="Y" title="birth"  name="birthday"  value="" >
                 </div>
-                <div class="form-group col-6">
+
+
+				<div class="form-group col-6">
                   <label class="font-weight-bold required">帳號</label>
-                  <input type="text" class="form-control " req="Y" title="帳號" name="account" value="">
+                  <input type="text"  class="form-control " req="Y" title="帳號"  name="account"  value="" >
+
                 </div>
-                <div class="form-group col-6">
+				<div class="form-group col-6">
                   <label class="font-weight-bold required">密碼</label>
-                  <input type="password" class="form-control " req="Y" title="密碼" name="password" value="">
+                  <input type="password"  class="form-control " req="Y" title="密碼"  name="password"  value="" >
+
                 </div>
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">電話</label>
-                  <input type="tel" class="form-control form-control-lg" req="Y" title="Mobile" placeholder="請輸入電話" name="tel" value="">
-                </div>
-                <div class="form-group col-6">
-                  <label class="font-weight-bold required">地址</label>
-                  <input type="text" class="form-control form-control-lg" req="Y" title="address" placeholder="請輸入地址" name="address" value="">
-                </div>
+
                 <div class="form-group col-12">
 
 
@@ -140,7 +137,7 @@ include("db/mysqli_config.php");
         </div>
         <div class="modal-body text-center">
           <h5 class="text-red">Please Check:</h5>
-          <h6 class="text-4 font-weight-normal"></h6>
+          <h6 class="text-4 font-weight-normal" ></h6>
         </div>
       </div>
     </div>
@@ -185,9 +182,9 @@ include("db/mysqli_config.php");
 
 
   ?>
-  <script>
+<script>
 
-  </script>
+</script>
 </body>
 
 </html>

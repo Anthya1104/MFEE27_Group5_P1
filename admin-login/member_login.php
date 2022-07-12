@@ -15,7 +15,7 @@ include("db/mysqli_config.php");
   <meta name="description" content="會員登入">
   <meta name="author" content="會員登入">
   <!-- Favicon -->
-   <!--
+  <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   -->
@@ -51,20 +51,31 @@ include("db/mysqli_config.php");
   <script src="assets/vendor/modernizr/modernizr.min.js"></script>
   <style>
     .avatar-sq {
-    margin: 0 auto 20px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    /* clip: rect(0px,76px,76px,0px); */
-    right: 55px;
-    background-size: cover;
-  }
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      /* clip: rect(0px,76px,76px,0px); */
+      right: 55px;
+      background-size: cover;
+    }
+
+    .main-m {
+      margin-left: 15vw;
+    }
+
+    h3 {
+      text-align: center;
+    }
   </style>
 </head>
 
 <body>
-  <div class="body d-flex justify-content-center align-items-center">
+  <div class="">
+    <?php require("../side-nav-admin.php") ?>
+  </div>
+  <div class="body d-flex justify-content-center align-items-center main-m">
     <div role="main" class="main">
       <!-- <section class="main-bg-box">
         <div class="gap-40 main-bg main-member" ></div>
@@ -79,26 +90,26 @@ include("db/mysqli_config.php");
 
               <div class="form-row pl-2">
 
-               <h3 class="col-12">會員登入</h3>
+                <h3 class="col-12">會員登入</h3>
 
 
 
 
                 <div class="form-group col-12">
                   <label class="font-weight-bold required">帳號</label>
-                  <input type="text"  class="form-control form-control-lg" req="Y" title="帳號" placeholder="帳號" maxlength="20"  name="account"   value="">
+                  <input type="text" class="form-control form-control-lg" req="Y" title="帳號" placeholder="帳號" maxlength="20" name="account" value="">
                 </div>
-				        <div class="form-group col-12">
+                <div class="form-group col-12">
                   <label class="font-weight-bold required">密碼</label>
-                  <input type="password"  class="form-control form-control-lg" req="Y" title="text" placeholder="密碼" name="password"  value="" >
+                  <input type="password" class="form-control form-control-lg" req="Y" title="text" placeholder="密碼" name="password" value="">
                 </div>
 
                 <div class="form-group col-12">
-                  <p class="mb-2">Date：<span class="today"><?php echo date("Y-m-d H:i:s")?></span></p>
+                  <p class="mb-2">Date：<span class="today"><?php echo date("Y-m-d H:i:s") ?></span></p>
 
                   <button class="btn btn-block f14 btn-danger btn-modern round" type="submit" set_id="submit2">送出</button>
-				  
-                   <a class="btn btn-block f14 btn-primary btn-modern round" href="member_signup.php" >註冊</a>
+
+                  <a class="btn btn-block f14 btn-primary btn-modern round" href="member_signup.php">註冊</a>
 
                   <div class="gap-20"></div>
                 </div>
@@ -120,7 +131,7 @@ include("db/mysqli_config.php");
         </div>
         <div class="modal-body text-center">
           <h5 class="text-red">Please Check:</h5>
-          <h6 class="text-4 font-weight-normal" ></h6>
+          <h6 class="text-4 font-weight-normal"></h6>
         </div>
       </div>
     </div>
@@ -165,9 +176,9 @@ include("db/mysqli_config.php");
 
 
   ?>
-<script>
+  <script>
 
-</script>
+  </script>
 </body>
 
 </html>

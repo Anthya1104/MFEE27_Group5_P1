@@ -1,13 +1,13 @@
 <?php
 include("db/mysqli_config.php");
 
-$id=$_GET["id"];
-if(empty($id)) exit("<script>alert('請先登入');location.href='admin_login.php'</script>");
-$row=[];
-$q="select * from admin where id='$id'";//簡單做
-$r=my_assoc($q);
-if($r["size"]){
-  $row=$r["array"][0];
+$id = $_GET["id"];
+if (empty($id)) exit("<script>alert('請先登入');location.href='admin_login.php'</script>");
+$row = [];
+$q = "select * from admin where id='$id'"; //簡單做
+$r = my_assoc($q);
+if ($r["size"]) {
+  $row = $r["array"][0];
 }
 
 ?>
@@ -23,7 +23,7 @@ if($r["size"]){
   <meta name="description" content="管理員資料">
   <meta name="author" content="管理員資料">
   <!-- Favicon -->
-   <!--
+  <!--
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   -->
@@ -59,67 +59,74 @@ if($r["size"]){
   <script src="assets/vendor/modernizr/modernizr.min.js"></script>
   <style>
     .avatar-sq {
-    margin: 0 auto 20px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    /* clip: rect(0px,76px,76px,0px); */
-    right: 55px;
-    background-size: cover;
-  }
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      /* clip: rect(0px,76px,76px,0px); */
+      right: 55px;
+      background-size: cover;
+    }
+    .main-m{
+      width: 50vw;
+      margin-left: 15vw;
+    }
   </style>
 </head>
 
 <body>
-  <div class="body">
-    <div role="main" class="main">
-      <section class="main-bg-box">
+  <div class="">
+    <?php require("../side-nav-admin.php") ?>
+  </div>
+  <div class="body d-flex justify-content-center align-items-center">
+    <div role="main" class="main main-m">
+      <!-- <section class="main-bg-box">
         <div class="gap-40 main-bg main-admin"></div>
-      </section>
-      <div class="container-fluid">
+      </section> -->
+      <div class="container-fluid ">
         <div class="row">
           <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
           <div class="col-12 main-box">
             <form action="admin_index_end.php" method="post" enctype="multipart/form-data" id="form0">
-            <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+              <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
 
               <div class="form-row pl-2 ">
-				<a class="btn btn-primary btn-sm mb-sm ml-sm" href="admin_list.php" >回到 管理員列表</a>
-               <h3 class="col-12">管理員修改資料</h3>
-			   <div class="form-group col-12">
+                <a class="btn btn-primary btn-sm mb-sm ml-sm" href="admin_list.php">回到 管理員列表</a>
+                <h3 class="col-12">管理員修改資料</h3>
+                <div class="form-group col-12">
                   <label class="font-weight-bold required">管理員權限</label>
-                  <input type="radio"  class=" " req="Y" title="權限" placeholder="管理員權限" name="status" value="1" <?php if($row["status"]==1) echo "checked";?> >已停權 
-				  
-				  <input type="radio"  class=" " req="Y" title="權限" placeholder="管理員權限" name="status" value="0" <?php if($row["status"]==0) echo "checked";?> >未停權
+                  <input type="radio" class=" " req="Y" title="權限" placeholder="管理員權限" name="status" value="1" <?php if ($row["status"] == 1) echo "checked"; ?>>已停權
+
+                  <input type="radio" class=" " req="Y" title="權限" placeholder="管理員權限" name="status" value="0" <?php if ($row["status"] == 0) echo "checked"; ?>>未停權
                 </div>
                 <div class="form-group col-6">
                   <label class="font-weight-bold required">管理員名稱</label>
-                  <input type="text"  class="form-control form-control-md" req="Y" title="Name" placeholder="管理員名稱" name="title" value="<?php echo $row["title"]?>">
+                  <input type="text" class="form-control form-control-md" req="Y" title="Name" placeholder="管理員名稱" name="title" value="<?php echo $row["title"] ?>">
                 </div>
-	
-				 <div class="form-group col-6">
-                <label class="font-weight-bold required">Email</label>
-                  <input type="text"  class="form-control form-control-md" req="Y" title="Email" placeholder="test123456@gmail.com" name="email"  value="<?php echo $row["email"]?>">
+
+                <div class="form-group col-6">
+                  <label class="font-weight-bold required">Email</label>
+                  <input type="text" class="form-control form-control-md" req="Y" title="Email" placeholder="test123456@gmail.com" name="email" value="<?php echo $row["email"] ?>">
                 </div>
-				<div class="form-group col-6">
+                <div class="form-group col-6">
                   <label class="font-weight-bold required">帳號</label>
-                  <input type="text"  class="form-control disabled" req="Y" title="帳號"  name=""  value="<?php echo $row["account"]?>" disabled readonly>
-				
+                  <input type="text" class="form-control disabled" req="Y" title="帳號" name="" value="<?php echo $row["account"] ?>" disabled readonly>
+
                 </div>
-				<div class="form-group col-6">
-                  <label class="font-weight-bold required">密碼</label><span >(有變更在填寫)</span>
-                  <input type="password"  class="form-control " req="Y" title="密碼"  name="password"  value="" >
-				
+                <div class="form-group col-6">
+                  <label class="font-weight-bold required">密碼</label><span>(有變更在填寫)</span>
+                  <input type="password" class="form-control " req="Y" title="密碼" name="password" value="">
+
                 </div>
 
                 <div class="form-group col-12">
-                  <p class="mb-2">註冊日期：<span class="today"><?php echo $row["sign_time"]?></span></p>
+                  <p class="mb-2">註冊日期：<span class="today"><?php echo $row["sign_time"] ?></span></p>
 
                   <button class="btn btn-block f14 btn-danger btn-modern round" type="submit" set_id="submit2">送出</button>
-				
+
                   <!--a class="btn btn-block f14 btn-primary btn-modern round" href="admin_login.php" >登出</a-->
 
                   <div class="gap-20"></div>
@@ -142,7 +149,7 @@ if($r["size"]){
         </div>
         <div class="modal-body text-center">
           <h5 class="text-red">Please Check:</h5>
-          <h6 class="text-4 font-weight-normal" ></h6>
+          <h6 class="text-4 font-weight-normal"></h6>
         </div>
       </div>
     </div>
@@ -187,9 +194,9 @@ if($r["size"]){
 
 
   ?>
-<script>
+  <script>
 
-</script>
+  </script>
 </body>
 
 </html>

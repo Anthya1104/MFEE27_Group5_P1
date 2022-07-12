@@ -67,63 +67,64 @@ include("db/mysqli_config.php");
       right: 55px;
       background-size: cover;
     }
+    .main-m{
+      width: 50vw;
+      margin-left: 15vw;
+    }
   </style>
 </head>
 
-
-
 <body>
-  <div class="body">
-    <div role="main" class="main">
-      <!-- <section class="gap-40">
-      </section> -->
+  <div class="">
+    <?php require("../side-nav-admin.php") ?>
+  </div>
+  <div class="body d-flex justify-content-center align-items-center">
+    <div role="main" class="main main-m">
+      <section class="gap-40">
+
+      </section>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-3">
-            <?php require("../side-nav-admin.php") ?>
-          </div>
-          <div class="col-9">
-            <!-- <div class="col-12">
+          <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
-            <div class="col-12 main-box">
-              <form action="member_index_end.php" method="post" enctype="multipart/form-data" id="form0">
-                <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
+          <div class="col-12 main-box">
+            <form action="member_index_end.php" method="post" enctype="multipart/form-data" id="form0">
+              <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
 
-                <div class="form-row pl-2 text-center">
+              <div class="form-row pl-2 text-center">
 
-                  <h3 class="col-12">網站地圖</h3>
-                  <a class="btn btn-info btn-sm mb-sm" href="admin_login.php">登出</a>
-                  <div class="row text-center" style=" display: contents;">
+                <h3 class="col-12">網站地圖</h3>
+                <a class="btn btn-info btn-sm mb-sm" href="admin_login.php">登出</a>
+                <div class="row text-center" style=" display: contents;">
 
-                    <table class="table">
-                      <thead>
-                        <th>選單名稱</th>
+                  <table class="table">
+                    <thead>
+                      <th>選單名稱</th>
 
-                      </thead>
-                      <tbody>
-                        <?php
-                        $array = ["管理員管理" => "admin_list.php", "會員管理" => "member_list.php", "廠商管理" => "factory_list.php"];
-                        foreach ($array as $name => $link) {
-                          echo '<tr>
-						                    <td><a class="btn btn-info btn-sm mb-sm" href="' . $link . '" >' . $name . '</a></td>
-						                    </tr>';
-                        }
+                    </thead>
+                    <tbody>
+                      <?php
+                      $array = ["管理員管理" => "admin_list.php", "會員管理" => "member_list.php", "廠商管理" => "factory_list.php"];
+                      foreach ($array as $name => $link) {
+                        echo '<tr>
+						<td><a class="btn btn-info btn-sm mb-sm" href="' . $link . '" >' . $name . '</a></td>
+						</tr>';
+                      }
 
-                        ?>
+                      ?>
 
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="form-group col-12">
-
-                    <div class="gap-20"></div>
-                  </div>
+                    </tbody>
+                  </table>
                 </div>
 
-              </form>
-            </div>
+                <div class="form-group col-12">
+
+                  <div class="gap-20"></div>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>
