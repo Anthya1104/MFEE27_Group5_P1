@@ -57,13 +57,13 @@ JOIN category ON product.book_category = category.category_id WHERE `status` = $
         <div class="py-2">
           <h2 class="mt-4"> 搜尋結果 </h2>
           <div class="py-2">共 <?=$productCount?> 筆資料</div>
-        <a class="btn btn-info" type="submit" href="../product-create/product-list.php">返回</a>
+        <a class="btn btn-dark" type="submit" href="../product-create/product-list.php">返回</a>
         </div>
        
         <?php if($productCount>0): ?>
-          <table class="table table-bordered">
+          <table class="table table-bordered border-dark">
           <thead>
-                <tr>
+                <tr class="table-dark text-center">
                     <th>產品編號</th>
                     <th>產品名稱</th>
                     <!-- <th>封面圖</th> -->
@@ -75,17 +75,17 @@ JOIN category ON product.book_category = category.category_id WHERE `status` = $
             <tbody>
                 <?php foreach ($rows as $row) : ?>
                     <tr>
-                        <td><?=$row["book_sn"]?></td>
+                        <td class="text-center"><?=$row["book_sn"]?></td>
                         <td><?=$row["book_name"]?></td>
                         <!-- <td> -->
                         <!-- <?=$row["book_img"]?> -->
                         <!-- <img class="img-size" src="image/<?=$row["book_img"]?>" alt=""> -->
                         <!-- </td> -->
           
-                        <td>  <?=$row["book_category"]?>  <?=$row["category__name"]?></td>
-                        <td><?=$row["price"]?></td>
-                        <td><?=$row["status"]?></td>
-                        <td><?=$row["upload_time"]?></td>
+                        <td class="text-center"><?=$row["book_category"]?>  <?=$row["category__name"]?></td>
+                        <td class="text-center"><?=$row["price"]?></td>
+                        <td class="text-center"><?=$row["status"]?></td>
+                        <td class="text-center"><?=$row["upload_time"]?></td>
                         
                     </tr>
                 <?php endforeach; ?>

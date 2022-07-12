@@ -1,3 +1,16 @@
+<?php
+
+require("../db-connect.php");
+
+$sql="SELECT book_sn FROM product ORDER BY book_sn limit 1";
+$result = $conn->query($sql);
+
+// $Count= $result->num_rows;
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -106,12 +119,10 @@
             <input type="hidden" id="book_img" name="book_img" value="book13.jpg">
             <input class="my-2" type="file" id="book_img" name="book_img" value="book13.jpg">
             <div class="my-4"></div>
-            <button class="btn btn-info me-3 " type="submit">送出</button>
-            <a class="btn btn-info " type="submit" href="product-list.php">取消</a>
+            <button class="btn btn-warning me-3 " type="submit">儲存</button>
+            <a class="btn btn-dark " type="submit" href="product-list.php">取消</a>
             <div class="mt-4"></div>
             <!-- 上傳圖片原本的 -->
-
-        
 
         </form>
         <script>

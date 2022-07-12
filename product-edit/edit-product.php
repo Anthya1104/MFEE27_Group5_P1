@@ -135,9 +135,9 @@ $productCount = $result->num_rows;
         </table>
        
         <div class="py-4">
-        <button class="btn btn-info me-3" type="submit">儲存</button>
+        <button class="btn btn-warning me-3" type="submit">儲存</button>
             <!-- <a class="btn btn-info" type="submit" href=""></a> -->
-            <a class="btn btn-info" type="submit" href="../product-create/product-list.php">取消</a>
+            <a class="btn btn-dark" type="submit" href="../product-create/product-list.php">取消</a>
             
         </div>
         </form>

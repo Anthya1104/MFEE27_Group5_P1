@@ -44,11 +44,11 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
             <div class="col-9">
         <!-- 包sidebar -->
         <h2 class="mt-4" > <?=$from_date ?> ~ <?=$to_date ?> 上架的商品 </h2>
-        <a class="btn btn-info my-1" href="product-list.php">返回</a>
+        <a class="btn btn-dark my-3" href="product-list.php">返回</a>
   <?php if ($dateCount>0) : ?>
     <table class="table table-bordered border-dark">
     <thead>
-            <tr>
+            <tr class="table-dark text-center">
                 <th>產品編號</th>
                 <th>產品名稱</th>
                 <!-- <th>封面圖</th> -->
@@ -61,13 +61,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
     <tbody>
             <?php foreach ($result as $row) : ?>
             <tr>
-                <td><?=$row["book_sn"]?></td>
+                <td class="text-center"><?=$row["book_sn"]?></td>
                 <td><?=$row["book_name"]?></td>
                 <!-- <td><img class="img-size" src="image/<?=$row["book_img"]?>" alt=""> </td>  -->
-                <td><?=$row["book_category"]?> <?=$row["category__name"]?>   </td>
-                <td><?=$row["price"]?></td>
-                <td><?=$row["status"]?></td>
-                <td><?=$row["upload_time"]?></td>
+                <td class="text-center"><?=$row["book_category"]?> <?=$row["category__name"]?>   </td>
+                <td class="text-center"><?=$row["price"]?></td>
+                <td class="text-center"><?=$row["status"]?></td>
+                <td class="text-center"><?=$row["upload_time"]?></td>
             </tr>
             <?php endforeach; ?>
     </tbody>

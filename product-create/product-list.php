@@ -83,29 +83,39 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
     
     <style>
         .object-cover {
-            /* width: 100%; */
-            /* height: 100%; */
-            /* width: 200px;
-            height: 200px; */
-            
+            width: 100%;
+            height: 100%;
+            width: 120px;
+            height: 150px; 
         }
 
-        .img-size {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
+
+        .pagination>li>a {
+        background-color: white;
+        color: #000;
         }
 
-        .btn-info {
-            background: #18d3e0;
-        }
-        
-        .select-style {
-            border-radius:10px;
+        .pagination>li>a:focus,
+        .pagination>li>a:hover,
+        .pagination>li>span:focus,
+        .pagination>li>span:hover {
+        color: white;
+        background-color: #000;
+        border-color: #000;
         }
 
-     
+        .pagination>.active>a {
+        color: white;
+        background-color: #000 !Important;
+        border: solid 1px #000 !Important;
+        }
 
+        .pagination>.active>a:hover {
+        background-color: #000 !Important;
+        border: solid 1px #000;
+        }
+ 
+      
     </style>
   </head>
   <body>
@@ -116,18 +126,18 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
                 <?php require("../side-nav.php"); ?>
             </div>
             <div class="col-9">
-    <!-- 包sidebar -->
+        <!-- 包sidebar -->
         <div class="mt-4 ">
         <!-- <h1 class="text-center">商品管理</h1> -->
         <h1>閱閱出版社 商品管理</h1>
-        <table class="table table-bordered">
+        <table class="table table-bordered border-dark">
         <div class="d-flex justify-content-start">
         <div class="py-2 me-4">
             <form action="../product-search/search-productsn.php" method="get">
             <div class="input-group">
                 <!-- <span class=" d-flex align-items-center me-3"></span> -->
                 <input type="text" class="form-control" name="search" placeholder="依產品編號搜尋">
-                <button class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
             </div>
@@ -139,7 +149,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             <div class="input-group">
                 <!-- <span class=" d-flex align-items-center me-3"></span> -->
                 <input type="text" class="form-control" name="search" placeholder="依產品名稱搜尋">
-                <button class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
             </form>
@@ -151,7 +161,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             <div class="input-group">
                 <!-- <span class=" d-flex align-items-center me-3"></span> -->
                 <input type="text" class="form-control" name="search" placeholder="依產品類型搜尋">
-                <button class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
             </form>
@@ -169,7 +179,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
                 <option value="1">上架中</option>
                 <option value="2">已下架</option>
                 </select>
-                <button class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
 
@@ -189,23 +199,23 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             <form action="do-date-select.php" method="GET">
                 <div class="row d-flex align-items-center">
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group ">
                     <label for="">依上架日搜尋</label>
                     <input type="date" name="from_date" class="form-control" value="<?php if(isset($_GET['from_date'])){echo $_GET['from_date'];}?>  ">
-                    </div>                
-                </div>  
+                    </div>          
+                </div> ~
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group ">
                     <label for=""></label>
                     <input type="date" name="to_date" class="form-control">
                     </div>                
                 </div>  
                 
-                <div class="col-md-2 align-self-end">
-                    <div class="form-group">
+                <div class="col-md-2 align-self-end ps-1">
+                    <div class="form-group ">
                     <label for=""></label>
                     <!-- <button type="submit" class="btn btn-info">filter</button> -->
-                    <button type="submit" class="btn btn-info" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <button type="submit" class="btn btn-dark" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg></button>  
                     </div>                
@@ -226,26 +236,19 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             </div>
         </div>
         
-        <!-- 測試下拉 -->
-        <!-- <form action="do-dropdown-select.php" method="post">
-        上架狀態：<select name="status" id="">
-        <option value="1">上架</option>
-        <option value="2">下架</option>
-        </select>
-        </form> -->
-        <!-- 測試下拉 -->
-
         <div class="col d-flex justify-content-end">
             <div>
-            <a class="btn btn-primary me-3" href="create-product.php"> 新增商品</a>
+            <a class="btn btn-primary me-3" href="create-product.php"> 新增商品 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/></svg> </a>
             </div>
             
             <div class="btn-group me-3">
-                <a href="product-list.php?page=<?=$page?>&order=1" class="btn btn-info <?php if($order==1) echo "active"?>" >依編號遞增排序</a>
+                <a href="product-list.php?page=<?=$page?>&order=1" class="btn btn-success <?php if($order==1) echo "active"?>" >依編號遞增排序 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></svg> </a>
             </div>
 
             <div class="btn-group">
-                <a href="product-list.php?page=<?=$page?>&order=2" class="btn btn-info <?php if($order==1) echo "active"?>" >依編號遞減排序</a>
+                <a href="product-list.php?page=<?=$page?>&order=2" class="btn btn-success <?php if($order==1) echo "active"?>" >依編號遞減排序 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/></svg> </a>
             </div>
             
         </div>
@@ -254,9 +257,10 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
 
         <?php if ($pageProductCount > 0) : ?>
             <thead>
-                <tr>
+                <tr class="table-dark text-center">
                     <th>產品編號</th>
                     <th>產品名稱</th>
+                    <th>封面圖</th>
                     <th>類型</th>
                     <th>定價</th>
                     <th>上架狀態</th>
@@ -267,16 +271,22 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             <tbody>
                 <?php foreach ($rows as $row) : ?>
                     <tr>
-                        <td><?=$row["book_sn"]?></td>
+                        <td class="text-center"><?=$row["book_sn"]?></td>
                         <td><?=$row["book_name"]?></td>
-                        <td><?=$row["book_category"]?> <?=$row["category__name"]?></td>
-                        <td><?=$row["price"]?></td>
-                        <td><?=$row["status"]?></td>
-                        <td><?=$row["upload_time"]?></td>
-                        <td class=""> 
-                        <a class="btn btn-info me-2" href="view-product.php?id=<?=$row["id"]?>">檢視</a>
-                        <a class="btn btn-info me-2" href="../product-edit/edit-product.php?id=<?=$row["id"]?>">編輯</a>
-                        <a class="btn btn-danger" href="../product-edit/do-delete.php?id=<?=$row["id"]?>">刪除</a>
+                        <td class="text-center"><img class="object-cover" src="image/<?=$row["book_img"]?>" alt=""></td>
+                        <td class="text-center"><?=$row["book_category"]?> <?=$row["category__name"]?></td>
+                        <td class="text-center" ><?=$row["price"]?></td>
+                        <td class="text-center"><?=$row["status"]?></td>
+                        <td class="text-center"><?=$row["upload_time"]?></td>
+                        <td class="text-center"> 
+                        <a class="btn btn-info me-2" href="view-product.php?id=<?=$row["id"]?>">檢視 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                        </svg> </a>
+                        <a class="btn btn-warning me-2" href="../product-edit/edit-product.php?id=<?=$row["id"]?>">編輯 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/></svg> </a>
+                        <a class="btn btn-danger" href="../product-edit/do-delete.php?id=<?=$row["id"]?>">刪除 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg> </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -285,7 +295,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
         目前沒有資料
         <?php endif; ?>
         </table>
-        <div class="py-2 " >
+        <div class="py-2 d-flex justify-content-center" >
                 <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <!-- <li class="page-item"> -->
