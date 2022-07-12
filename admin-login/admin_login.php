@@ -71,9 +71,7 @@ include("db/mysqli_config.php");
 </head>
 
 <body>
-  <div class="">
-    <?php //require("../side-nav-admin.php"); ?>
-  </div>
+
   <div class="body d-flex justify-content-center align-items-center main-m">
     <div role="main" class="main">
       <!-- <section class="main-bg-box">

@@ -88,6 +88,21 @@ $totalPage = ceil($countAll/$perPage);
     .p-img{
     height:200px;
   }
+
+  .btn-primary{
+    --bs-btn-bg: #102e2e;
+    --bs-btn-border-color: #102e2e;
+    --bs-btn-hover-bg: #32b7c0;
+    --bs-btn-hover-border-color: #102e2e;
+    --bs-btn-active-bg: #32b7c0;
+    --bs-btn-active-border-color: #102e2e;
+  }
+
+  .pagination{
+    --bs-pagination-active-bg:#32b7c0;
+    --bs-link-hover-color: #32b7c0;
+    --bs-pagination-active-border-color: #102e2e;
+  }
   </style>
   <body>
 <!-- side nave  -->
@@ -98,12 +113,12 @@ $totalPage = ceil($countAll/$perPage);
                 <?php require("../side-nav-admin.php");?>
             </div>
 
-<!-- Main Body -->
-
 
             <div class="row col-9">
                <section> 
-                <div class="row">
+
+<!-- search bar -->
+                <!-- <div class="row">
                   <div class="col-8">
                     <div class="py-2">
                     <form action="user-search-result.php" methood="get"> 
@@ -116,10 +131,25 @@ $totalPage = ceil($countAll/$perPage);
                       </form>
                   </div>
 
-                  </div>
-                  <div class="col-4">
+                  </div> -->
+                  <!-- <div class="col-12"> -->
                                 
 
+
+                  <!-- </div>
+                </div> -->
+<!-- search bar end                    -->
+
+                    <div class="col-md p-4">
+                      <h1 class="comment-h1">Comments</h1>
+
+                      <div class="row">
+                        <div class="col-8">
+                        <div class="py-2">第 <?=$startItem?> 到第 <?=$endItem?> 筆資料，共 <?= $countAll ?>筆資料</div>
+                        </div>
+                        <div class="col-4">
+                          
+                        <!-- sort bar  -->
                   <div class="py-2 d-flex justify-content-end">
                     <div class="me-2 d-flex align-self-center">排序</div>
                     <div class="btn-group">
@@ -134,17 +164,14 @@ $totalPage = ceil($countAll/$perPage);
                     </div>
                   </div>
 
-                  </div>
-                </div>
-                  
+<!-- sort bar end  -->
+                        </div>
+                      </div>
 
 
-                    <div class="col-md p-4">
-                        <h1 class="comment-h1">Comments</h1>
-                        <div class="py-2">第 <?=$startItem?> 到第 <?=$endItem?> 筆資料，共 <?= $countAll ?>筆資料</div>
       <!-- 確認有正確撈出資料 迴圈才有意義 -->
       <?php if($pageCount > 0): ?>
-                        <div class="comment row mt-4 text-justify">
+                        <div class="comment row mt-2 text-justify">
                             
                             <?php foreach($rows as $row):?>
                             
