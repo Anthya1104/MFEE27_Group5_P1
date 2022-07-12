@@ -33,7 +33,7 @@ $productCount = $result->num_rows;
       <div class="container-fluid">
         <!-- 包sidebar -->
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 row">
                 <?php require("../side-nav.php"); ?>
             </div>
             <div class="col-9">
