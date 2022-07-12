@@ -53,6 +53,7 @@ $totalPage = ceil($countAll/$perPage);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
 
 
   </head>
@@ -76,9 +77,10 @@ $totalPage = ceil($countAll/$perPage);
                             
                             <?php foreach($rows as $row):?>
                             
-                            <div class="col-md-3 d-flex align-items-center">
-                                <figure class="img-radius">
-                                    <img src="../images/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
+                            <div class="col-md-3 d-flex align-items-center justify-content-center">
+                              
+                                <figure class="p-img" >
+                                    <img src="../product-create/image/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
                                 </figure>
 
                             </div>
