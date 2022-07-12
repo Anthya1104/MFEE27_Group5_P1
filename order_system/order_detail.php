@@ -23,7 +23,7 @@ if (isset($_GET["product_id"])) {
   $rowProduct = $resultProduct->fetch_assoc();
 }
 
-$sql = "SELECT user_order_detail.*, product.name AS p_name, product.price, product.img, user_order.user_id, user_order.date, member.name AS u_name
+$sql = "SELECT user_order_detail.*, product.book_name AS p_name, product.price, product.book_img, user_order.user_id, user_order.date, member.name AS u_name
 FROM user_order_detail
 JOIN member ON user_order_detail.user_id = member.id
 JOIN product ON user_order_detail.product_id = product.id
@@ -110,7 +110,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
                 <tr>
 
                   <td class="text-center"><?= $row["p_name"] ?></td>
-                  <td class="text-center"><?= $row["img"] ?></td>
+                  <td class="text-center"><?= $row["book_img"] ?></td>
                   <td class="text-center"><?= $row["price"] ?></td>
                   <td class="text-center"><?= $row["amount"] ?></td>
                   <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>
