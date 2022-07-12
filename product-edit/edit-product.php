@@ -69,7 +69,7 @@ $productCount = $result->num_rows;
                 <option <?php echo $row["book_category"] == "6" ? 'selected' : '';?> value="6">自然科普</option>
                 <option <?php echo $row["book_category"] == "7" ? 'selected' : '';?> value="7">旅遊觀光</option>
                 <option <?php echo $row["book_category"] == "8" ? 'selected' : '';?> value="8">醫療保健</option>
-                <option <?php echo $row["book_category"] == "9" ? 'selected' : '';?> value="8">勵志成長</option>
+                <option <?php echo $row["book_category"] == "9" ? 'selected' : '';?> value="9">勵志成長</option>
               </select>
               </td>
             </tr>

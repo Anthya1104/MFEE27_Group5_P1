@@ -55,8 +55,8 @@ switch ($order) {
   case 4:
     $orderType = "date DESC";
     break;
-  default:
-    $orderType = "id ASC";
+    // default:
+    //   $orderType = "id ASC";
 }
 
 $perPage = 4;
@@ -91,6 +91,7 @@ $totalPage = ceil($userCount / $perPage);
 
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
   <style>
     .title {
       color: #102e2ef8;
@@ -137,103 +138,109 @@ $totalPage = ceil($userCount / $perPage);
       <div class="col-9">
         <p class="fs-2 fw-bold title">書商:閱閱出版社</p>
         <h3>訂單列表</h3>
-        <div class="py-2">
+        <div class="py-2 mt-4">
           <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
-            <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="輸入訂購人或訂單流水號搜尋">
+            <!-- <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="輸入訂購人或訂單流水號搜尋">
               <div class="input-group-append">
                 <button class="input-group-text btn-dark" type="submit">搜尋</button>
               </div>
-            </div>
+            </div> -->
+              <div class="input-group">
+              <input type="text" class="form-control" name="search" placeholder="輸入訂購人或訂單流水號搜尋">
+              <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
-        <div class="py-2 d-flex justify-content-end align-items-center">
-          <div class="me-2">排序依</div>
-          <form>
-            <select name="selectURL" onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
-              <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=4">訂單日期(新->舊)</option>
-            </select>
-          </form>
-        </div>
-        <div class="py-2">
-          <?php if (isset($_GET["product_id"]) || isset($_GET["user_id"]) || isset($_GET["start"])) : ?>
-            <a href="user_order.php" class="btn btn-info">回所有訂單列表</a>
-          <?php endif; ?>
-        </div>
+        </form>
+      </div>
+      <div class="py-2 d-flex justify-content-end align-items-center">
+        <div class="me-2"><i class="fa-solid fa-filter"></i>排序依</div>
+        <form>
+          <select name="selectURL" onchange="location=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
+            <option>請選擇排序</option>
+            <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=4">訂單日期(新->舊)</option>
+          </select>
+        </form>
+      </div>
+      <div class="py-2">
+        <?php if (isset($_GET["product_id"]) || isset($_GET["user_id"]) || isset($_GET["start"])) : ?>
+          <a href="user_order.php" class="btn btn-info">回所有訂單列表</a>
+        <?php endif; ?>
+      </div>
 
-        <div class="py-2">
-          <form action="">
-            <div class="row align-items-center">
-              <div class="col-auto">
-                <input type="date" class="form-control" name="start" required value="<?php
-                                                                                      if (isset($_GET["start"])) echo $_GET["start"];
-                                                                                      ?>">
-              </div>
-              ~
-              <div class="col-auto">
-                <input type="date" class="form-control" name="end" required value="<?php
-                                                                                    if (isset($_GET["end"])) echo $_GET["end"];
+      <div class="py-2">
+        <form action="">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <input type="date" class="form-control" name="start" required value="<?php
+                                                                                    if (isset($_GET["start"])) echo $_GET["start"];
                                                                                     ?>">
-              </div>
-              <div class="col-auto">
-                <button class="btn btn-dark" type="submit">查詢</button>
-              </div>
             </div>
-          </form>
-        </div>
+            ~
+            <div class="col-auto">
+              <input type="date" class="form-control" name="end" required value="<?php
+                                                                                  if (isset($_GET["end"])) echo $_GET["end"];
+                                                                                  ?>">
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-dark" type="submit">查詢</button>
+            </div>
+          </div>
+        </form>
+      </div>
 
 
-        <?php if (isset($_GET["product_id"])) : ?>
-          <h1><?= $rowProduct["name"] ?> 的購買紀錄</h1>
-        <?php endif; ?>
+      <?php if (isset($_GET["product_id"])) : ?>
+        <h1><?= $rowProduct["name"] ?> 的購買紀錄</h1>
+      <?php endif; ?>
 
-        <?php if (isset($_GET["user_id"])) : ?>
-          <h1><?= $rowUser["name"] ?> 的購買紀錄</h1>
-        <?php endif; ?>
-        <div class="py-2">第<?= $startItem ?>-<?= $endItem ?>筆, 共<?= $userCount ?>筆資料</div>
-        <?php if ($pageUserCount > 0) : ?>
-        <?php endif; ?>
-        <table class="table table-bordered">
-          <thead>
-            <tr class="thead-col text-white">
-              <th class="text-center">訂單編號</th>
-              <th class="text-center">總金額</th>
-              <th class="text-center">優惠券</th>
-              <th class="text-center">訂購人</th>
-              <th class="text-center">訂單日期</th>
-              <th class="text-center">訂單狀態</th>
-              <th class="text-center">操作</th>
+      <?php if (isset($_GET["user_id"])) : ?>
+        <h1><?= $rowUser["name"] ?> 的購買紀錄</h1>
+      <?php endif; ?>
+      <div class="py-2">第<?= $startItem ?>-<?= $endItem ?>筆, 共<?= $userCount ?>筆訂單</div>
+      <?php if ($pageUserCount > 0) : ?>
+      <?php endif; ?>
+      <table class="table table-bordered">
+        <thead>
+          <tr class="thead-col text-white">
+            <th class="text-center">訂單編號</th>
+            <th class="text-center">總金額</th>
+            <th class="text-center">優惠券</th>
+            <th class="text-center">訂購人</th>
+            <th class="text-center">訂單日期</th>
+            <th class="text-center">訂單狀態</th>
+            <th class="text-center">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($rows as $row) : ?>
+            <tr>
+              <td class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["id"] ?></a></td>
+              </td>
+              <td class="text-center "><?= $row["total"] ?></td>
+              <td class="text-center"><?= $row["Coupon_code"] ?></td>
+              <td class="text-center"><?= $row["name"] ?></td>
+              <td class="text-center"><?= $row["date"] ?></td>
+              <td class="text-center"><?= $row["status"] ?></td>
+              <td>
+                <a class="btn btn-success" href="order-edit.php?id=<?= $row["id"] ?>"><i class="fa-solid fa-pen"></i>更新狀態</a>
+                <a class="btn btn-danger" href="doDelete.php?id=<?= $row["id"] ?>"><i class="fa-regular fa-trash-can"></i>刪除</a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($rows as $row) : ?>
-              <tr>
-                <td class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["id"] ?></a></td>
-                </td>
-                <td class="text-center "><?= $row["total"] ?></td>
-                <td class="text-center"><?= $row["Coupon_code"] ?></td>
-                <td class="text-center"><?= $row["name"] ?></td>
-                <td class="text-center"><?= $row["date"] ?></td>
-                <td class="text-center"><?= $row["status"] ?></td>
-                <td>
-                  <a class="btn btn-success" href="order-edit.php?id=<?= $row["id"] ?>">更新狀態</a>
-                  <a class="btn btn-danger" href="doDelete.php?id=<?= $row["id"] ?>">刪除訂單</a>
-                </td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-        <div class="py-2">
-          <ul class="pagination">
-            <?php for ($i = 1; $i <= 5; $i++) : ?>
-              <li class="page-item <?php if ($page == $i) echo "active"; ?>"><a class="page-link" href="user_order.php?page=<?= $i ?>"><?= $i ?></a></li>
-            <?php endfor; ?>
-          </ul>
-        </div>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+      <div class="py-2">
+        <ul class="pagination">
+          <?php for ($i = 1; $i <= 5; $i++) : ?>
+            <li class="page-item <?php if ($page == $i) echo "active"; ?>"><a class="page-link" href="user_order.php?page=<?= $i ?>"><?= $i ?></a></li>
+          <?php endfor; ?>
+        </ul>
       </div>
     </div>
+  </div>
   </div>
 </body>
 

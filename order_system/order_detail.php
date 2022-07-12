@@ -104,9 +104,9 @@ $rowsStatus = $resultStatus->fetch_assoc();
             <p>訂單日期:<?= $rowsDate['date']; ?></p>
             <p>狀態:<?= $rowsStatus['status']; ?></p>
           </div>
-          <div class="py-2">共<?= $userCount ?>筆資料</div>
+          <div class="py-2">共<?= $userCount ?>本書</div>
           <table class="table table-bordered">
-            <thead class="text-white thead-col`` ">
+            <thead class="text-white thead-col">
               <tr>
                 <th class="text-center">書名</th>
                 <th class="text-center">封面</th>

@@ -17,7 +17,19 @@ const labels = [
 
 const data = {
     labels,
-    dataSets: [{
-        data: [] //銷售額
-    }]
-}
+    datasets: [
+        {
+        data: [80.2, 95, 77, 105, 120, 89.6, 80.2, 95, 77, 105, 120, 89.6],
+        label: "電子書月銷售額" //銷售額
+        },
+    ],    
+};
+const config = {
+    type: 'line',
+    data: data,
+    options:{
+        responsive:true,
+    },
+};
+
+const myChart = new Chart (ctx, config);
