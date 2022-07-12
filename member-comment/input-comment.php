@@ -64,7 +64,7 @@ $member_id=$_SESSION["user"]["id"];
                 </form>                        
 
             </div>
-                <a class="btn btn-primary" href="../session-destroy.php" >登出</a>
+                <a class="btn btn-info mb-2" href="../session-destroy.php" >登出</a>
             </div>
           </div>
 

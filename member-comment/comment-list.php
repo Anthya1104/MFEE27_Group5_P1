@@ -103,6 +103,18 @@ $totalPage = ceil($countAll/$perPage);
     --bs-link-hover-color: #32b7c0;
     --bs-pagination-active-border-color: #102e2e;
   }
+  .book-sn{
+    width: 50px;
+    height: 50px;
+    background:#32b7c0;
+    border-radius: 50% 0 50% 0;
+    left:25px;
+    top:5px;
+
+  }
+  .book-sn p{
+        color:#fff;
+  }
   </style>
   <body>
 <!-- side nave  -->
@@ -175,16 +187,20 @@ $totalPage = ceil($countAll/$perPage);
                             
                             <?php foreach($rows as $row):?>
                             
-                            <div class="col-md-2 d-flex align-items-center justify-content-center">
-                              
+                            <div class="col-md-2 d-flex align-items-center justify-content-center position-relative">
+                              <div class="position-absolute book-sn d-flex align-items-center justify-content-center">
+                              <p class="mt-3"><?=$row["id"]?></p>  
+                              </div>
                                 <figure class="p-img" >
                                     <img src="../product-create/image/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
                                 </figure>
 
                             </div>
                             <div class="col-md-10 py-3">                        
-                                <h4><?=$row["id"];?>：<?=$row["book_name"]?></h4><br>
-                                <span style="color:#fff; font-size:18px;"><?=$row["user_name"]?></span>
+                                <h4><?=$row["product_id"];?>：<?=$row["book_name"]?></h4><br>
+                                <span style="color:#fff; font-size:18px;">
+                                <i class="fa-solid fa-user-astronaut"></i> <?=$row["user_id"]?>：
+                                <?=$row["user_name"]?></span>
                                 <span>- <?=$row["create_time"]?></span>
                                 <br>
                                 <p><?=$row["content"]?></p>
