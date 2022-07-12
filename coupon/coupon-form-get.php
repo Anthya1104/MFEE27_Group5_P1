@@ -57,7 +57,12 @@ $coupon_id=generateRandomString();
                         <label for="">優惠券折扣</label>
                         <input type="text" class="form-control" name="Coupon_discount" placeholder="輸入優惠折扣">
                     </div>
-                    <button class="btn btn-primary" type="submit">新增優惠券</button>
+                    <button class="btn btn-primary" type="submit">新增優惠券 <svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                        </svg></button>
 
 
                     <!-- <button href="" class="btn btn-warning" type="submit">Reset</button> -->
@@ -66,7 +71,13 @@ $coupon_id=generateRandomString();
                     <!-- <br>
                 <br>
                 <h4>Edit Restore,and Hidden coupon:</h4> -->
-                    <a href="coupon-list.php" class="btn btn-warning" type="submit">瀏覽所有優惠券</a>
+                    <a href="coupon-list.php" class="btn btn-warning" type="submit">瀏覽所有優惠券 <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg></a>
 
 
                 </form>

@@ -25,7 +25,7 @@ $couponCount=$result->num_rows;
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
 
 <body>
@@ -36,7 +36,13 @@ $couponCount=$result->num_rows;
             </div>
             <div class="col-9">
                 <div class="py-4">
-                    <a href="coupon-list.php" class="btn btn-warning py-2">瀏覽所有優惠券</a>
+                    <a href="coupon-list.php" class="btn btn-warning py-2">瀏覽所有優惠券 <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg></a>
                 </div>
                 <?php if($couponCount>0):
                 $row = $result->fetch_assoc();

@@ -94,6 +94,20 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
     <style>
+    .pagination>a {
+        background-color: white;
+        color: #000;
+    }
+
+    .pagination>a:focus,
+    .pagination>a:hover,
+    .pagination>span:focus,
+    .pagination>span:hover {
+        color: white;
+        background-color: #000;
+        border-color: #000;
+    }
+
     .pagination>li>a {
         background-color: white;
         color: #000;
@@ -145,7 +159,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
 
                 <div class="py-2">
                     <div class="me-2 mt-4">
-                        <h4>優惠券排序：</h3>
+                        <h4>優惠券排序</h3>
                     </div>
                     <!-- <div class="btn-group ">
                         <a href="coupon-list.php?page=<?=$page?>&order=1" class="btn btn-warning">序號<i
@@ -172,6 +186,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                         <select select class="form-select form-select mb-3" aria-label=".form-select example"
                             name="selectURL"
                             onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
+                            <option value="coupon-list.php?page=<?= $page ?>&order=1">請選擇排序方式</option>
                             <option value="coupon-list.php?page=<?= $page ?>&order=1">優惠券序號(小->大)<i
                                     class="fa-solid fa-arrow-down-wide-short"></i></option>
                             <option value="coupon-list.php?page=<?= $page ?>&order=2">優惠券序號(大->小)<i
@@ -247,21 +262,47 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                 <div class="py-2 d-flex justify-content-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <?php 
-                            // $next = $_GET["page"] + 1;
-                            for ($i = 1; $i <= $totalPage; $i++) : ?>
+                            <li>
+                                <a class="page-link" href="coupon-list.php?page=<?=$previous?>&order=<?= $order ?>"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-left" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
+                                    </svg></a>
+                            </li>
+
+
+
+                            <li class="page-item">
+                                <?php 
+                                $previous = $_GET["page"] - 1;
+                                $next = $_GET["page"] + 1;
+                                for ($i = 1; $i <= $totalPage; $i++) : ?>
+                            </li>
+
+
+
+
                             <li class="page-item
-                        <?php
-                            if ($page == $i) echo "active";
-                        ?>
-                        ">
+                                <?php
+                                    if ($page == $i) echo "active";
+                                ?>
+                                ">
                                 <a class="page-link" href="coupon-list.php?page=<?=$i?>&order=<?= $order ?>"><?=$i?></a>
 
-                                <!-- <a class="page-link" href="coupon-list.php?page=<?=$next?>">next</a> -->
 
                             </li>
 
                             <?php endfor;?>
+
+                            <li>
+                                <a class="page-link" href="coupon-list.php?page=<?=$next?>&order=<?= $order ?>"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-right" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                                    </svg></a>
+                            </li>
 
 
 
