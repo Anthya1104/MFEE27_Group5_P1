@@ -75,6 +75,11 @@ if($r["size"]){
 </head>
 
 <body>
+  <div class="row">
+    <div class="col-3">
+      <?php require("../side-nav.php");?>
+    </div>
+    <div class="col-9">
   <div class="body d-flex justify-content-center align-items-center">
     <div role="main" class="main">
       <!-- <section class="main-bg-box">
@@ -141,6 +146,8 @@ if($r["size"]){
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   <!-- Vendor -->
 

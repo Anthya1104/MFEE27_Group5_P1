@@ -14,7 +14,7 @@ $r=my_assoc($q);
 if($r["size"]){
 
     $row=$r["array"][0];
-    if($row["status"]==1 ){
+    if($row["valid"]==0 ){
 
         exit("<script>alert('已停權');history.go(-1);</script>");
     }else{

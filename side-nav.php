@@ -13,19 +13,19 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/MFEE27_Group5_P1/factory/factory_index.php" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           會員資料
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/MFEE27_Group5_P1/product-create/product-list.php" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
           商品管理
         </a>
       </li>
       <li>
-        <a href="order_system/user_order.php" class="nav-link text-white">
+        <a href="/MFEE27_Group5_P1/order_system/user_order.php" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
           訂單管理
         </a>
@@ -34,6 +34,13 @@
         <a href="#" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
           行銷活動
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="/MFEE27_Group5_P1/member-comment/comment-list.php" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          登出
         </a>
       </li>
     </ul>

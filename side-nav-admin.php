@@ -6,14 +6,20 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+        <a href="/MFEE27_Group5_P1/admin-login/init.php" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          Home
+        </a>
+      </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-white">
+        <a href="/MFEE27_Group5_P1/admin-login/factory_index.php" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           廠商管理
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/MFEE27_Group5_P1/admin-login/member_list.php" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           一般會員管理
         </a>

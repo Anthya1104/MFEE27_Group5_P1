@@ -36,7 +36,7 @@ $userCount = $result->num_rows;
   </head>
   <body>
   
-    <div class="container-fluid">
+
 
     <div class="row">
         <div class="col-3">
@@ -44,7 +44,7 @@ $userCount = $result->num_rows;
         </div>
         <div class="col-9">
 
-
+    <div class="container-fluid">
         <?php if($userCount>0): $row = $result->fetch_assoc();?>
 
         <div class="edit-area">

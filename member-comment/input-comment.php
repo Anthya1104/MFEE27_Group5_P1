@@ -41,7 +41,7 @@ $member_id=$_SESSION["user"]["id"];
           <div class="row">
             <div class="col-12">
               <figure class="text-center">
-                <img src="../images/431.png" alt="book1">
+                <img src="../product-create/image/book<?=$id?>.jpg" alt="book<?=$id?>">
               </figure>
 
             </div>

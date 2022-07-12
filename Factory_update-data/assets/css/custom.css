@@ -1,0 +1,270 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important; /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html,body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    /* -webkit-user-select: none;    */               /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+ /* 跟簽名版有衝突 */
+/* html{
+  touch-action: manipulation !important;
+  -ms-touch-action: manipulation !important;
+} */
+body{
+  -webkit-overflow-scrolling: touch;  
+}
+.pos_r,.contract,.tabs-simple .nav{position: relative;}
+.body,body{background:var(--maindlight);min-height: 100vh;}
+select{-webkit-appearance: none;min-height: 45px;padding-right: 30px !important;font-size: 16px;}
+select+span {
+    display: block;
+    position: absolute;
+    bottom: 22px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    right: 13px;
+    border-color: #CCC;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    width: 8px;
+    height: 8px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+select option:disabled{background-color: #ddd;color:#999;}
+label{margin-bottom: 0px;letter-spacing: 1px;font-size: 14px;}
+.note_list{padding-left: 0;}
+.note_list li{
+    list-style: none;
+    padding-left: 24px;
+    position: relative;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.note_list li:before{
+    content: '※';
+    position: absolute;
+    font-size: 14px;
+    left: 5px;
+}
+.ul_cjk li{
+    list-style-type:cjk-ideographic; 
+}
+#signature{background-color:#eee;-webkit-overflow-scrolling:touch}
+.contract{border-radius: 20px;margin-bottom: 25px;}
+.contract .btn-primary{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 20px 0;
+    font-size: 14px;
+    padding: 8px 25px;
+}
+.card-text{margin-bottom: 5px;}
+.icon_title{
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 20px;
+}
+.icon_title h4{ margin: 10px 0;font-weight: 500;}
+.icon_title i,.icon_title img{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.form-control:disabled, .form-control[readonly], select[disabled]{
+    color: #837e77;
+    border-color: rgba(0, 0, 0, 0.09);
+    background-color: #eceae8;
+    font-weight: 400;
+}
+.tabs.tabs-simple .nav-tabs > li .nav-link{border-bottom:none}
+.tabs.tabs-simple .nav-tabs > li .nav-link:before{
+    content: '';
+    position: absolute;
+    border-bottom:1px solid #eee;
+    bottom: 20px;
+    z-index: 0;
+}
+.tabs-simple .nav:before{
+    content: '';
+    position: absolute;
+    border-bottom:1px solid #eee;
+    width: 100%;
+    bottom: 20px;
+    z-index: 0;
+}
+.h150{padding-bottom: 150%;}
+.tab-content .cover{border-radius: 10px}
+.table.record{min-width: 650px}
+.table.record tr:first-child{background-color: #d1beaf}
+.table.record tr th{text-align: center;color:#fff;vertical-align: middle}
+.table.record tr th:last-child{color:#9b9086;background-color: #ece1d5;}
+.table.record td{vertical-align: middle;color:#505050;}
+.text-maindark{color:#9f8671;}
+.login_box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-height: 50vh;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 50px 0 0 0;
+    box-shadow: 0 .5rem 1.5rem rgb(137 86 0 / 25%) !important;
+}
+.min_v100{min-height: 100vh;}
+.login_box input{border:1px solid #eee;}
+.login-logo{
+    min-height: calc(100vh - 415px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-logo img{width: 130px}
+.main-box{
+    box-shadow: 0 .5rem 1.5rem rgb(137 86 0 / 25%) !important;
+    border-radius: 50px 0 0 0;
+    background-color:#fff ;
+    padding-top: 1.5rem!important;
+    /* transform: translate(0px, -30px); */
+    margin-top: -30px;
+}
+.main-bg-box{
+    position: relative;
+    padding: 5rem 0 !important;
+    background-attachment: scroll !important;
+    background-position: 50% 50% !important;
+}
+.main-bg{
+    background-image: url('../img/main.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 200px;
+    position: fixed;
+}
+.modal-content .close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.search.input-group input{
+    border-radius: 25px 0 0 25px;
+    border-right: none;
+}
+.search.input-group button{
+    background-color: #fff;
+    border-color: rgba(0, 0, 0, 0.09);
+    border-left: none;
+    margin-left: -1px;
+    border-radius: 0 25px 25px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+:root{
+    --font:"Poppins",-apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    --main: #f29702;
+    --maindark:#ca7a04;
+    --maindlight:#f9f6f3;
+    --second: #ea4334;
+    --seconddark:;
+    --seconddlight:;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 2px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+
+/*
+| ----------------------------------------------------
+| responsive
+| ----------------------------------------------------
+*/
+@media (max-width: 1367px) {}
+
+
+@media (max-width: 1025px) {}
+
+
+@media (max-width: 769px) {}
+
+
+ /*iphone plus*/
+@media (max-width: 430px) {
+    .card-body{padding: 1.5rem}
+     
+}
+
+
+/*iphone: 7px*/
+@media (max-width: 376px) {}
+
+
+
+/*iphone 5*/
+@media (max-width: 321px) {}
+
+
+/*iPhone XR*/
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 896px) 
+    and (-webkit-device-pixel-ratio : 2) { 
+
+
+
+}
+
+/*iPhone XS*/
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+
+}
+
+/*iPhone XS Max*/
+@media only screen 
+    and (device-width : 414px) 
+    and (device-height : 896px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+
+
+}
+/*橫拿*/
+@media screen and  (orientation:landscape) {}
+/*縱拿*/
+@media screen and (orientation:portrait) {}
+/*設備寬高比*/
+@media screen and (device-aspect-ratio: 16/9) {}
