@@ -83,7 +83,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
       <div class="col-9">
         <div class="py-2">
           <a class="btn btn-dark" href="user_order.php">返回訂單列表</a>
-          <a class="btn btn-dark" href="order-detail-edit.php">修改訂單</a>
+          <a class="btn btn-dark" href="doUpdateDetail.php">修改訂單</a>
         </div>
         <?php if ($userCount > 0) :
           $rows = $result->fetch_all(MYSQLI_ASSOC);

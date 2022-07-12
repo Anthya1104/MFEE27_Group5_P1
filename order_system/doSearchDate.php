@@ -36,8 +36,8 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
             </div>
             <div class="col-9">
         <!-- 包sidebar -->
-        <h2> <?=$from_date ?> ~ <?=$to_date ?> 上架的商品 </h2>
-        <a class="btn btn-info my-1" href="product-list.php">返回</a>
+        <h2> <?=$from_date ?> ~ <?=$to_date ?> 訂單 </h2>
+        <a class="btn btn-dark my-1" href="product-list.php">返回</a>
   <?php if ($dateCount>0) : ?>
     <table class="table table-bordered">
       <thead>

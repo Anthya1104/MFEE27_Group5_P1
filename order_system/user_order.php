@@ -100,6 +100,31 @@ $totalPage = ceil($userCount / $perPage);
       background-color: #102e2ef8;
 
     }
+
+    .pagination>li>a {
+      background-color: white;
+      color: #000;
+    }
+
+    .pagination>li>a:focus,
+    .pagination>li>a:hover,
+    .pagination>li>span:focus,
+    .pagination>li>span:hover {
+      color: white;
+      background-color: #000;
+      border-color: #000;
+    }
+
+    .pagination>.active>a {
+      color: white;
+      background-color: #000 !Important;
+      border: solid 1px #000 !Important;
+    }
+
+    .pagination>.active>a:hover {
+      background-color: #000 !Important;
+      border: solid 1px #000;
+    }
   </style>
 </head>
 
@@ -115,7 +140,7 @@ $totalPage = ceil($userCount / $perPage);
         <h3>訂單列表</h3>
         <div class="py-2">
           <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
-            <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="搜尋訂購人">
+            <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="輸入訂購人或訂單流水號搜尋">
               <div class="input-group-append">
                 <button class="input-group-text btn-dark" type="submit">搜尋</button>
               </div>
@@ -188,7 +213,7 @@ $totalPage = ceil($userCount / $perPage);
               <tr>
                 <td class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["id"] ?></a></td>
                 </td>
-                <td class="text-center "></td>
+                <td class="text-center "><?= $row["total"] ?></td>
                 <td class="text-center"><?= $row["code"] ?></td>
                 <td class="text-center"><?= $row["name"] ?></td>
                 <td class="text-center"><?= $row["date"] ?></td>

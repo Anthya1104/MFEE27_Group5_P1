@@ -94,10 +94,35 @@ $totalPage = ceil($userCount / $perPage);
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <style>
-    .thead-col{
-    background-color: #102e2ef8;
-    
-  }
+    .thead-col {
+      background-color: #102e2ef8;
+
+    }
+
+    .pagination>li>a {
+      background-color: white;
+      color: #000;
+    }
+
+    .pagination>li>a:focus,
+    .pagination>li>a:hover,
+    .pagination>li>span:focus,
+    .pagination>li>span:hover {
+      color: white;
+      background-color: #000;
+      border-color: #000;
+    }
+
+    .pagination>.active>a {
+      color: white;
+      background-color: #000 !Important;
+      border: solid 1px #000 !Important;
+    }
+
+    .pagination>.active>a:hover {
+      background-color: #000 !Important;
+      border: solid 1px #000;
+    }
   </style>
 </head>
 
@@ -162,39 +187,42 @@ $totalPage = ceil($userCount / $perPage);
         <?php endif; ?>
         <form action="doUpdate.php" method="POST">
           <table class="table table-bordered">
-            <thead>
+            <thead class="thead-col text-white">
               <tr>
                 <th class="text-center">總金額</th>
                 <th class="text-center">優惠券</th>
                 <th class="text-center">訂購人</th>
                 <th class="text-center">訂單日期</th>
                 <th class="text-center">訂單狀態</th>
-                <th></th>
+                <th class="text-center">操作</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($rows as $row) : ?>
+              <!-- <?php $getId=[]; ?> -->
+              <?php for ($i=0; $i<count($rows); $i++) : ?>
                 <tr>
-                  <input name="id" type="hidden" value="<?= $row["id"] ?>">
+                  <input name="id" type="hidden" value="<?= $rows[$i]["id"] ?>">
+                  <!-- <?php var_dump($rows);?> -->
                   </td>
-                  <td class="text-center">總價</td>
-                  <td class="text-center"><?= $row["code"] ?></td>
-                  <td class="text-center"><?= $row["name"] ?></td>
-                  <td class="text-center"><?= $row["date"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["total"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["code"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["name"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["date"] ?></td>
                   <td>
-                    <select class="form-select"  name="status">
-                      <option value="1">尚未付款</option>
-                      <option value="2">已付款</option>
-                      <option value="3">訂單完成</option>
+                    <select class="form-select" name="status">
+                      <option value="尚未付款" <?php if($rows[$i]["status"]=="尚未付款") echo 'selected';?>>尚未付款</option>
+                      <option value="已付款" <?php if($rows[$i]["status"]=="已付款") echo 'selected';?>>已付款</option>
+                      <option value="訂單完成" <?php if($rows[$i]["status"]=="訂單完成") echo 'selected';?>>訂單完成</option>
                     </select>
                   </td>
                   <td>
                     <div class="py-2 d-flex justify-content-end align-items-center">
-                      <button class="btn btn-info" name="update_order" type="submit">儲存</button>
+                      <button class="btn btn-dark" name="update_order" type="submit">儲存</button>
                     </div>
                   </td>
                 </tr>
-              <?php endforeach; ?>
+              <?php endfor; ?>
+              <?php var_dump($getId);?>
             </tbody>
           </table>
           <!-- <div class="py-2 d-flex justify-content-end align-items-center">

@@ -36,54 +36,61 @@ if (!isset($_GET["search"])) {
 </head>
 
 <body>
-  <div class="container">
-    <div class="py-2">
-      <a class="btn btn-info" href="user_order.php">返回訂單列表</a>
-    </div>
-    <div class="py-2">
-      <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
-        <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="搜尋訂購人">
-          <div class="input-group-append">
-            <button class="input-group-text" type="submit">搜尋</button>
-          </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 row">
+        <?php
+        require("../side-nav.php") ?>
+      </div>
+      <div class="col-9">
+        <div class="py-2">
+          <a class="btn btn-dark" href="user_order.php">返回訂單列表</a>
         </div>
-      </form>
+        <div class="py-2">
+          <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
+            <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="輸入訂購人或訂單流水號搜尋">
+              <div class="input-group-append">
+                <button class="input-group-text" type="submit">搜尋</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="py-2">
+          <h2><?= $search ?> 的搜尋結果</h2>
+          <div class="py-2">共 <?= $userCount ?> 筆資料</div>
+        </div>
+        <?php if ($userCount > 0) : ?>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">訂單編號</th>
+                <th class="text-center">總金額</th>
+                <th class="text-center">會員</th>
+                <th class="text-center">訂單日期</th>
+                <th class="text-center">訂單狀態</th>
+                <th class="text-center">刪除整筆訂單</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              //把資料轉換成關聯式陣列
+              while ($row = $result->fetch_assoc()) : ?>
+                <tr>
+                  <td class="text-center"><?= $row["id"] ?></td>
+                  <td class="text-center"><?= $row["total"] ?></td>
+                  <td class="text-center"><?= $row["name"] ?></td>
+                  <td class="text-center"><?= $row["date"] ?></td>
+                  <td class="text-center"><?= $row["status"] ?></td>
+                  <td><a class="btn btn-danger" href="doDelete.php?id=<?= $row["id"] ?>">刪除</a></td>
+                </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
+        <?php else : ?>
+          沒有符合條件的結果
+        <?php endif; ?>
+      </div>
     </div>
-    <div class="py-2">
-      <h2><?= $search ?> 的搜尋結果</h2>
-      <div class="py-2">共 <?= $userCount ?> 筆資料</div>
-    </div>
-    <?php if ($userCount > 0) : ?>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th class="text-center">訂單編號</th>
-            <th class="text-center">總金額</th>
-            <th class="text-center">會員</th>
-            <th class="text-center">訂單日期</th>
-            <th class="text-center">訂單狀態</th>
-            <th class="text-center">刪除整筆訂單</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          //把資料轉換成關聯式陣列
-          while ($row = $result->fetch_assoc()) : ?>
-            <tr>
-              <td class="text-center"><?= $row["id"] ?></td>
-              <td class="text-center">總價</td>
-              <td class="text-center"><?= $row["name"] ?></td>
-              <td class="text-center"><?= $row["date"] ?></td>
-              <td class="text-center"><?= $row["status"] ?></td>
-              <td><a class="btn btn-danger" href="doDelete.php?id=<?= $row["id"] ?>">刪除</a></td>
-            </tr>
-          <?php endwhile; ?>
-        </tbody>
-      </table>
-    <?php else : ?>
-      沒有符合條件的結果
-    <?php endif; ?>
-  </div>
 </body>
 
 </html>

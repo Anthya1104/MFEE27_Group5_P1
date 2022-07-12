@@ -5,25 +5,10 @@ if(!isset($_POST["id"])){
 }
 require("db-connect.php");
 
-
-
 $id = $_POST["id"];
 $status = $_POST["status"];
 
-var_dump($id);
-// switch ($status) {
-//     case 1:
-//       $statusType = "尚未付款";
-//       break;
-//     case 2:
-//       $statusType = "已付款";
-//       break;
-//     case 3:
-//       $statusType = "訂單完成";
-//       break;
-//     default:
-//       $statusType = "尚未付款";
-//     }
+
 
 $sql="UPDATE user_order SET status = '$status' where id = '$id' ";
 
