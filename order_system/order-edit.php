@@ -64,7 +64,7 @@ switch ($order) {
 $perPage = 4;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.code 
+$sql = "SELECT user_order.*, member.name, marketing.Coupon_code 
 FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
@@ -205,7 +205,7 @@ $totalPage = ceil($userCount / $perPage);
                   <!-- <?php var_dump($rows);?> -->
                   </td>
                   <td class="text-center"><?= $rows[$i]["total"] ?></td>
-                  <td class="text-center"><?= $rows[$i]["code"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["Coupon_code"] ?></td>
                   <td class="text-center"><?= $rows[$i]["name"] ?></td>
                   <td class="text-center"><?= $rows[$i]["date"] ?></td>
                   <td>
