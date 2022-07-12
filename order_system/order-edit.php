@@ -64,10 +64,11 @@ switch ($order) {
 $perPage = 4;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.Coupon_code 
+$sql = "SELECT user_order.*, member.name, marketing.Coupon_code, status_category.status
 FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
+JOIN status_category ON user_order.status_id=status_category.id
 AND user_order.valid=1
 LIMIT $start, 4
 $sqlWhere
@@ -192,6 +193,7 @@ $totalPage = ceil($userCount / $perPage);
                 <th class="text-center">總金額</th>
                 <th class="text-center">優惠券</th>
                 <th class="text-center">訂購人</th>
+                <th class="text-center">訂單編號</th>
                 <th class="text-center">訂單日期</th>
                 <th class="text-center">訂單狀態</th>
                 <th class="text-center">操作</th>
@@ -207,6 +209,7 @@ $totalPage = ceil($userCount / $perPage);
                   <td class="text-center"><?= $rows[$i]["total"] ?></td>
                   <td class="text-center"><?= $rows[$i]["Coupon_code"] ?></td>
                   <td class="text-center"><?= $rows[$i]["name"] ?></td>
+                  <td class="text-center"><?= $rows[$i]["sn"] ?></td>
                   <td class="text-center"><?= $rows[$i]["date"] ?></td>
                   <td>
                     <select class="form-select" name="status">
@@ -231,7 +234,7 @@ $totalPage = ceil($userCount / $perPage);
         </form>
         <div class="py-2">
           <ul class="pagination">
-            <?php for ($i = 1; $i <= 3; $i++) : ?>
+            <?php for ($i = 1; $i <= 8; $i++) : ?>
               <li class="page-item <?php if ($page == $i) echo "active"; ?>"><a class="page-link" href="order-edit.php?page=<?= $i ?>"><?= $i ?></a></li>
             <?php endfor; ?>
           </ul>

@@ -7,7 +7,7 @@ if (!isset($_GET["search"])) {
 } else {
   $search = $_GET["search"];
 
-  $sql = "SELECT user_order.*, member.name, marketing.code 
+  $sql = "SELECT user_order.*, member.name, marketing.coupon_code 
     FROM user_order
     JOIN member ON user_order.user_id = member.id
     JOIN marketing ON user_order.coupon_id = marketing.id
@@ -76,7 +76,7 @@ if (!isset($_GET["search"])) {
               //把資料轉換成關聯式陣列
               while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                  <td class="text-center"><?= $row["id"] ?></td>
+                  <td class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["id"] ?></a></td>
                   <td class="text-center"><?= $row["total"] ?></td>
                   <td class="text-center"><?= $row["name"] ?></td>
                   <td class="text-center"><?= $row["date"] ?></td>

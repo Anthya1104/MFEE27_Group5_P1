@@ -51,13 +51,14 @@ WHERE order_id=$id
 $resultDate = $conn->query($sqlDate);
 $rowsDate = $resultDate->fetch_assoc();
 
-$sqlStatus = "SELECT user_order_detail.*, user_order.status
-FROM user_order_detail
-JOIN user_order ON user_order_detail.order_id = user_order.id
-WHERE order_id=$id
-";
-$resultStatus = $conn->query($sqlStatus);
-$rowsStatus = $resultStatus->fetch_assoc();
+// $sqlStatus = "SELECT user_order_detail.*, status_category.status
+// FROM user_order_detail
+// JOIN user_order ON user_order_detail.order_id = user_order.id
+// WHERE order_id=$id
+// ";
+// $resultStatus = $conn->query($sqlStatus);
+// $rowsStatus = $resultStatus->fetch_assoc();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -92,7 +93,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
           <div class="col-3">
             <p>訂購人:<?= $rowsUser['u_name']; ?></p>
             <p>訂單日期:<?= $rowsDate['date']; ?></p>
-            <p>狀態:<?= $rowsStatus['status']; ?></p>
+            <!-- <p>狀態:<?= $rowsStatus['status']; ?></p> -->
           </div>
           <div class="py-2">共<?= $userCount ?>筆資料</div>
           <table class="table table-bordered">

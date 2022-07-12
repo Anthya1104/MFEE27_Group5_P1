@@ -56,10 +56,10 @@ switch ($order) {
     $orderType = "date DESC";
     break;
   case 5:
-    $orderType = "total ASC";
+    $orderType = "status ASC";
     break;
   case 6:
-    $orderType = "total DESC";
+    $orderType = "status DESC";
     break;
     // default:
     //   $orderType = "id ASC";
@@ -68,11 +68,10 @@ switch ($order) {
 $perPage = 5;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.Coupon_code,status_category.status FROM user_order
+$sql = "SELECT user_order.*, member.name, marketing.Coupon_code FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
-JOIN status_category ON user_order.status_id=status_category.id
-WHERE user_order.valid=1
+WHERE user_order.id=2
 ORDER BY $orderType
 LIMIT $start, 5
 $sqlWhere
@@ -147,6 +146,11 @@ $totalPage = ceil($userCount / $perPage);
         <h3>訂單列表</h3>
         <div class="py-2 mt-4">
           <form class="form-inline" role="search" action="order-search.php" method="get" target="_blank">
+            <!-- <div class="input-group"> <input name="search" class="form-control" type="text" placeholder="輸入訂購人或訂單流水號搜尋">
+              <div class="input-group-append">
+                <button class="input-group-text btn-dark" type="submit">搜尋</button>
+              </div>
+            </div> -->
             <div class="input-group">
               <input type="text" class="form-control" name="search" placeholder="輸入訂購人或訂單流水號搜尋">
               <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -159,12 +163,12 @@ $totalPage = ceil($userCount / $perPage);
         <form>
           <select name="selectURL" onchange="location=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
             <option>請選擇排序</option>
-            <option value="user_order.php?page=<?= $page ?>&order=1">訂單流水號(小->大)</option>
-            <option value="user_order.php?page=<?= $page ?>&order=2">訂單流水號(大->小)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
             <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
             <option value="user_order.php?page=<?= $page ?>&order=4">訂單日期(新->舊)</option>
-            <option value="user_order.php?page=<?= $page ?>&order=5">訂單金額(小->大)</option>
-            <option value="user_order.php?page=<?= $page ?>&order=6">訂單金額(大->小)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=5">名字(新->舊)</option>
+            <option value="user_order.php?page=<?= $page ?>&order=6">名字(新->舊)</option>
           </select>
         </form>
       </div>
@@ -240,7 +244,7 @@ $totalPage = ceil($userCount / $perPage);
       </table>
       <div class="py-2">
         <ul class="pagination">
-          <?php for ($i = 1; $i <= 8; $i++) : ?>
+          <?php for ($i = 1; $i <= 5; $i++) : ?>
             <li class="page-item <?php if ($page == $i) echo "active"; ?>"><a class="page-link" href="user_order.php?page=<?= $i ?>"><?= $i ?></a></li>
           <?php endfor; ?>
         </ul>

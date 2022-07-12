@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_GET["id"])) {
   echo "沒有參數";
   exit;
@@ -23,11 +24,13 @@ if (isset($_GET["product_id"])) {
   $rowProduct = $resultProduct->fetch_assoc();
 }
 
-$sql = "SELECT user_order_detail.*, product.book_name AS p_name, product.price, product.book_img, user_order.user_id, user_order.date, member.name AS u_name
+$sql = "SELECT user_order_detail.*, product.book_name AS p_name, product.price, product.book_img, user_order.user_id, user_order.id AS o_id, user_order.date, member.name AS u_name, marketing.coupon_name AS c_name
 FROM user_order_detail
 JOIN member ON user_order_detail.user_id = member.id
 JOIN product ON user_order_detail.product_id = product.id
 JOIN user_order ON user_order_detail.order_id = user_order.id
+-- JOIN status_category ON user_order_detail.status_id=status_category.id
+JOIN marketing ON user_order_detail.coupon_id=marketing.id
 WHERE order_id=$id
 AND user_order_detail.valid=1
  ";
@@ -51,13 +54,21 @@ WHERE order_id=$id
 $resultDate = $conn->query($sqlDate);
 $rowsDate = $resultDate->fetch_assoc();
 
-$sqlStatus = "SELECT user_order_detail.*, user_order.status
+$sqlCoupon = "SELECT user_order_detail.*, marketing.coupon_name AS c_name`
 FROM user_order_detail
-JOIN user_order ON user_order_detail.order_id = user_order.id
-WHERE order_id=$id
+JOIN marketing ON user_order_detail.order_id = marketing.id
+WHERE coupon_id=$id
 ";
-$resultStatus = $conn->query($sqlStatus);
-$rowsStatus = $resultStatus->fetch_assoc();
+$resultCoupon = $conn->query($sqlCoupon);
+$rowsCoupon = $resultCoupon->fetch_assoc();
+
+// $sqlStatus = "SELECT user_order_detail.*, status_category.status, user_order.status
+// FROM user_order_detail
+// JOIN user_order ON user_order_detail.order_id = user_order.id
+// WHERE order_id=$id
+// ";
+// $resultStatus = $conn->query($sqlStatus);
+// $rowsStatus = $resultStatus->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -72,11 +83,12 @@ $rowsStatus = $resultStatus->fetch_assoc();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
   <style>
-    .book_img{
+    .book_img {
       width: 95px;
       display: block;
       margin: auto;
     }
+
     .thead-col {
       background-color: #102e2ef8;
     }
@@ -97,47 +109,53 @@ $rowsStatus = $resultStatus->fetch_assoc();
         </div>
         <?php if ($userCount > 0) :
           $rows = $result->fetch_all(MYSQLI_ASSOC);
-
         ?>
           <div class="col-3">
             <p>訂購人:<?= $rowsUser['u_name']; ?></p>
             <p>訂單日期:<?= $rowsDate['date']; ?></p>
-            <p>狀態:<?= $rowsStatus['status']; ?></p>
+            <p>優惠券:<?= $rowsCoupon['c_name']; ?></p>
+            <!-- <p>狀態:<?= $rowsStatus['status']; ?></p> -->
           </div>
           <div class="py-2">共<?= $userCount ?>本書</div>
-          <table class="table table-bordered">
-            <thead class="text-white thead-col">
-              <tr>
-                <th class="text-center">書名</th>
-                <th class="text-center">封面</th>
-                <th class="text-center">價格</th>
-                <th class="text-center">數量</th>
-                <th class="text-center">小計</th>
-                <th class="text-center">刪除訂單</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($rows as $row) : ?>
+          <form action="doDeleteDetail.php" method="POST">
+            <table class="table table-bordered">
+              <thead class="text-white thead-col">
                 <tr>
-                  <td class="text-center"><?= $row["p_name"] ?></td>
-                  <td>
-                    <img class="object-cover book_img" src="../product-create/image/<?= $row["book_img"] ?>" alt="">
-                  </td>
-                  <td class="text-center"><?= $row["price"] ?></td>
-                  <td class="text-center"><?= $row["amount"] ?></td>
-                  <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>
-                  <td><a class="btn btn-danger" href="doDeleteDetail.php?id=<?= $row["id"] ?>">刪除</a></td>
+                  <th class="text-center">書名</th>
+                  <th class="text-center">封面</th>
+                  <th class="text-center">價格</th>
+                  <th class="text-center">數量</th>
+                  <th class="text-center">小計</th>
+                  <th class="text-center">刪除訂單</th>
                 </tr>
-              <?php endforeach; ?>
-              <?php
-              $sum = 0;
-              for ($i = 0; $i < count($rows); $i++) {
-                $sum += $rows[$i]["price"];
-              }
-              ?>
-              <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <?php foreach ($rows as $row) : ?>
+                  <tr>
+                    <input name="id" type="hidden" value="<?= $row["o_id"] ?>">
+                    <td class="text-center"><?= $row["p_name"] ?></td>
+                    <td>
+                      <img class="object-cover book_img" src="../product-create/image/<?= $row["book_img"] ?>">
+                    </td>
+                    <td class="text-center"><?= $row["price"] ?></td>
+                    <td class="text-center"><?= $row["amount"] ?></td>
+                    <td class="text-center"><?= $row["amount"] * $row["price"] ?></td>
+                    <!-- <td><btn class="btn btn-danger" href="doDeleteDetail.php?id=<?= $row["id"] ?>">刪除</btn></td> -->
+                    <td>
+                      <button class="btn btn-danger" name="update_order" type="submit">刪除</button>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+                <?php
+                $sum = 0;
+                for ($i = 0; $i < count($rows); $i++) {
+                  $sum += $rows[$i]["price"];
+                }
+                ?>
+                <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
+              </tbody>
+            </table>
+          </form>
         <?php else : ?>
           沒有該筆訂單
         <?php endif; ?>

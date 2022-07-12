@@ -10,7 +10,8 @@ $status = $_POST["status"];
 
 
 
-$sql="UPDATE user_order SET status = '$status' where id = '$id' ";
+$sql="UPDATE user_order SET status = '$status' where id = '$id'
+";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -21,5 +22,5 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-header("location: user_order.php?id=".$id);
+header("location: order_detail.php?id=".$id);
 ?>
