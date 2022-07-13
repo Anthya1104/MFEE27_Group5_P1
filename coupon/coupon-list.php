@@ -93,7 +93,16 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
+    <!-- jquery連結 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jquery ui-->
+    <script src=/Applications/XAMPP/xamppfiles/htdocs/MFEE27_Group5_P1/coupon/jquery-ui.js></script>
     <style>
+    .title{
+        border-bottom: 5px solid #000;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
     .pagination>a {
         background-color: white;
         color: #000;
@@ -147,20 +156,42 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
             <div class="col-9">
                 <!-- <?php var_dump($rows);?> -->
                 <div class="py-2 mt-4">
+                    <div class="me-2 mt-2 ">
+                        <h2 class="title">優惠券</h2>    
+                    </div>
+
+                    <div class="me-2 mt-4">
+                        <h4>優惠券搜尋</h4>
+                    </div>
+                    <!-- 搜尋欄 -->
                     <form action="coupon-search.php" method="get">
                         <div class="input-group">
 
-                            <input type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱">
-                            <button type="submit" class="btn btn-dark"><i
+                            <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱" id="myInput">
+                            <button id="search" type="submit" class="btn btn-dark"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
-                </form>
+                <script>
+                    $(function() {
+                        var terms = [
+                            "會員日",
+                            "排行榜",
+                            "精選",
+                            "新書限時優惠",
+                        ];
+                        // 連結搜尋欄位
+                        $('#tags').autocomplete({
+                            source: terms
+                        });
 
-                <div class="py-2">
-                    <div class="me-2 mt-4">
-                        <h4>優惠券排序</h3>
-                    </div>
+
+                    });
+                </script>
+
+
+                    
+                    <!-- filter edit1 -->
                     <!-- <div class="btn-group ">
                         <a href="coupon-list.php?page=<?=$page?>&order=1" class="btn btn-warning">序號<i
                                 class="fa-solid fa-arrow-down-short-wide"></i></a>
@@ -180,24 +211,42 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                                 class="fa-solid fa-arrow-down-wide-short"></i></a>
 
                     </div> -->
-                </div>
                 <div class="py-2">
+                    <div class="me-2 mt-4">
+                        <h4>優惠券排序</h4>
+                    </div>
                     <form action="">
-                        <select select class="form-select form-select mb-3" aria-label=".form-select example"
-                            name="selectURL"
-                            onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
-                            <option value="coupon-list.php?page=<?= $page ?>&order=1">請選擇排序方式</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=1">優惠券序號(小->大)<i
-                                    class="fa-solid fa-arrow-down-wide-short"></i></option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=2">優惠券序號(大->小)<i
-                                    class="fa-solid fa-arrow-down-wide-short"></i></option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=3">優惠券開始日期(舊->新)</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=4">優惠券開始日期(新->舊)</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=5">優惠券截止日期(舊->新)</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=6">優惠券截止日期(新->舊)</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=7">優惠券折扣(小->大)</option>
-                            <option value="coupon-list.php?page=<?= $page ?>&order=8">優惠券折扣(大->小)</option>
+                        <select class="form-select form-select mb-3" aria-label=".form-select example"
+                            name="selectURL" 
+                            id="dropdown"
+                            onchange="select()"
+                            >
+                            <!-- onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value" -->
+                            <option style="display:none">請選擇排序方式</option>
+                            <option id="show2" value="coupon-list.php?page=<?= $page ?>&order=1" src="">優惠券序號(小->大)</option>
+                            <option id="show3" value="coupon-list.php?page=<?= $page ?>&order=2" src="">優惠券序號(大->小)</option>
+                            <option id="show4" value="coupon-list.php?page=<?= $page ?>&order=3" src="">優惠券開始日期(舊->新)</option>
+                            <option id="show5" value="coupon-list.php?page=<?= $page ?>&order=4" src="">優惠券開始日期(新->舊)</option>
+                            <option id="show6" value="coupon-list.php?page=<?= $page ?>&order=5" src="">優惠券截止日期(舊->新)</option>
+                            <option id="show7" value="coupon-list.php?page=<?= $page ?>&order=6" src="">優惠券截止日期(新->舊)</option>
+                            <option id="show8" value="coupon-list.php?page=<?= $page ?>&order=7" src="">優惠券折扣(小->大)</option>
+                            <option id="show9" value="coupon-list.php?page=<?= $page ?>&order=8" src="">優惠券折扣(大->小)</option>
+
+
                         </select>
+                        <script>
+                            function select(){
+                                var x = document.getElementById("dropdown").value;
+                                // document.getElementById("show2").value;
+                                // document.getElementById("show3").value;
+                                // document.getElementById("show4").value;
+                                // document.getElementById("show5").value;
+                                // document.getElementById("show6").value;
+                                // document.getElementById("show7").value;
+                                // document.getElementById("show8").value;
+                                // document.getElementById("show9").value;
+                            }
+                        </script>
                     </form>
                 </div>
 
@@ -237,6 +286,8 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                             <th>優惠券功能</th>
                         </tr>
                     </thead>
+                    <tbody id="myBody">
+                                            
                     <?php while($row = $result->fetch_assoc()): ?>
                     <tr></tr>
                     <td><?=$row["id"]?></td>
@@ -255,15 +306,40 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                     </tr>
                     <?php endwhile;?>
                     </tbody>
+
+       
                 </table>
+                <!-- jquery -->
+                <!-- <script>
+                      $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                // 抓 搜尋的關鍵詞
+                var value = $(this).val().toLowerCase();
+                // 抓Table裡頭有沒有符合
+                $("#myBody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+                </script> -->
                 <?php else:?>
                 目前沒有資料
                 <?php endif;?>
                 <div class="py-2 d-flex justify-content-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li>
+                            <!-- previous -->
+                            <!-- <li>
                                 <a class="page-link" href="coupon-list.php?page=<?=$previous?>&order=<?= $order ?>"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-left" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
+                                    </svg></a>
+                            </li> -->
+
+                            <li>
+                                <a class="page-link" href="coupon-list.php?page=1&order=<?= $order ?>"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-caret-left" viewBox="0 0 16 16">
                                         <path
@@ -275,11 +351,11 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
 
                             <li class="page-item">
                                 <?php 
-                                $previous = $_GET["page"] - 1;
-                                $next = $_GET["page"] + 1;
+                                // $previous = $_GET["page"] - 1;
+                                // $next = $_GET["page"] + 1;
                                 for ($i = 1; $i <= $totalPage; $i++) : ?>
                             </li>
-
+                                    
 
 
 
@@ -294,9 +370,18 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                             </li>
 
                             <?php endfor;?>
-
-                            <li>
+                            <!-- next -->
+                            <!-- <li>
                                 <a class="page-link" href="coupon-list.php?page=<?=$next?>&order=<?= $order ?>"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-right" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                                    </svg></a>
+                            </li> -->
+                            <!-- edit next -->
+                            <li>
+                                <a class="page-link" href="coupon-list.php?page=2&order=<?= $order ?>"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-caret-right" viewBox="0 0 16 16">
                                         <path
@@ -333,5 +418,6 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>
