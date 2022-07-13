@@ -21,7 +21,8 @@ if($userExist>0){//登入成功
     $user=[
         "id"=>$row["id"],
         "account"=>$row["account"],
-        "name"=>$row["name"]
+        "name"=>$row["name"],
+        "username"=>$row["user_name"]
     ];
     unset($_SESSION["error"]);//登入成功後清除錯誤訊息
     $_SESSION["user"]=$user;
