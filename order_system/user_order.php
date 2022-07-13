@@ -99,10 +99,10 @@ $totalPage = ceil($userCount / $perPage);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
   <style>
-    .title{
-        border-bottom: 5px solid #000;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
+    .title {
+      border-bottom: 5px solid #000;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
     }
 
     .thead-col {
@@ -149,7 +149,7 @@ $totalPage = ceil($userCount / $perPage);
       <div class="col-9">
         <div class="py-2 mt-4">
           <div class="me-2 mt-2 ">
-            <h2 class="title">閱閱出版社訂單列表</h2>
+            <h2 class="title">閱閱出版社&nbsp訂單列表</h2>
           </div>
           <h3>所有訂單列表</h3>
           <div class="py-2 mt-4">
@@ -162,11 +162,12 @@ $totalPage = ceil($userCount / $perPage);
           </form>
         </div>
         <div class="py-2 d-flex justify-content-end align-items-center">
-          <div class="me-2"><i class="fa-solid fa-filter"></i>排序依</div>
-          <form action="">
-            <select class="form-select form-select mb-3" aria-label=".form-select example" name="selectURL" id="dropdown" onchange="select()">
-              <!-- onchange="window.location.href=this.form.selectURL.options[this.form.selectURL.selectedIndex].value" -->
-              <option style="display:none">請選擇排序方式</option>
+          <div class="me-2 fs-6"><i class="fa-solid fa-filter"></i>排序依</div>
+          <form>
+            <select name="selectURL" onchange="location=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
+              <option>請選擇排序方式</option>
+              <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
+              <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
               <option value="user_order.php?page=<?= $page ?>&order=1">訂單流水號(小->大)</option>
               <option value="user_order.php?page=<?= $page ?>&order=2">訂單流水號(大->小)</option>
               <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
@@ -174,17 +175,13 @@ $totalPage = ceil($userCount / $perPage);
               <option value="user_order.php?page=<?= $page ?>&order=5">訂單金額(小->大)</option>
               <option value="user_order.php?page=<?= $page ?>&order=6">訂單金額(大->小)</option>
             </select>
-            <!-- <script>
-            function select() {
+          </form>
+          <script>
+            function selectValue() {
               var x = document.getElementById("dropdown").value;
+              document.getElementById("show").innerHTML = x;
             }
-          </script> -->
-            <script>
-              function selectValue() {
-                var x = document.getElementById("dropdown").value;
-                document.getElementById("show").innerHTML = x;
-              }
-            </script>
+          </script>
           </form>
         </div>
         <div class="py-2">
@@ -197,7 +194,7 @@ $totalPage = ceil($userCount / $perPage);
             <div class="row d-flex align-items-center">
               <div class="col-md-4">
                 <div class="form-group ">
-                  <label for="">依上架日搜尋</label>
+                  <label for="">依訂單日期搜尋</label>
                   <input type="date" name="from_date" class="form-control" value="<?php if (isset($_GET['from_date'])) {
                                                                                     echo $_GET['from_date'];
                                                                                   } ?>  ">

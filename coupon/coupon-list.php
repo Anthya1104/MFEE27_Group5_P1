@@ -157,7 +157,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                 <!-- <?php var_dump($rows);?> -->
                 <div class="py-2 mt-4">
                     <div class="me-2 mt-2 ">
-                        <h2 class="title">閱閱出版社優惠券</h2>    
+                        <h2 class="title">閱閱出版社&nbsp優惠券</h2>    
                     </div>
 
                     <div class="me-2 mt-4">
@@ -166,16 +166,11 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                     <!-- 搜尋欄 -->
                     <form action="coupon-search.php" method="get">
                         <div class="input-group">
-
                             <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱" id="myInput">
                             <button id="search" type="submit" class="btn btn-dark"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
-
-
-
-                    
                     <!-- filter edit1 -->
                     <!-- <div class="btn-group ">
                         <a href="coupon-list.php?page=<?=$page?>&order=1" class="btn btn-warning">序號<i

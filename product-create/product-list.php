@@ -134,7 +134,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             <div class="col-9">
                 <div class="py-2 mt-4">
                     <div class="me-2 mt-2 ">
-                        <h2 class="title">閱閱出版社商品管理</h2>
+                        <h2 class="title">閱閱出版社&nbsp商品管理</h2>
                     </div>
                     <table class="table table-bordered border-dark">
                         <div class="d-flex justify-content-start">
