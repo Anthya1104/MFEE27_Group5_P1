@@ -61,8 +61,8 @@ switch ($order) {
   case 6:
     $orderType = "total DESC";
     break;
-    // default:
-    //   $orderType = "id ASC";
+  default:
+    $orderType = "id ASC";
 }
 
 $perPage = 5;
@@ -169,9 +169,15 @@ $totalPage = ceil($userCount / $perPage);
             <option value="user_order.php?page=<?= $page ?>&order=5">訂單金額(小->大)</option>
             <option value="user_order.php?page=<?= $page ?>&order=6">訂單金額(大->小)</option>
           </select>
-          <script>
+          <!-- <script>
             function select() {
               var x = document.getElementById("dropdown").value;
+            }
+          </script> -->
+          <script>
+            function selectValue() {
+              var x = document.getElementById("dropdown").value;
+              document.getElementById("show").innerHTML = x;
             }
           </script>
         </form>
@@ -183,24 +189,21 @@ $totalPage = ceil($userCount / $perPage);
       </div>
 
       <div class="py-2">
-        <form action="">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <input type="date" class="form-control" name="start" required value="<?php
-                                                                                    if (isset($_GET["start"])) echo $_GET["start"];
-                                                                                    ?>">
-            </div>
-            ~
-            <div class="col-auto">
-              <input type="date" class="form-control" name="end" required value="<?php
-                                                                                  if (isset($_GET["end"])) echo $_GET["end"];
-                                                                                  ?>">
-            </div>
-            <div class="col-auto">
-              <button class="btn btn-dark" type="submit">查詢</button>
-            </div>
+        <!-- <form action=""> -->
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <input type="date" class="form-control" name="start" required value="<?php if (isset($_GET["start"])) echo $_GET["start"]; ?>">
           </div>
-        </form>
+          ~
+          <div class="col-auto">
+            <input type="date" class="form-control" name="end" required value="<?php if (isset($_GET["end"])) echo $_GET["end"]; ?>">
+          </div>
+          <div class="col-auto">
+            <!-- <button class="btn btn-dark" type="submit">查詢</button> -->
+            <a class="btn btn-dark" href="user_order.php?start=2022-07-02&end=2022-07-08">查詢</a>
+          </div>
+        </div>
+        <!-- </form> -->
       </div>
 
 

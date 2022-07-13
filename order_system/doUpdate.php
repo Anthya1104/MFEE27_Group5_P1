@@ -10,7 +10,7 @@ require("../db-connect.php");
 $id = $_POST["id"];
 $status = $_POST["status"];
 
-$sql="UPDATE user_order SET status_id = '$status' where id = '$id' ";
+$sql="UPDATE user_order SET status = '$status' where id = '$id' ";
 
 
 if ($conn->query($sql) === TRUE) {

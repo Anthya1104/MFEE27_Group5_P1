@@ -64,11 +64,10 @@ switch ($order) {
 $perPage = 5;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.Coupon_code, status_category.status
+$sql = "SELECT user_order.*, member.name, marketing.Coupon_code
 FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
-JOIN status_category ON user_order.status_id=status_category.id
 AND user_order.valid=1
 LIMIT $start, 5
 $sqlWhere
@@ -128,7 +127,7 @@ $totalPage = ceil($userCount / $perPage);
 </head>
 
 <body>
-  
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-3 row">
@@ -202,7 +201,7 @@ $totalPage = ceil($userCount / $perPage);
             </thead>
             <tbody>
               <!-- <?php $getId=[]; ?> -->
-              <?php for ($i=0; $i<count($rows); $i++) : ?>
+              <!-- <?php for ($i=0; $i<count($rows); $i++) : ?> -->
                 <tr>
                   <input name="id" type="hidden" value="<?= $rows[$i]["id"] ?>">
                   </td>
@@ -219,13 +218,14 @@ $totalPage = ceil($userCount / $perPage);
                     </select>
                   </td>
                   <td>
-                    <div class="py-2 d-flex justify-content-end align-items-center">
+                    <div class="py-2">
                       <button class="btn btn-dark" name="update_order" type="submit">儲存</button>
+                      <a class="btn btn-dark" type="submit" href="user_order.php">取消</a>
                     </div>
                   </td>
                 </tr>
-              <?php endfor; ?>
-              <?php var_dump($getId);?>
+              <!-- <?php endfor; ?> -->
+              <!-- <?php var_dump($getId);?> -->
             </tbody>
           </table>
           <!-- <div class="py-2 d-flex justify-content-end align-items-center">

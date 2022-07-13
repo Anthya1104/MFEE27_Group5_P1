@@ -156,7 +156,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   訂購人:<?= $rowsUser['u_name']; ?> 會員資料
                 </button>
               </h2>
@@ -170,11 +170,9 @@ $rowsStatus = $resultStatus->fetch_assoc();
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <strong>訂單日期:<?= $rowsDate['date']; ?></strong><br>
-              <!-- <p>優惠券名稱:<?= $rowsCoupon['c_name']; ?></p> -->
-              <strong>狀態:<?= $rowsStatus['status']; ?></strong>
-              <div class="py-2">共<?= $userCount ?>本書</div>
+            <div class="col-12">
+            <div class="text-end">訂單日期:<?= $rowsDate['date']; ?> &nbsp &nbsp  &nbsp 狀態:<?= $rowsStatus['status']; ?>&nbsp &nbsp &nbsp共<?= $userCount ?>本書</div>
+            <!-- <div class="py-2">共<?= $userCount ?>本書</div> -->
             </div>
             <form action="doDeleteDetail.php" method="POST">
               <table class="table table-bordered">
