@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_GET["page"])){
     $page = $_GET["page"];
 }else{
@@ -39,7 +40,7 @@ switch($order){
     break;
 
   default:
-  $orderType=" ASC";
+  $orderType="id ASC";
 }
 
 $sql="SELECT comment.*, product.book_img, product.book_name, member.user_name
