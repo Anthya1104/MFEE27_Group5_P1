@@ -26,6 +26,10 @@
                     <input type="text" class="form-control" name="account"></input>
                 </div>
                 <div class="mb-2">
+                    <label for="">暱稱</label>
+                    <input type="text" class="form-control" name="username"></input>
+                </div>
+                <div class="mb-2">
                     <label for="">password</label>
                     <input type="password" class="form-control" name="password"></input>
                 </div>

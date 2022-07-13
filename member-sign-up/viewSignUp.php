@@ -7,6 +7,7 @@ if(!isset($_POST['account'])){
 require("../db-connect.php");
 
 $account=$_POST["account"];
+$username=$_POST["username"];
 $password=$_POST["password"];
 $repassword=$_POST["repassword"];
 $now=date('Y-m-d H:i:s');
@@ -14,6 +15,10 @@ $now=date('Y-m-d H:i:s');
 //先檢查不須進資料庫的資料操作
 if(empty($account)){
     echo "沒有填account";
+    exit;
+}
+if(empty($username)){
+    echo "沒有填username";
     exit;
 }
 if(empty($password)){
@@ -43,7 +48,7 @@ if($userCount>0){
 }
 
 //把密碼直接輸入資料庫非常危險 資料可以直接被第三方抓出來 所以通常會先透過加密方式處理過再回傳 e.g.md5($password); sha()
-$sqlCreate="INSERT INTO member (account, password, register_time, valid) VALUES ('$account','$password', '$now', 1)";//valid要預設設定好 -> 判斷註冊後可以使用 也可以用在使用者等級認證上
+$sqlCreate="INSERT INTO member (account, user_name, password, register_time, valid) VALUES ('$account', '$username', '$password', '$now', 1)";//valid要預設設定好 -> 判斷註冊後可以使用 也可以用在使用者等級認證上
 
 
 if ($conn->query($sqlCreate) === TRUE) { //query(只query一次$sql語法) 單純判斷型別有沒有存在在資料庫裡

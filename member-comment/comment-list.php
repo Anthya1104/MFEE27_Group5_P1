@@ -16,7 +16,7 @@ $perPage = 4;
 $start = ($page - 1) * $perPage;
 
 //排列條件
-$order=isset($_GET["order"]) ? $_GET["order"]: 5;//條件判斷式
+$order=isset($_GET["order"]) ? $_GET["order"]: 6;//條件判斷式
 
 switch($order){
   case 1:
@@ -33,6 +33,9 @@ switch($order){
       break;
   case 5:
     $orderType="id ASC";
+    break;
+  case 6:
+    $orderType="id DESC";
     break;
 
   default:
@@ -81,6 +84,7 @@ $totalPage = ceil($countAll/$perPage);
     <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/Toast.css">
 
 
   </head>
@@ -110,6 +114,7 @@ $totalPage = ceil($countAll/$perPage);
     border-radius: 50% 0 50% 0;
     left:25px;
     top:5px;
+    box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 
   }
   .book-sn p{
@@ -156,16 +161,20 @@ $totalPage = ceil($countAll/$perPage);
                       <h1 class="comment-h1">Comments</h1>
 
                       <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                         <div class="py-2">第 <?=$startItem?> 到第 <?=$endItem?> 筆資料，共 <?= $countAll ?>筆資料</div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                           
                         <!-- sort bar  -->
                   <div class="py-2 d-flex justify-content-end">
                     <div class="me-2 d-flex align-self-center">排序</div>
                     <div class="btn-group">
+                      <a href="comment-list.php?page=<?=$page?>&order=5" class="btn btn-primary <?php if($order==5)echo "active"?>">留言日期<i class="fa-solid fa-arrow-down-short-wide "></i></a>
                       
+                      <a href="comment-list.php?page=<?=$page?>&order=6" class="btn btn-primary <?php if($order==6)echo "active"?>">留言日期<i class="fa-solid fa-arrow-down-wide-short fa-flip-vertical"></i></a>  
+
+
                       <a href="comment-list.php?page=<?=$page?>&order=1" class="btn btn-primary <?php if($order==1)echo "active"?>">書本<i class="fa-solid fa-arrow-down-short-wide "></i></a>
                       
                       <a href="comment-list.php?page=<?=$page?>&order=2" class="btn btn-primary <?php if($order==2)echo "active"?>">書本<i class="fa-solid fa-arrow-down-wide-short fa-flip-vertical"></i></a>
@@ -183,7 +192,7 @@ $totalPage = ceil($countAll/$perPage);
 
       <!-- 確認有正確撈出資料 迴圈才有意義 -->
       <?php if($pageCount > 0): ?>
-                        <div class="comment row mt-2 text-justify">
+                        <div class="comment row mt-2 d-flex text-justify">
                             
                             <?php foreach($rows as $row):?>
                             
@@ -205,7 +214,7 @@ $totalPage = ceil($countAll/$perPage);
                                 <br>
                                 <p><?=$row["content"]?></p>
                                 <div class="text-end">                        
-                                    <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info">刪除</a>
+                                    <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info btn-delete" onclick="toastClick()" >刪除</a>
                                     <a href="comment-edit.php?id=<?=$row["id"]?>" class="btn btn-info">編輯</a>
                                 </div>
 
@@ -243,8 +252,26 @@ $totalPage = ceil($countAll/$perPage);
         </div>
     </div>
 
+    
+
+<script src="../javascript/Toast.js"></script>
+<script>
+  // let btnDelete=document.querySelectorAll(".btn-delete");
+  
+  // console.log(btnDelete);
+
+  // btnDelete.addEventListener("click", function(){
+  //     // new Toast({message: 'Welcome to Toast.js!'});
+  //     // console("delete");
+  // })
+  function toastClick(){
+       new Toast({message: '刪除成功'});
+  }
+
+  
 
 
+</script>
 
 
   </body>
