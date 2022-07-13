@@ -95,8 +95,11 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
     <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
     <!-- jquery連結 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
     <!-- jquery ui-->
-    <script src="/MFEE27_Group5_P1/coupon/jquery-ui.js"></script>
+    <!-- <script src="/MFEE27_Group5_P1/coupon/jquery-ui.js"></script> -->
+    <link rel="stylesheet" href="./jquery-ui.min.css">
+    <script src="./jquery-ui.min.js"></script>
     <style>
     .title{
         border-bottom: 5px solid #000;
@@ -155,19 +158,19 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
             </div>
             <div class="col-9">
                 <!-- <?php var_dump($rows);?> -->
-                <div class="py-2 mt-4">
-                    <div class="me-2 mt-2 ">
-                        <h2 class="title">閱閱出版社優惠券</h2>    
+                <div class="py-2 mt-3">
+                    <div class="me-2">
+                        <h2 class="title">閱閱出版社&nbsp優惠券</h2>    
                     </div>
 
-                    <div class="me-2 mt-4">
-                        <h4>優惠券搜尋</h4>
+                    <div class="me-2 mt-2">
+                        <h4>行銷活動搜尋</h4>
                     </div>
                     <!-- 搜尋欄 -->
                     <form action="coupon-search.php" method="get">
                         <div class="input-group">
 
-                            <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱" id="myInput">
+                            <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱">
                             <button id="search" type="submit" class="btn btn-dark"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
@@ -197,7 +200,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
 
                     </div> -->
                 <div class="py-2">
-                    <div class="me-2 mt-4">
+                    <div class="me-2 mt-2">
                         <h4>優惠券排序</h4>
                     </div>
                     <form action="">
@@ -386,13 +389,27 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
     </script>
                     <!-- jquery -->
-        <!-- <script>
+        <script>
                     $(function() {
                         var terms = [
                             "會員日",
-                            "排行榜",
-                            "精選",
+                            "名人推薦",
                             "新書限時優惠",
+                            "年度排行榜",
+                            "本月排行榜",
+                            "本週排行榜",
+                            "年度精選",
+                            "本月精選",
+                            "本週精選",
+                            "商業理財精選",
+                            "文學小說精選",
+                            "社會科學精選",
+                            "生活風格精選",
+                            "藝術設計精選",
+                            "自然科普精選",
+                            "旅遊觀光精選",
+                            "醫療保健精選",
+                            "勵志成長精選",
                         ];
                         // 連結搜尋欄位
                         $('#tags').autocomplete({
@@ -401,7 +418,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
 
 
                     });
-        </script> -->
+        </script>
     <!-- <script>
                       $(document).ready(function() {
             $("#myInput").on("keyup", function() {

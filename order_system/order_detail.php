@@ -131,6 +131,12 @@ $rowsStatus = $resultStatus->fetch_assoc();
     .thead-col {
       background-color: #102e2ef8;
     }
+    .accordion-button{
+      color: white; !important;
+      background-color: #102e2ef8; !important;
+    }
+  
+
   </style>
 </head>
 
@@ -153,10 +159,12 @@ $rowsStatus = $resultStatus->fetch_assoc();
         <?php if ($userCount > 0) :
           $rows = $result->fetch_all(MYSQLI_ASSOC);
         ?>
+        
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              
+              <h2 class="accordion-header text-light" id="headingOne">
+                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   訂購人:<?= $rowsUser['u_name']; ?> 會員資料
                 </button>
               </h2>

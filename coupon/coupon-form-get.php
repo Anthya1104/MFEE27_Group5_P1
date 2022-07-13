@@ -21,7 +21,13 @@ $coupon_id=generateRandomString();
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <style>
+        .coupon-title{
+        border-bottom: 5px solid #000;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,7 +38,7 @@ $coupon_id=generateRandomString();
             </div>
             <div class="col-9">
                 <div class="mt-4">
-                    <h2>新增優惠券：</h2>
+                    <h2 class="coupon-title">新增優惠券</h2>
                 </div>
                 <form action="coupon-do-create.php" method="post">
                     <div class="mb-2">
