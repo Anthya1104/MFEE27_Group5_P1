@@ -227,22 +227,32 @@ $totalPage = ceil($userCount / $perPage);
         <div class="py-2">目前顯示第<?= $startItem ?>-<?= $endItem ?>筆, 共<?= $userCount ?>筆訂單</div>
         <?php if ($pageUserCount > 0) : ?>
         <?php endif; ?>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="location.href='user_order.php'">
-          <label class="form-check-label" for="inlineRadio1">所有訂單</label>
+        <!-- <p>篩選訂單狀態</p> -->
+        <div class="wrap d-flex ">
+        <div class="me-4">
+            <p>篩選訂單狀態</p>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="location.href='unpay-order.php'">
-          <label class="form-check-label" for="inlineRadio2">尚未付款</label>
+        <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="location.href='user_order.php'">
+              <label class="form-check-label" for="inlineRadio1">所有訂單</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="location.href='unpay-order.php'">
+              <label class="form-check-label" for="inlineRadio2">尚未付款</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick="location.href='payed-order.php'">
+              <label class="form-check-label" for="inlineRadio3">已付款</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" onclick="location.href='finish-order.php'">
+              <label class="form-check-label" for="inlineRadio3">訂單完成</label>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick="location.href='payed-order.php'">
-          <label class="form-check-label" for="inlineRadio3">已付款</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" onclick="location.href='finish_order.php'">
-          <label class="form-check-label" for="inlineRadio3">訂單完成</label>
-        </div>
+
+        
         <table class="table table-bordered">
           <thead>
             <tr class="thead-col text-white">
