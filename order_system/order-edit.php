@@ -186,52 +186,55 @@ $totalPage = ceil($userCount / $perPage);
         <div class="py-2">第<?= $startItem ?>-<?= $endItem ?>筆, 共<?= $userCount ?>筆資料</div>
         <?php if ($pageUserCount > 0) : ?>
         <?php endif; ?>
-        <form action="doUpdate.php" method="POST">
-          <table class="table table-bordered">
-            <thead class="thead-col text-white">
+        <table class="table table-bordered">
+          <thead class="thead-col text-white">
+            <tr>
+              <th class="text-center">訂單流水號</th>
+              <th class="text-center">總金額</th>
+              <th class="text-center">優惠券序號</th>
+              <th class="text-center">訂購人</th>
+              <th class="text-center">訂單編號</th>
+              <th class="text-center">訂單日期</th>
+              <th class="text-center">訂單狀態</th>
+              <th class="text-center">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <?php $getId = []; ?> -->
+            <?php for ($i = 0; $i < count($rows); $i++) : ?>
               <tr>
-                <th class="text-center">總金額</th>
-                <th class="text-center">優惠券序號</th>
-                <th class="text-center">訂購人</th>
-                <th class="text-center">訂單編號</th>
-                <th class="text-center">訂單日期</th>
-                <th class="text-center">訂單狀態</th>
-                <th class="text-center">操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <?php $getId=[]; ?> -->
-              <!-- <?php for ($i=0; $i<count($rows); $i++) : ?> -->
-                <tr>
-                  <input name="id" type="hidden" value="<?= $rows[$i]["id"] ?>">
-                  </td>
-                  <td class="text-center"><?= $rows[$i]["total"] ?></td>
-                  <td class="text-center"><?= $rows[$i]["Coupon_code"] ?></td>
-                  <td class="text-center"><?= $rows[$i]["name"] ?></td>
-                  <td class="text-center"><?= $rows[$i]["sn"] ?></td>
-                  <td class="text-center"><?= $rows[$i]["date"] ?></td>
-                  <td>
+                <td class="text-center"><?= $rows[$i]["id"] ?></td>
+                <td class="text-center"><?= $rows[$i]["total"] ?></td>
+                <td class="text-center"><?= $rows[$i]["Coupon_code"] ?></td>
+                <td class="text-center"><?= $rows[$i]["name"] ?></td>
+                <td class="text-center"><?= $rows[$i]["sn"] ?></td>
+                <td class="text-center"><?= $rows[$i]["date"] ?></td>
+                <td>
+                  <form action="doUpdate.php" method="POST">
+                    <input name="id" type="hidden" value="<?= $rows[$i]["id"] ?>">
                     <select class="form-select" name="status">
-                      <option value="尚未付款" <?php if($rows[$i]["status"]=="尚未付款") echo 'selected';?>>尚未付款</option>
-                      <option value="已付款" <?php if($rows[$i]["status"]=="已付款") echo 'selected';?>>已付款</option>
-                      <option value="訂單完成" <?php if($rows[$i]["status"]=="訂單完成") echo 'selected';?>>訂單完成</option>
+                      <option value="尚未付款" <?php if ($rows[$i]["status"] == "尚未付款") echo 'selected'; ?>>尚未付款</option>
+                      <option value="已付款" <?php if ($rows[$i]["status"] == "已付款") echo 'selected'; ?>>已付款</option>
+                      <option value="訂單完成" <?php if ($rows[$i]["status"] == "訂單完成") echo 'selected'; ?>>訂單完成</option>
                     </select>
-                  </td>
-                  <td>
-                    <div class="py-2">
-                      <button class="btn btn-dark" name="update_order" type="submit">儲存</button>
-                      <a class="btn btn-dark" type="submit" href="user_order.php">取消</a>
-                    </div>
-                  </td>
-                </tr>
-              <!-- <?php endfor; ?> -->
-              <!-- <?php var_dump($getId);?> -->
-            </tbody>
-          </table>
-          <!-- <div class="py-2 d-flex justify-content-end align-items-center">
+                <td>
+                  <div class="py-2">
+                    <button class="btn btn-dark" name="update_order" type="submit">儲存修改</button>
+                    <a class="btn btn-dark" type="submit" href="user_order.php">取消</a>
+                  </div>
+                </td>
+                </form>
+                </td>
+
+              </tr>
+            <?php endfor; ?>
+            <!-- <?php var_dump($getId); ?> -->
+          </tbody>
+        </table>
+        <!-- <div class="py-2 d-flex justify-content-end align-items-center">
             <button class="btn btn-info" name="update_order" type="submit">儲存</button>
           </div> -->
-        </form>
+
         <div class="py-2">
           <ul class="pagination">
             <?php for ($i = 1; $i <= 8; $i++) : ?>

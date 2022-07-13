@@ -110,7 +110,6 @@ $rowsDate = $resultDate->fetch_assoc();
             <tbody>
               <?php foreach ($rows as $row) : ?>
                 <tr>
-
                   <td class="text-center"><?= $row["p_name"] ?></td>
                   <td class="text-center"><?= $row["book_img"] ?></td>
                   <td class="text-center"><?= $row["price"] ?></td>
