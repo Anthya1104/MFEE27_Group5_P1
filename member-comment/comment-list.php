@@ -1,9 +1,14 @@
 <?php
+// session_start();
 if(isset($_GET["page"])){
     $page = $_GET["page"];
 }else{
     $page = 1;
 }
+
+// if(isset($_SESSION["deleteAlert"])){
+//   toastClick();
+// }
 
 require("../db-connect.php");
 
@@ -39,7 +44,7 @@ switch($order){
     break;
 
   default:
-  $orderType=" ASC";
+  $orderType="id ASC";
 }
 
 $sql="SELECT comment.*, product.book_img, product.book_name, member.user_name

@@ -54,7 +54,9 @@ $member_id=$_SESSION["user"]["id"];
                 <!-- $_SESSION["user"]["id"]->member->id   $id-> product->id -->
                 <?php //var_dump($_SESSION["user"]["id"].$id);?>
                     <div class="form-group">
-                        <h4>留下評論</h4>
+                      <h3><?=$_SESSION["user"]["username"]?></h3><br><br>
+                        <h4 class="py-2">留下評論</h4>
+                        
                         <textarea name="comments" id="comments" cols="30" rows="5" class="form-control mt-3" ></textarea>
                     </div>
                     <div class="form-group my-3">
