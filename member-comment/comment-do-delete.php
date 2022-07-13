@@ -1,4 +1,5 @@
 <?php
+// session_start();
 require("../db-connect.php");
 
 $id=$_GET["id"];
@@ -20,6 +21,10 @@ $sql="UPDATE comment SET comment_valid=0 WHERE id='$id'";
 
 if($conn ->query($sql) === TRUE){
     echo "刪除成功";
+    // $deleteAlert=[
+    //     1=>1
+    // ]
+    // $_SESSION["deleteAlert"]=$deleteAlert;
 }else{
     echo "刪除資料錯誤" . $conn ->error;
 }

@@ -1,10 +1,14 @@
 <?php
-
+// session_start();
 if(isset($_GET["page"])){
     $page = $_GET["page"];
 }else{
     $page = 1;
 }
+
+// if(isset($_SESSION["deleteAlert"])){
+//   toastClick();
+// }
 
 require("../db-connect.php");
 
