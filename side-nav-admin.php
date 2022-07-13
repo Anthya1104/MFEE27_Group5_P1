@@ -7,8 +7,7 @@
         </figure>
       <!-- <span class="" style="font-size:14px">缺eBook</span> -->
     </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto" style="margin-top:90px;">
+    <ul class="nav nav-pills flex-column mb-auto" style="margin-top:120px;">
     <li class="nav-item">
         <a href="/MFEE27_Group5_P1/admin-login/init.php" class="nav-link text-white" style="font-size:20px">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
