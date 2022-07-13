@@ -71,6 +71,9 @@ if($r["size"]){
   h3{
     text-align: center;
   }
+  .main-m{
+    margin-right: 12vw;
+  }
   </style>
 </head>
 
@@ -80,17 +83,17 @@ if($r["size"]){
       <?php require("../side-nav.php");?>
     </div>
     <div class="col-9">
-  <div class="body d-flex justify-content-center align-items-center">
+  <div class="body d-flex justify-content-center align-items-center main-m">
     <div role="main" class="main">
       <!-- <section class="main-bg-box">
         <div class="gap-40 main-bg main-factory"></div>
       </section> -->
       <div class="container-fluid d-flex justify-content-center align-items-center">
-        <div class="row col-5">
+        <div class="row col-7">
           <!-- <div class="col-12">
               <img class="img-fluid" src="assets/img/main.png" alt="">
             </div> -->
-          <div class="col-12 main-box">
+          <div class="col-12 main-box ">
             <form action="factory_index_end.php" method="post" enctype="multipart/form-data" id="form0">
             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
 
