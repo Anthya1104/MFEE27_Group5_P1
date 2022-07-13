@@ -61,9 +61,9 @@ include("db/mysqli_config.php");
       right: 55px;
       background-size: cover;
     }
-    .main-m{
+    /* .main-m{
       margin-left: 15vw;
-    }
+    } */
     h3{
       text-align: center;
     }
