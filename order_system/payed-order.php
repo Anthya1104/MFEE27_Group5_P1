@@ -143,7 +143,7 @@ $totalPage = ceil($userCount / $perPage);
             </div>
             <div class="col-9">
                 <p class="fs-2 fw-bold title">書商:閱閱出版社</p>
-                <h3>訂單完成列表</h3>
+                <h3>已付款訂單列表</h3>
                 <div class="py-2 mt-4">
                     <form class="form-inline" role="search" action="order-search.php" method="get">
                         <div class="input-group">
