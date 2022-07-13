@@ -1,6 +1,6 @@
 
   <div class="position-relative d-flex flex-column flex-shrink-0 p-3 text-white position-fixed vh-100" style="width:300px; background:#102e2ef8;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a href="/MFEE27_Group5_P1/admin-login/init.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <figure class="my-4 position-absolute" style="width:150px; left:45px; top:5px;" >
             <img src="/MFEE27_Group5_P1/2.png" alt=""  style="width:100%; height:100%; object-fit:cover;">
