@@ -68,7 +68,7 @@ switch ($order) {
 $perPage = 5;
 $start = ($page - 1) * $perPage;
 
-$sql = "SELECT user_order.*, member.name, marketing.Coupon_code FROM user_order
+$sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
 WHERE user_order.valid=1
@@ -187,23 +187,32 @@ $totalPage = ceil($userCount / $perPage);
           <a href="user_order.php" class="btn btn-info">回所有訂單列表</a>
         <?php endif; ?>
       </div>
-
       <div class="py-2">
-        <!-- <form action=""> -->
-        <div class="row align-items-center">
-          <div class="col-auto">
-            <input type="date" class="form-control" name="start" required value="<?php if (isset($_GET["start"])) echo $_GET["start"]; ?>">
+        <form action="do-date-select.php" method="GET">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label for="">依上架日搜尋</label>
+                <input type="date" name="from_date" class="form-control" value="<?php if (isset($_GET['from_date'])) {echo $_GET['from_date'];
+                } ?>  ">
+              </div>
+            </div> ~
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label for=""></label>
+                <input type="date" name="to_date" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-2 align-self-end ps-1">
+              <div class="form-group ">
+                <label for=""></label>
+                <!-- <button type="submit" class="btn btn-info">filter</button> -->
+                <button type="submit" class="btn btn-dark">查詢</button>
+              </div>
+            </div>
           </div>
-          ~
-          <div class="col-auto">
-            <input type="date" class="form-control" name="end" required value="<?php if (isset($_GET["end"])) echo $_GET["end"]; ?>">
-          </div>
-          <div class="col-auto">
-            <!-- <button class="btn btn-dark" type="submit">查詢</button> -->
-            <a class="btn btn-dark" href="user_order.php?start=2022-07-02&end=2022-07-08">查詢</a>
-          </div>
-        </div>
-        <!-- </form> -->
+        </form>
       </div>
 
 
@@ -253,7 +262,7 @@ $totalPage = ceil($userCount / $perPage);
               </td>
               <td class="text-center"><?= $row["total"] ?></td>
               <td class="text-center"><?= $row["Coupon_code"] ?></td>
-              <td class="text-center"><?= $row["name"] ?></td>
+              <td class="text-center"><?= $row["u_name"] ?></td>
               <th class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["sn"] ?></th>
               <td class="text-center"><?= $row["date"] ?></td>
               <td class="text-center"><?= $row["status"] ?></td>
