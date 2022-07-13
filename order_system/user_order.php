@@ -166,8 +166,6 @@ $totalPage = ceil($userCount / $perPage);
           <form>
             <select name="selectURL" onchange="location=this.form.selectURL.options[this.form.selectURL.selectedIndex].value">
               <option>請選擇排序方式</option>
-              <option value="user_order.php?page=<?= $page ?>&order=1">訂單編號(小->大)</option>
-              <option value="user_order.php?page=<?= $page ?>&order=2">訂單編號(大->小)</option>
               <option value="user_order.php?page=<?= $page ?>&order=1">訂單流水號(小->大)</option>
               <option value="user_order.php?page=<?= $page ?>&order=2">訂單流水號(大->小)</option>
               <option value="user_order.php?page=<?= $page ?>&order=3">訂單日期(舊->新)</option>
