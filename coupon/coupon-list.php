@@ -102,13 +102,13 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
     <script src="./jquery-ui.min.js"></script>
     <style>
     .title{
-        border-bottom: 5px solid #000;
+        border-bottom: 5px solid #102e2ef8;
         padding-bottom: 15px;
         margin-bottom: 15px;
     }
     .pagination>a {
         background-color: white;
-        color: #000;
+        color: #102e2ef8;
     }
 
     .pagination>a:focus,
@@ -116,13 +116,13 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
     .pagination>span:focus,
     .pagination>span:hover {
         color: white;
-        background-color: #000;
-        border-color: #000;
+        background-color: #102e2ef8;
+        border-color: #102e2ef8;
     }
 
     .pagination>li>a {
         background-color: white;
-        color: #000;
+        color: #102e2ef8;
     }
 
     .pagination>li>a:focus,
@@ -130,20 +130,33 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
     .pagination>li>span:focus,
     .pagination>li>span:hover {
         color: white;
-        background-color: #000;
-        border-color: #000;
+        background-color: #102e2ef8;
+        border-color: #102e2ef8;
     }
 
     .pagination>.active>a {
         color: white;
-        background-color: #000 !Important;
-        border: solid 1px #000 !Important;
+        background-color: #102e2ef8 !Important;
+        border: solid 1px #102e2ef8 !Important;
     }
 
     .pagination>.active>a:hover {
-        background-color: #000 !Important;
-        border: solid 1px #000;
+        background-color: #102e2ef8 !Important;
+        border: solid 1px #102e2ef8;
     }
+
+    .thead-col {
+      background-color: #102e2ef8;
+    }
+
+    .green {
+        background-color: #102e2ef8;
+    }
+
+    .text-green{
+        color: #102e2ef8;
+    }
+
     </style>
 
 
@@ -160,18 +173,20 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                 <!-- <?php var_dump($rows);?> -->
                 <div class="py-2 mt-3">
                     <div class="me-2">
-                        <h2 class="title">閱閱出版社&nbsp優惠券</h2>    
+                        <h2 class="title text-green"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
+</svg>&nbsp閱閱出版社&nbsp行銷管理</h2>    
                     </div>
 
                     <div class="me-2 mt-2">
-                        <h4>行銷活動搜尋</h4>
+                        <h4 class="text-green">行銷活動搜尋</h4>
                     </div>
                     <!-- 搜尋欄 -->
                     <form action="coupon-search.php" method="get">
                         <div class="input-group">
 
                             <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱">
-                            <button id="search" type="submit" class="btn btn-dark"><i
+                            <button id="search" type="submit" class="btn green text-white"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
@@ -263,7 +278,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                 <?php if($pageCouponCount>0):?>
                 <table class="table table-bordered">
                     <thead>
-                        <tr class="table-dark">
+                        <tr class="thead-col text-white">
                             <th>優惠券序號</th>
                             <th>優惠券名稱</th>
                             <th>優惠券代碼</th>
@@ -283,8 +298,10 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                     <td><?=$row["Coupon_sdte"]?></td>
                     <td><?=$row["Coupon_edte"]?></td>
                     <td><?=$row["Coupon_discount"]?></td>
-                    <td><a href="coupon-edit.php?id=<?=$row["id"]?>" class="btn btn-warning">修改 <i
-                                class="fa-solid fa-pen"></i></a>
+                    <td><a href="coupon-edit.php?id=<?=$row["id"]?>" class="btn btn-warning">修改&nbsp<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg></a>
                         <a class="btn btn-danger" href="coupon-dodelete.php?id=<?=$row["id"]?>">刪除 <i
                                 class="fa-solid fa-trash"></i></a>
 

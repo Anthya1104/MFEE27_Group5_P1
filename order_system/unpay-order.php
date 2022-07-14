@@ -146,7 +146,7 @@ $totalPage = ceil($userCount / $perPage);
             <div class="col-9">
                 <div class="py-2 mt-4">
                     <div class="me-2 mt-2 ">
-                        <h2 class="title">閱閱出版社&nbsp訂單列表</h2>
+                        <h2 class="title">閱閱出版社&nbsp訂單管理</h2>
                     </div>
                     <h3>尚未付款訂單列表</h3>
                     <div class="py-2 mt-4">
