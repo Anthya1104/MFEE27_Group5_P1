@@ -209,7 +209,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
               </div>
             </div>
           </div>
-          <!-- Area Chart Example-->
+          <!-- 折線圖-->
           <div class="card mb-3">
             <div class="card-header fs-4">
               <i class="fa fa-area-chart"></i>本月每日新增訂單數
@@ -218,7 +218,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
               <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
           </div>
-          <!-- Example Bar Chart Card-->
+          <!-- 長條圖-->
           <div class="row">
             <div class="col-sm-8">
               <div class="card mb-3">
