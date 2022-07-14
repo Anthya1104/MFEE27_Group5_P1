@@ -128,7 +128,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
   <link rel="stylesheet" href="./style.css">
@@ -138,7 +138,6 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 <body>
   <!-- partial:index.partial.html -->
   <div class="container-fluid">
-    
     <div class="row">
       <div class="col-3 row">
         <?php require("../side-nav.php"); ?>
@@ -226,45 +225,48 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-lg-8"> -->
         <!-- Example Bar Chart Card-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fa fa-bar-chart"></i>2022年電子書銷售量
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-5 mt-auto">
-                <canvas id="myBarChart" width="100" height="50"></canvas>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-bar-chart"></i>2022年電子書銷售量
               </div>
-              <div class="col-sm-4 text-center mt-auto">
-                <div class="h4 mb-0 text-danger">99835</div>
-                <div class="small text-muted">本年度銷售額</div>
-                <hr>
-                <div class="h4 mb-0 text-warning"><?= $orderCount ?>本</div>
-                <div class="small text-muted">本年度銷售量</div>
-                <hr>
-                <div class="h4 mb-0 text-success"><?= $orderCount / 6 ?>本</div>
-                <div class="small text-muted">每月平均銷售量</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5 mt-auto">
+                    <canvas id="myBarChart" width="100" height="50"></canvas>
+                  </div>
+                  <div class="col-sm-4 text-center mt-auto">
+                    <div class="h4 mb-0 text-danger">99835</div>
+                    <div class="small text-muted">本年度銷售額</div>
+                    <hr>
+                    <div class="h4 mb-0 text-warning"><?= $orderCount ?>本</div>
+                    <div class="small text-muted">本年度銷售量</div>
+                    <hr>
+                    <div class="h4 mb-0 text-success"><?= $orderCount / 6 ?>本</div>
+                    <div class="small text-muted">每月平均銷售量</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Example Pie Chart Card-->
-        <div class="card">
-          <div class="card-header">
-            <i class="fa fa-pie-chart"></i>年度受歡迎電子書類別
-          </div>
-          <div class="card-body">
-            <canvas id="myPieChart" width="100%" height="30"></canvas>
+          <!-- Example Pie Chart Card-->
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <i class="fa fa-pie-chart"></i>年度受歡迎電子書類別
+              </div>
+              <div class="card-body">
+                <canvas id="myPieChart" width="100" height="65"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
+
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js'></script>
