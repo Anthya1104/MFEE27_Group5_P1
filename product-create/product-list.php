@@ -121,6 +121,11 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
             background-color: #000 !Important;
             border: solid 1px #000;
         }
+
+        .thead-col {
+        background-color: #102e2ef8;
+        }
+
     </style>
 </head>
 
@@ -142,7 +147,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
                                 <form action="../product-search/search-productsn.php" method="get">
                                     <div class="input-group">
                                         <!-- <span class=" d-flex align-items-center me-3"></span> -->
-                                        <input type="text" class="form-control" name="search" placeholder="依產品編號搜尋">
+                                        <input type="text" class="form-control" name="search" placeholder="依商品編號搜尋">
                                         <button class="btn btn-dark"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                             </svg></button>
@@ -154,7 +159,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
                                 <form action="../product-search/search-product.php" method="get">
                                     <div class="input-group">
                                         <!-- <span class=" d-flex align-items-center me-3"></span> -->
-                                        <input type="text" class="form-control" name="search" placeholder="依產品名稱搜尋">
+                                        <input type="text" class="form-control" name="search" placeholder="依商品名稱搜尋">
                                         <button class="btn btn-dark"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                             </svg></button>
@@ -166,7 +171,7 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
                             <form action="../product-search/search-productCategory.php" method="get">
                                 <div class="input-group">
                                     <!-- <span class=" d-flex align-items-center me-3"></span> -->
-                                    <input type="text" class="form-control" name="search" placeholder="依產品類型搜尋">
+                                    <input type="text" class="form-control" name="search" placeholder="依商品類型搜尋">
                                     <button class="btn btn-dark"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                         </svg></button>
@@ -269,9 +274,9 @@ $totalPage = ceil($productCount / $perPage); //無條件進位
 
         <?php if ($pageProductCount > 0) : ?>
             <thead>
-                <tr class="table-dark text-center">
-                    <th>產品編號</th>
-                    <th>產品名稱</th>
+                <tr class=" text-center thead-col text-white">
+                    <th>商品編號</th>
+                    <th>商品名稱</th>
                     <th>封面圖</th>
                     <th>類型</th>
                     <th>定價</th>
