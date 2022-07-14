@@ -65,7 +65,7 @@ switch ($order) {
         //   $orderType = "id ASC";
 }
 
-$perPage = 5;
+$perPage = 10;
 $start = ($page - 1) * $perPage;
 
 $sql = "SELECT user_order.*, member.name, marketing.Coupon_code FROM user_order
@@ -73,7 +73,7 @@ JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
 WHERE status = 1
 ORDER BY $orderType
-LIMIT $start, 5
+LIMIT $start, 10
 $sqlWhere
 ";
 
@@ -268,7 +268,7 @@ $totalPage = ceil($userCount / $perPage);
                 </table>
                 <div class="py-2">
                     <ul class="pagination">
-                        <?php for ($i = 1; $i <= 3; $i++) : ?>
+                        <?php for ($i = 1; $i <= 2; $i++) : ?>
                             <li class="page-item <?php if ($page == $i) echo "active"; ?>"><a class="page-link" href="unpay-order.php?page=<?= $i ?>"><?= $i ?></a></li>
                         <?php endfor; ?>
                     </ul>

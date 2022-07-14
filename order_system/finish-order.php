@@ -65,7 +65,7 @@ switch ($order) {
         //   $orderType = "id ASC";
 }
 
-$perPage = 5;
+$perPage = 10;
 $start = ($page - 1) * $perPage;
 
 $sql = "SELECT user_order.*, member.name, marketing.Coupon_code FROM user_order
@@ -73,7 +73,7 @@ JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
 WHERE status = 3
 ORDER BY $orderType
-LIMIT $start, 5
+LIMIT $start, 10
 $sqlWhere
 ";
 
@@ -148,7 +148,7 @@ $totalPage = ceil($userCount / $perPage);
                     <div class="me-2 mt-2 ">
                         <h2 class="title">閱閱出版社&nbsp訂單管理</h2>
                     </div>
-                    <h3>已付款訂單列表</h3>
+                    <h3>訂單完成列表</h3>
                     <div class="py-2 mt-4">
                         <form class="form-inline" role="search" action="order-search.php" method="get">
                             <div class="input-group">

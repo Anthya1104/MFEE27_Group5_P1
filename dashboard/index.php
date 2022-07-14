@@ -17,47 +17,47 @@ $sqlAll = "SELECT * FROM user_order_detail WHERE valid=1";
 $resultAll = $conn->query($sqlAll);
 $orderCount = $resultAll->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE date BETWEEN '2022-01-01' AND '2022-01-31'";
-$resultAll = $conn->query($sqlAll);
-$JanCount = $resultAll->num_rows;
+$sqlJan = "SELECT * FROM user_order WHERE date BETWEEN '2022-01-01' AND '2022-01-31'";
+$resultJan = $conn->query($sqlJan);
+$JanCount = $resultJan->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE date BETWEEN '2022-02-01' AND '2022-02-28'";
-$resultAll = $conn->query($sqlAll);
-$FebCount = $resultAll->num_rows;
+$sqlFeb = "SELECT * FROM user_order WHERE date BETWEEN '2022-02-01 00:00:00' AND '2022-02-28 23:59:59'";
+$resultFeb = $conn->query($sqlFeb);
+$FebCount = $resultFeb->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE date BETWEEN '2022-03-01' AND '2022-03-31'";
-$resultAll = $conn->query($sqlAll);
-$MarCount = $resultAll->num_rows;
+$sqlMar = "SELECT * FROM user_order WHERE date BETWEEN '2022-03-01' AND '2022-03-31'";
+$resultMar = $conn->query($sqlMar);
+$MarCount = $resultMar->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE date BETWEEN '2022-04-01' AND '2022-04-30'";
-$resultAll = $conn->query($sqlAll);
-$AprCount = $resultAll->num_rows;
+$sqlApr = "SELECT * FROM user_order WHERE date BETWEEN '2022-04-01' AND '2022-04-30'";
+$resultApr = $conn->query($sqlApr);
+$AprCount = $resultApr->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE date BETWEEN '2022-05-01' AND '2022-05-31'";
-$resultAll = $conn->query($sqlAll);
-$MayCount = $resultAll->num_rows;
+$sqlMay = "SELECT * FROM user_order WHERE date BETWEEN '2022-05-01' AND '2022-05-31'";
+$resultMay = $conn->query($sqlMay);
+$MayCount = $resultMay->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN '2022-06-01' AND '2022-06-30'";
-$resultAll = $conn->query($sqlAll);
-$JunCount = $resultAll->num_rows;
+$sqlJun = "SELECT * FROM user_order WHERE  date BETWEEN '2022-06-01' AND '2022-06-30'";
+$resultJun = $conn->query($sqlJun);
+$JunCount = $resultJun->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN '2022-07-01 00:00:00' AND '2022-07-01 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$aCount = $resultAll->num_rows;
+$sqlA = "SELECT * FROM user_order WHERE  date BETWEEN '2022-07-01 00:00:00' AND '2022-07-01 23:59:59'";
+$resultA = $conn->query($sqlA);
+$aCount = $resultA->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE 
+$sqlB = "SELECT * FROM user_order WHERE 
 date BETWEEN'2022-07-02 00:00:00' AND '2022-07-02 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$bCount = $resultAll->num_rows;
+$resultB = $conn->query($sqlB);
+$bCount = $resultB->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE 
+$sqlC = "SELECT * FROM user_order WHERE 
 date BETWEEN'2022-07-03 00:00:00' AND '2022-07-03 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$cCount = $resultAll->num_rows;
+$resultC = $conn->query($sqlC);
+$cCount = $resultC->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-04 00:00:00' AND '2022-07-04 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$dCount = $resultAll->num_rows;
+$sqlD = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-04 00:00:00' AND '2022-07-04 23:59:59'";
+$resultD = $conn->query($sqlD);
+$dCount = $resultD->num_rows;
 
 $sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-05 00:00:00' AND '2022-07-05 23:59:59'";
 $resultAll = $conn->query($sqlAll);
@@ -95,16 +95,16 @@ $sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-13 00:00:00' AND
 $resultAll = $conn->query($sqlAll);
 $mCount = $resultAll->num_rows;
 
-$sql = "SELECT SUM(total) FROM user_order";
-$result = $conn->query($sql);
-$rows = $result->fetch_all(MYSQLI_ASSOC);
+
+$sqlSum = "SELECT SUM(total) FROM user_order";
+$result = $conn->query($sqlSum);
+$total = $result->fetch_all(MYSQLI_ASSOC);
 
 $sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
 JOIN member ON user_order.user_id = member.id
 JOIN marketing ON user_order.coupon_id = marketing.id
 WHERE user_order.valid=1
 ";
-
 
 $result = $conn->query($sql);
 $pageUserCount = $result->num_rows;
@@ -212,7 +212,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
           <!-- Area Chart Example-->
           <div class="card mb-3">
             <div class="card-header fs-4">
-              <i class="fa fa-area-chart"></i> 每日新增訂單數
+              <i class="fa fa-area-chart"></i>本月每日新增訂單數
             </div>
             <div class="card-body">
               <canvas id="myAreaChart" width="100%" height="30"></canvas>
@@ -223,7 +223,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             <div class="col-sm-8">
               <div class="card mb-3">
                 <div class="card-header fs-4">
-                  <i class="fa fa-bar-chart"></i>2022年電子書銷售量
+                  <i class="fa fa-bar-chart"></i>本年度電子書銷售量
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -231,7 +231,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
                       <canvas id="myBarChart" width="100" height="50"></canvas>
                     </div>
                     <div class="col-sm-4 text-center mt-auto">
-                      <div class="h4 mb-0 text-danger">99835</div>
+                      <div class="h4 mb-0 text-danger"><?= $total[0]["SUM(total)"]; ?></div>
                       <div class="small text-muted">本年度銷售額</div>
                       <hr>
                       <div class="h4 mb-0 text-warning"><?= $orderCount ?>本</div>
