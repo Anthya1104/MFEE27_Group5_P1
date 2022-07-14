@@ -3,7 +3,12 @@ session_start();
 require("../db-connect.php");
 
 $id=$_GET["id"];
-// $_SESSION["deleteAlert"]=0;
+$deleteAlert=[
+    "delete"=>0
+];
+$_SESSION["deleteAlert"]=array();
+
+
     
 
 
@@ -21,7 +26,11 @@ $sql="UPDATE comment SET comment_valid=0 WHERE id='$id'";
 
 if($conn ->query($sql) === TRUE){
     echo "刪除成功";
-    // $_SESSION["deleteAlert"]=1;
+    $deleteAlert["delete"]=1;
+    $_SESSION["deleteAlert"]=$deleteAlert;
+
+var_dump($_SESSION["deleteAlert"]);
+
 }else{
     echo "刪除資料錯誤" . $conn ->error;
 }

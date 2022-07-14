@@ -6,10 +6,6 @@ if(isset($_GET["page"])){
     $page = 1;
 }
 
-// if($_SESSION["deleteAlert"]==1){
-//   toastClick();
-//   $_SESSION["deleteAlert"]=0;
-// }
 
 require("../db-connect.php");
 
@@ -22,7 +18,7 @@ $perPage = 4;
 $start = ($page - 1) * $perPage;
 
 //排列條件
-$order=isset($_GET["order"]) ? $_GET["order"]: 6;//條件判斷式
+$order=isset($_GET["order"]) ? $_GET["order"]: 5;//條件判斷式
 
 switch($order){
   case 1:
@@ -220,7 +216,7 @@ $totalPage = ceil($countAll/$perPage);
                                 <br>
                                 <p><?=$row["content"]?></p>
                                 <div class="text-end">                        
-                                    <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info btn-delete" onclick="toastClick()" >刪除</a>
+                                    <a href="comment-do-delete.php?id=<?=$row["id"]?>" class="btn btn-info btn-delete" >刪除</a>
                                     <a href="comment-edit.php?id=<?=$row["id"]?>" class="btn btn-info">編輯</a>
                                 </div>
 
@@ -271,14 +267,26 @@ $totalPage = ceil($countAll/$perPage);
   //     // console("delete");
   // })
   function toastClick(){
-       new Toast({message: '刪除成功'});
+    new Toast({
+      message: '刪除成功',
+      type: 'danger'
+    });
   }
 
   
 
 
 </script>
+<?php
+// var_dump($_SESSION["deleteAlert"]);
+if(isset($_SESSION["deleteAlert"])){
+  if($_SESSION["deleteAlert"]["delete"]=1){
+  $_SESSION["deleteAlert"]=0;
+  echo '<script>', 'toastClick();', '</script>';
 
+}
+}
+?>
 
   </body>
 </html>
