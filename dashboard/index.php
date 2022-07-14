@@ -75,15 +75,15 @@ $sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-08 00:00:00' AND
 $resultAll = $conn->query($sqlAll);
 $hCount = $resultAll->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-09 00:00:00' AND '2022-07-09 23:59:59'";
+$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-09 00:00:00' AND '2022-07-09 23:59:59'AND user_order.valid=1";
 $resultAll = $conn->query($sqlAll);
 $iCount = $resultAll->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-10 00:00:00' AND '2022-07-10 23:59:59'";
+$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-10 00:00:00' AND '2022-07-10 23:59:59'AND user_order.valid=1";
 $resultAll = $conn->query($sqlAll);
 $jCount = $resultAll->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-11 00:00:00' AND '2022-07-11 23:59:59'";
+$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-11 00:00:00' AND '2022-07-11 23:59:59' AND user_order.valid=1";
 $resultAll = $conn->query($sqlAll);
 $kCount = $resultAll->num_rows;
 
