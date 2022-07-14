@@ -272,6 +272,7 @@ $totalPage = ceil($countAll/$perPage);
       type: 'danger'
     });
   }
+  
 
 </script>
 <?php
