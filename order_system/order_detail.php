@@ -108,6 +108,14 @@ WHERE order_id=$id";
 
 $resultStatus = $conn->query($sqlStatus);
 $rowsStatus = $resultStatus->fetch_assoc();
+
+$sqlCoupon = "SELECT marketing.Coupon_discount
+FROM user_order_detail
+JOIN marketing ON user_order_detail.coupon_id=marketing.id
+WHERE order_id=$id";
+
+$resultCoupon = $conn->query($sqlCoupon);
+$rowsCoupon = $resultCoupon->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -217,7 +225,10 @@ $rowsStatus = $resultStatus->fetch_assoc();
                     $sum += $rows[$i]["price"];
                   }
                   ?>
-                  <td class="text-end fs-2" colspan="5">總金額:<?= $sum; ?></td>
+                  <td colspan="5">
+                    <p class="text-end fs-2">總金額:<?= $sum; ?></p>
+                    <p class="text-end text-danger fs-2">優惠金額:<?= $sum-$rowsCoupon['Coupon_discount']; ?></p>
+                  </td>
                 </tbody>
               </table>
             </form>
