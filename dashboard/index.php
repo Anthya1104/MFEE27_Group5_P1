@@ -128,7 +128,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
   <link rel="stylesheet" href="./style.css">
@@ -138,6 +138,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 <body>
   <!-- partial:index.partial.html -->
   <div class="container-fluid">
+    
     <div class="row">
       <div class="col-3 row">
         <?php require("../side-nav.php"); ?>
@@ -271,7 +272,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js'></script>
-  <script src="./script.js"></script>
+  <!-- <script src="./script.js"></script> -->
   <script>
     // Chart.js scripts
     // -- Set new default font family and font color to mimic Bootstrap's default styling
