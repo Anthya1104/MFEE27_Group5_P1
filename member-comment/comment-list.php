@@ -203,6 +203,7 @@ $totalPage = ceil($countAll/$perPage);
                               <p class="mt-3"><?=$row["id"]?></p>  
                               </div>
                                 <figure class="p-img" >
+                                  
                                     <img src="../product-create/image/<?=$row["book_img"]?>" alt="bookcover<?=$row["product_id"]?>" class="object-cover">
                                 </figure>
 
