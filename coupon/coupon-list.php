@@ -186,7 +186,7 @@ $totalPage=ceil($couponCount / $perPage);//無條件進位
                         <div class="input-group">
 
                             <input id="tags" type="text" class="form-control" name="search" placeholder="請輸入優惠券名稱">
-                            <button id="search" type="submit" class="btn green text-white"><i
+                            <button id="search" type="submit" class="btn btn-dark"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
