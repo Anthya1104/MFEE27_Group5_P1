@@ -1,6 +1,10 @@
 <?php
 require("../db-connect.php");
 
+$sqlAll = "SELECT * FROM user_order WHERE valid=1 AND upload_time BETWEEN '$from_date' AND '$to_date'";
+$resultAll = $conn->query($sqlAll);
+$userCount = $resultAll->num_rows;
+
 if(isset($_GET['from_date']) && isset($_GET['to_date'])){
     $from_date = $_GET['from_date'];
     $to_date = $_GET['to_date'];

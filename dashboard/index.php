@@ -87,7 +87,7 @@ $sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-11 00:00:00' AND
 $resultAll = $conn->query($sqlAll);
 $kCount = $resultAll->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-12 00:00:00' AND '2022-07-12 23:59:59'";
+$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-12 00:00:00' AND '2022-07-12 23:59:59' AND user_order.valid=1";
 $resultAll = $conn->query($sqlAll);
 $lCount = $resultAll->num_rows;
 

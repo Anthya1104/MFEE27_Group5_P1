@@ -9,7 +9,7 @@ if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
   $sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
     JOIN member ON user_order.user_id = member.id
     JOIN marketing ON user_order.coupon_id = marketing.id
-    WHERE date BETWEEN '$from_date' AND '$to_date' ";
+    WHERE date BETWEEN '$from_date' AND '$to_date' AND user_order.valid=1";
 
   $result = $conn->query($sql);
   $dateCount = $result->num_rows;
@@ -59,6 +59,7 @@ if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
                 <th class="text-center">訂單編號</th>
                 <th class="text-center">訂單日期</th>
                 <th class="text-center">訂單狀態</th>
+                <th class="text-center">操作</th>
               </tr>
             </thead>
             <tbody>
@@ -72,6 +73,10 @@ if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
                   <th class="text-center"><a href="order_detail.php?id=<?= $row["id"] ?>"><?= $row["sn"] ?></th>
                   <td class="text-center"><?= $row["date"] ?></td>
                   <td class="text-center"><?= $row["status"] ?></td>
+                  <td>
+                    <a class="btn btn-success" href="order-edit.php?id=<?= $row["id"] ?>"><i class="fa-solid fa-pen"></i>更新狀態</a>
+                    <a class="btn btn-danger" href="doDateDelete.php?id=<?= $row["id"] ?>"><i class="fa-regular fa-trash-can"></i>刪除</a>
+                  </td>
                 <?php endforeach; ?>
                 </tr>
             </tbody>
