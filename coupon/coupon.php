@@ -26,6 +26,11 @@ $couponCount=$result->num_rows;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
+    <style>
+        .thead-col {
+        background-color: #102e2ef8;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,7 +40,7 @@ $couponCount=$result->num_rows;
                 <?php require("../side-nav.php"); ?>
             </div>
             <div class="col-9">
-                <div class="py-4">
+                <!-- <div class="py-4">
                     <a href="coupon-list.php" class="btn btn-warning py-2">瀏覽所有優惠券 <svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -43,13 +48,13 @@ $couponCount=$result->num_rows;
                             <path
                                 d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                         </svg></a>
-                </div>
+                </div> -->
                 <?php if($couponCount>0):
         $row = $result->fetch_assoc();
         ?>
-                <h3 class=py-2>優惠券</h3>
+                <h3 class="pt-4 pb-2">優惠券</h3>
                 <table class="table">
-                    <tr class="table-dark">
+                    <tr class="thead-col text-white">
                         <th>優惠券序號</th>
                         <td><?=$row["id"]?></td>
                     </tr>
@@ -75,10 +80,22 @@ $couponCount=$result->num_rows;
                         <td><?=$row["Coupon_discount"]?></td>
                     </tr>
                 </table>
-                <div class="py-2">
-                    <a href="coupon-edit.php?id=<?=$row["id"]?>" class="btn btn-warning">修改&nbsp<i
-                            class="fa-solid fa-pen"></i></a>
+                <div class="wrap d-flex justify-content-between">
+                    <div class="py-2">
+                        <a href="coupon-edit.php?id=<?=$row["id"]?>" class="btn btn-warning">修改&nbsp<i
+                                class="fa-solid fa-pen"></i></a>
+                    </div>
+                    <div class="py-2">
+                                <a href="coupon-list.php" class="btn btn-warning">瀏覽所有優惠券 <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                        <path
+                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                    </svg></a>
+                    </div>
                 </div>
+
                 <?php else:?>
                 沒有該優惠券
                 <?php endif;?>
