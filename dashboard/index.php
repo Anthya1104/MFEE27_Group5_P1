@@ -17,6 +17,25 @@ $sqlAll = "SELECT * FROM user_order_detail WHERE valid=1";
 $resultAll = $conn->query($sqlAll);
 $orderCount = $resultAll->num_rows;
 
+$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-13 00:00:00' AND '2022-07-13 23:59:59'";
+$resultAll = $conn->query($sqlAll);
+$mCount = $resultAll->num_rows;
+
+
+$sqlSum = "SELECT SUM(total) FROM user_order";
+$result = $conn->query($sqlSum);
+$total = $result->fetch_all(MYSQLI_ASSOC);
+
+$sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
+JOIN member ON user_order.user_id = member.id
+JOIN marketing ON user_order.coupon_id = marketing.id
+WHERE user_order.valid=1
+";
+
+$result = $conn->query($sql);
+$pageUserCount = $result->num_rows;
+$rows = $result->fetch_all(MYSQLI_ASSOC);
+
 $sqlJan = "SELECT * FROM user_order WHERE date BETWEEN '2022-01-01' AND '2022-01-31'";
 $resultJan = $conn->query($sqlJan);
 $JanCount = $resultJan->num_rows;
@@ -59,56 +78,37 @@ $sqlD = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-04 00:00:00' AND '
 $resultD = $conn->query($sqlD);
 $dCount = $resultD->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-05 00:00:00' AND '2022-07-05 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$eCount = $resultAll->num_rows;
+$sqlE = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-05 00:00:00' AND '2022-07-05 23:59:59'";
+$resultE = $conn->query($sqlE);
+$eCount = $resultE->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-06 00:00:00' AND '2022-07-06 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$fCount = $resultAll->num_rows;
+$sqlF = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-06 00:00:00' AND '2022-07-06 23:59:59'";
+$resultF = $conn->query($sqlF);
+$fCount = $resultF->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-07 00:00:00' AND '2022-07-07 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$gCount = $resultAll->num_rows;
+$sqlG = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-07 00:00:00' AND '2022-07-07 23:59:59'";
+$resultG = $conn->query($sqlG);
+$gCount = $resultG->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-08 00:00:00' AND '2022-07-08 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$hCount = $resultAll->num_rows;
+$sqlH = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-08 00:00:00' AND '2022-07-08 23:59:59'";
+$resultH = $conn->query($sqlH);
+$hCount = $resultH->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-09 00:00:00' AND '2022-07-09 23:59:59'AND user_order.valid=1";
-$resultAll = $conn->query($sqlAll);
-$iCount = $resultAll->num_rows;
+$sqlI = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-09 00:00:00' AND '2022-07-09 23:59:59'AND user_order.valid=1";
+$resultI = $conn->query($sqlI);
+$iCount = $resultI->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-10 00:00:00' AND '2022-07-10 23:59:59'AND user_order.valid=1";
-$resultAll = $conn->query($sqlAll);
-$jCount = $resultAll->num_rows;
+$sqlJ = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-10 00:00:00' AND '2022-07-10 23:59:59'AND user_order.valid=1";
+$resultJ = $conn->query($sqlJ);
+$jCount = $resultJ->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-11 00:00:00' AND '2022-07-11 23:59:59' AND user_order.valid=1";
-$resultAll = $conn->query($sqlAll);
-$kCount = $resultAll->num_rows;
+$sqlK = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-11 00:00:00' AND '2022-07-11 23:59:59' AND user_order.valid=1";
+$resultK = $conn->query($sqlK);
+$kCount = $resultK->num_rows;
 
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-12 00:00:00' AND '2022-07-12 23:59:59' AND user_order.valid=1";
-$resultAll = $conn->query($sqlAll);
-$lCount = $resultAll->num_rows;
-
-$sqlAll = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-13 00:00:00' AND '2022-07-13 23:59:59'";
-$resultAll = $conn->query($sqlAll);
-$mCount = $resultAll->num_rows;
-
-
-$sqlSum = "SELECT SUM(total) FROM user_order";
-$result = $conn->query($sqlSum);
-$total = $result->fetch_all(MYSQLI_ASSOC);
-
-$sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
-JOIN member ON user_order.user_id = member.id
-JOIN marketing ON user_order.coupon_id = marketing.id
-WHERE user_order.valid=1
-";
-
-$result = $conn->query($sql);
-$pageUserCount = $result->num_rows;
-$rows = $result->fetch_all(MYSQLI_ASSOC);
+$sqlL = "SELECT * FROM user_order WHERE  date BETWEEN'2022-07-12 00:00:00' AND '2022-07-12 23:59:59' AND user_order.valid=1";
+$resultL = $conn->query($sqlL);
+$lCount = $resultL->num_rows;
 ?>
 
 <!DOCTYPE html>
