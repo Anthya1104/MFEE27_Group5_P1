@@ -53,7 +53,7 @@ $productCount = $result->num_rows;
               <td> <input name="id" type="text" readonly  class="form-control-plaintext" value="<?=$row["id"]?>"></td>
             </tr> -->
             <tr>
-              <th>產品名稱</th>
+              <th>商品名稱</th>
               <td> <input type="text"  name="book_name" class="form-control" value="<?=$row["book_name"]?>"></td>
             </tr>
             <tr>
@@ -142,7 +142,7 @@ $productCount = $result->num_rows;
         </div>
         </form>
         <?php else: ?>
-          沒有該產品
+          沒有該商品
         <?php endif; ?>
         </div>
         </div>
