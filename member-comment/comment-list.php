@@ -273,9 +273,6 @@ $totalPage = ceil($countAll/$perPage);
     });
   }
 
-  
-
-
 </script>
 <?php
 // var_dump($_SESSION["deleteAlert"]);
