@@ -179,7 +179,7 @@ $rowsStatus = $resultStatus->fetch_assoc();
               </div>
             </div>
             <div class="col-12">
-            <div class="text-end">訂單日期:<?= $rowsDate['date']; ?> &nbsp &nbsp  &nbsp 狀態:<?= $rowsStatus['status']; ?>&nbsp &nbsp &nbsp共<?= $userCount ?>本書</div>
+            <div class="text-end mt-5">訂單日期:<?= $rowsDate['date']; ?> &nbsp &nbsp  &nbsp 狀態:<?= $rowsStatus['status']; ?>&nbsp &nbsp &nbsp共<?= $userCount ?>本書</div>
             <!-- <div class="py-2">共<?= $userCount ?>本書</div> -->
             </div>
             <form action="doDeleteDetail.php" method="POST">

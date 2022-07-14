@@ -70,7 +70,7 @@ $start = ($page - 1) * $perPage;
 
 $sql = "SELECT user_order.*, member.name AS u_name , marketing.Coupon_code FROM user_order
 JOIN member ON user_order.user_id = member.id
-JOIN marketing ON user_order.coupon_id = marketing.id
+LEFT JOIN marketing ON user_order.coupon_id = marketing.id
 WHERE user_order.valid=1
 ORDER BY $orderType
 LIMIT $start, 10
