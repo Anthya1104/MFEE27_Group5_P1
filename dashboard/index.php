@@ -121,7 +121,6 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 
 <head>
   <meta charset="UTF-8">
-  <? var_dump($MarCount); ?>
   <title>閱閱出版社銷售概覽</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -143,16 +142,15 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         <?php require("../side-nav.php"); ?>
       </div>
       <div class="col-9">
-        <!-- <div class="py-2 mt-4"> -->
+        <div class="py-2 mt-4">
         <div class="me-2 mt-2 ">
-          <h2 class="title">閱閱出版社&nbsp數據儀錶板</h2>
+          <h2 class="title">閱閱出版社&nbsp數據面板</h2>
         </div>
-        <h3>所有數據概覽</h3>
-
+          <h3>所有數據概覽</h3>
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card text-white bg-primary o-hidden h-100 fs-5">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fa fa-fw fa-comments"></i>
@@ -168,7 +166,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             </div>
           </div>
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card text-white bg-warning o-hidden h-100 fs-5">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fa fa-fw fa-list"></i>
@@ -184,7 +182,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             </div>
           </div>
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
+            <div class="card text-white bg-success o-hidden h-100 fs-5">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fa fa-fw fa-shopping-cart"></i>
@@ -200,7 +198,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             </div>
           </div>
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card text-white bg-danger o-hidden h-100 fs-5">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fa fa-fw fa-support"></i>
@@ -218,7 +216,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         </div>
         <!-- Area Chart Example-->
         <div class="card mb-3">
-          <div class="card-header">
+          <div class="card-header fs-4">
             <i class="fa fa-area-chart"></i> 每日新增訂單數
           </div>
           <div class="card-body">
@@ -229,7 +227,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         <div class="row">
           <div class="col-sm-8">
             <div class="card mb-3">
-              <div class="card-header">
+              <div class="card-header fs-4">
                 <i class="fa fa-bar-chart"></i>2022年電子書銷售量
               </div>
               <div class="card-body">
@@ -254,7 +252,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
           <!-- Example Pie Chart Card-->
           <div class="col-sm-4">
             <div class="card">
-              <div class="card-header">
+              <div class="card-header fs-4">
                 <i class="fa fa-pie-chart"></i>年度受歡迎電子書類別
               </div>
               <div class="card-body">
