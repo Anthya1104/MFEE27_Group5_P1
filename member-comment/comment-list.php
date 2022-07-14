@@ -277,9 +277,9 @@ $totalPage = ceil($countAll/$perPage);
 </script>
 <?php
 // var_dump($_SESSION["deleteAlert"]);
-if(isset($_SESSION["deleteAlert"])){
+if(isset($_SESSION["deleteAlert"]["delete"])){
   if($_SESSION["deleteAlert"]["delete"]=1){
-  $_SESSION["deleteAlert"]=0;
+  $_SESSION["deleteAlert"]["delete"]=0;
   echo '<script>', 'toastClick();', '</script>';
 
 }
