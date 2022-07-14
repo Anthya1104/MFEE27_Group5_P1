@@ -116,7 +116,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 
 <head>
   <meta charset="UTF-8">
-  <title>閱閱出版社銷售概覽</title>
+  <title>Dashboard</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
