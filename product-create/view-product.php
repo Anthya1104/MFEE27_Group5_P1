@@ -83,11 +83,11 @@ $productCount=$result->num_rows;
 </thead> -->
 <tbody >
 <tr>
-<th class="col-2">產品編號</th>
+<th class="col-2">商品編號</th>
 <td> <?=$row["book_sn"]?> </td>
 </tr>
 <tr>
-<th scope="row">產品名稱</th>
+<th scope="row">商品名稱</th>
 <td> <?=$row["book_name"]?> </td>
 </tr>
 <tr>

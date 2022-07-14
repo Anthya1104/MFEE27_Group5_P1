@@ -42,6 +42,9 @@ JOIN category ON product.book_category = category.category_id WHERE `status` = $
         .btn-info {
             background: #18d3e0;
         }
+        .thead-col {
+        background-color: #102e2ef8;
+        }
     </style>
   </head>
   <body>
@@ -63,9 +66,9 @@ JOIN category ON product.book_category = category.category_id WHERE `status` = $
         <?php if($productCount>0): ?>
           <table class="table table-bordered border-dark">
           <thead>
-                <tr class="table-dark text-center">
-                    <th>產品編號</th>
-                    <th>產品名稱</th>
+                <tr class="text-center thead-col text-white">
+                    <th>商品編號</th>
+                    <th>商品名稱</th>
                     <!-- <th>封面圖</th> -->
                     <th>類型</th>
                     <th>定價</th>

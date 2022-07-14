@@ -27,7 +27,14 @@ if(empty($content)){
     }
 
     $conn ->close();
-    header("location: input-comment.php");//新增完資料後回到creat-user.php
+    if($book_id==6){
+            header("location: input-comment.php");//新增完資料後回到creat-user.php
+
+    }
+    else if($book_id==18){
+        header("location: input-comment-2.php");//新增完資料後回到creat-user.php
+
+    }
 
 }
 

@@ -1,13 +1,14 @@
 <?php
-// session_start();
+session_start();
 if(isset($_GET["page"])){
     $page = $_GET["page"];
 }else{
     $page = 1;
 }
 
-// if(isset($_SESSION["deleteAlert"])){
+// if($_SESSION["deleteAlert"]==1){
 //   toastClick();
+//   $_SESSION["deleteAlert"]=0;
 // }
 
 require("../db-connect.php");

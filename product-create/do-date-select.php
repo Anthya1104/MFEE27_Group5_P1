@@ -32,7 +32,11 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
 
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <style>
+      .thead-col {
+        background-color: #102e2ef8;
+        }
+    </style>
   </head>
   <body>
     <div class="container-fluid">
@@ -48,9 +52,9 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
   <?php if ($dateCount>0) : ?>
     <table class="table table-bordered border-dark">
     <thead>
-            <tr class="table-dark text-center">
-                <th>產品編號</th>
-                <th>產品名稱</th>
+            <tr class="text-center thead-col text-white">
+                <th>商品編號</th>
+                <th>商品名稱</th>
                 <!-- <th>封面圖</th> -->
                 <th>類型</th>
                 <th>定價</th>

@@ -40,7 +40,7 @@ $result = $conn->query($sql);
         <h1 class="mt-4">新增商品</h1>
         <form action="do-create.php" method="post" enctype="multipart/form-data">
             <div class="mb-2">
-                <label for="">產品編號</label>
+                <label for="">商品編號</label>
                 <input type="text" class="form-control" name="book_sn" value="">
             </div>
             <div class="mb-2">
