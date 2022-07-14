@@ -104,7 +104,7 @@ $couponCount=$result->num_rows;
                     <div class="wrap d-flex justify-content-between">
                         <div class="py-2">
                             <button class="btn btn-warning" type="submit">儲存</button>
-                            <a href="coupon.php?id=<?=$row["id"]?>" class="btn btn-green text-white">取消</a>
+                            <a href="coupon.php?id=<?=$row["id"]?>" class="btn btn-dark text-white">取消</a>
                         </div>
                         <div class="py-2">
                             <a href="coupon-list.php" class="btn btn-warning">瀏覽所有優惠券 <svg
