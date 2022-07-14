@@ -170,11 +170,11 @@ $rowsStatus = $resultStatus->fetch_assoc();
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>會員等級:<?= $rowsClass['member_class']; ?></strong><br>
-                  <strong>帳號:<?= $rowsAccount['account']; ?></strong><br>
-                  <strong>暱稱:<?= $rowsUsername['user_name']; ?></strong><br>
-                  <strong>e-mail:<?= $rowsEmail['email']; ?></strong><br>
-                  <strong>生日:<?= $rowsBirthday['birthday']; ?></strong><br>
+                  <p class="fs-6">會員等級:<?= $rowsClass['member_class']; ?></p><br>
+                  <p class="fs-6">帳號:<?= $rowsAccount['account']; ?></p><br>
+                  <p class="fs-6">暱稱:<?= $rowsUsername['user_name']; ?></p><br>
+                  <p class="fs-6">e-mail:<?= $rowsEmail['email']; ?></p><br>
+                  <p class="fs-6">生日:<?= $rowsBirthday['birthday']; ?></p><br>
                 </div>
               </div>
             </div>
